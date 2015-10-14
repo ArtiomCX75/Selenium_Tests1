@@ -4,11 +4,19 @@ import org.openqa.selenium.By;
 
 public class Element extends Act {
 	
-	public String adres;
-	public String type;
+	public  String adres;
+	public  String type;
+	public  int id;
+	private static int counter=0;
 	
 	
-
+	Element(String s1, String s2)
+	{
+		adres=s1;
+		type=s2;
+		id=counter;
+		counter++;
+	}
 	public void click() throws Exception
 	{	
 		//System.out.println(adres);
@@ -17,8 +25,12 @@ public class Element extends Act {
 	}
 	public void type(String s) throws Exception
 	{	
-		//System.out.println(adres);
 		type(adres, s);
+		
+	}
+	public void type(int i) throws Exception
+	{	
+		type(adres, Integer.toString(i));
 		
 	}
 	

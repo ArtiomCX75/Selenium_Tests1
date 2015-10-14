@@ -3,6 +3,7 @@ package com.example.tests;
 public class User {
 	String email;
 	String password;
+	String phoneNumber;
 	public String getEmail() {
 		return email;
 	}

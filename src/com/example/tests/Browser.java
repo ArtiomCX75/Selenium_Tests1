@@ -12,25 +12,29 @@ public class Browser extends ChromeDriver{
 	  public static StringBuffer verificationErrors = new StringBuffer();
 	 	 
 	  public static void browserOn() throws Exception {
+		  System.setProperty("webdriver.chrome.driver", "E://eclipse//workspace//Other//chromedriver.exe");
 		  driver = new ChromeDriver();
-		  System.setProperty("webdriver.chrome.driver", "C://eclipse-java-mars-R-win32-x86_64//chromedriver.exe");
-		   driver.manage().window().maximize();
+		  driver.manage().window().maximize();
 		   driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		  
 		  }
 	  
-	  public void browserOff() throws Exception {
+	  public static void browserOff() throws Exception {
 		driver.quit();
 	    String verificationErrorString = verificationErrors.toString();
 	    if (!"".equals(verificationErrorString)) {
 	    	fail(verificationErrorString);
 	    	}
 	  }
-	  public static void sl(int s) throws InterruptedException {	//пауза в секундах
-		  for (int i=s; i>0; i--, Thread.sleep(1000))  {
+	  public static void sl(double d) throws InterruptedException {	//пауза в секундах
+		  d=d*1000;
+		  int i = (int) d;
+		  Thread.sleep(i);
+		  /*for (int i=s; i>0; i--, Thread.sleep(1000))  {
 			 int q=0;
-		  	}
+		  	}*/
 	  	}
+	  
 	  public static void go_to(String url) throws Exception{
 		  driver.get(url);
 		  sl(3);

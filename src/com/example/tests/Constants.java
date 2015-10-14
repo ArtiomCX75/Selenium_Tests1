@@ -13,6 +13,6 @@ public class Constants {
 	public final static String urlRkTest="http://92.255.204.112:2000/";
 	public final static String urlRkProd="http://92.255.204.112:200/";
 	public final static String urlTempMail="https://temp-mail.ru/";
-
+	public final static String urlAudTest="http://test.auditonline.club";
 	
 }
