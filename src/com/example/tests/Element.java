@@ -5,12 +5,12 @@ import org.openqa.selenium.By;
 public class Element extends Act {
 	
 	public  String adres;
-	public  String type;
+	public  type type;
 	public  int id;
 	private static int counter=0;
 	
 	
-	Element(String s1, String s2)
+	Element(String s1, type s2)
 	{
 		adres=s1;
 		type=s2;
@@ -21,7 +21,9 @@ public class Element extends Act {
 	enum type {
 		btn,
 		lnk,
-		chk
+		chk,
+		dwn,
+		fld
 		
 	}
 	

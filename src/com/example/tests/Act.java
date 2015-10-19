@@ -31,18 +31,18 @@ public class Act {
 		}
 	
 	public void click(String adr) throws Exception {
-		Browser.sl(0.1);
+		Browser.sl(0.3);
 		Browser.driver.findElement(By.xpath(adr)).click();
 		//System.out.println("click "+adr);
-		Browser.sl(0.1);
+		Browser.sl(0.3);
 		
 	}
 	
 	
 	public void type(String adr, String s) throws Exception {
-		Browser.sl(0.1);
+		Browser.sl(0.3);
 		//Browser.driver.findElement(By.xpath(adr)).click();
-		Browser.driver.findElement(By.xpath(adr)).clear();
+		//Browser.driver.findElement(By.xpath(adr)).clear();
 		Browser.driver.findElement(By.xpath(adr)).sendKeys(s);
 		//System.out.println("type "+s+" in "+ adr);
 		//Browser.sl(0.5);

@@ -31,7 +31,7 @@ public class Discounter {
 		WebDriver driver;
 		driver = new ChromeDriver();
 		//Element lan = new Element();
-		driver.get(Constants.urlAudTest+AUD_Landing.url);
+		driver.get(Constants.urlAudTest+AUD_Land_Pred.url);
 		
 		
 		

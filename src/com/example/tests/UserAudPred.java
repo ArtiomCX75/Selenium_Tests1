@@ -12,7 +12,7 @@ public void setDefault() {
 	email="faa1192@gmail.com";
 	password="123456";
 	phoneNumber="9172890647";
-	orgName="OOO DefaulName";
+	orgName="OOO DefaultName";
 	contactName="Petrov Petr Petrovich";
 	genDir="Ivanov Ivan Ivanovich";
 	vidDej="prodaja";

@@ -3,9 +3,12 @@ package com.example.tests;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
 import org.bouncycastle.jcajce.provider.asymmetric.dsa.DSASigner.stdDSA;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
@@ -72,9 +75,36 @@ public class Browser extends ChromeDriver {
 		System.out.println("wait ok");
 	}
 
+	public static String what_date(String i) { // узнает дату
+		Date d = new Date();
+		SimpleDateFormat format1;
+		if (i == "post") {
+			format1 = new SimpleDateFormat("dd_MM_yyyy_kk_mm"); // дата для
+																// почты
+		} else {
+			format1 = new SimpleDateFormat("dd.MM.yyyy"); // дата для поля
+															// "дата"
+		}
+		return format1.format(d);
+	}
+
+	public static String setMail(String s) { // создание почты
+		Browser.driver.get(Constants.urlTempMail);
+		Browser.driver.findElement(By.xpath(".//*[@id='click-to-change']")).click();
+		Browser.driver.findElement(By.xpath(".//*[@id='input_mail']")).sendKeys(s);
+		Browser.driver.findElement(By.xpath(".//*[@id='postbut']")).click();
+		Browser.driver.findElement(By.xpath(".//*[@id='click-to-refresh']")).click();
+		String mailbox = Browser.driver.findElement(By.xpath(".//*[@id='mail']")).getAttribute("value");
+		return mailbox;
+	}
+
 	/*
 	 * public void startBrowser() { driver =
 	 * WebDriverFactory.getDriver(DesiredCapabilities.chrome()); }
 	 */
 
-}
+}/////////////JS
+
+//JavascriptExecutor js = (JavascriptExecutor) Browser.driver;
+//	WebElement element = Browser.driver.findElement(By.xpath("//input[starts-with(@type,'file')][starts-with(@accept,'ap')]"));
+//	js.executeScript("arguments[0].setAttribute('style', 'position: absolute; width: 0px; height: 0px; z-index: -100000; border: none; margin: 0px; padding: 0px;')",element);
