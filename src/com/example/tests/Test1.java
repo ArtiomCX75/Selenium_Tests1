@@ -920,7 +920,7 @@ public void pr(String s) { //вывод строки на экран
 public void sql(String sql)
 {// Create a variable for the connection string.
 String connectionUrl = "jdbc:sqlserver://192.168.0.105:1433;" +
-   "databaseName=Discounter;user=sa;password=Maxpass5";
+   "databaseName=Discounter;user=sa;password=12345";
 
 // Declare the JDBC objects.
 Connection con = null;

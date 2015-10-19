@@ -17,6 +17,15 @@ public class Element extends Act {
 		id=counter;
 		counter++;
 	}
+	
+	enum type {
+		btn,
+		lnk,
+		chk
+		
+	}
+	
+	
 	public void click() throws Exception
 	{	
 		//System.out.println(adres);
@@ -33,6 +42,12 @@ public class Element extends Act {
 		type(adres, Integer.toString(i));
 		
 	}
+	public void load(String s) throws Exception
+	{	
+		load(adres, s);
+		
+	}
+	
 	
 	
 }

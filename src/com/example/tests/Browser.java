@@ -21,7 +21,7 @@ public class Browser extends ChromeDriver {
 			System.setProperty("webdriver.chrome.driver", "..//Other//chromedriver.exe");
 			driver = new ChromeDriver();
 			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 		}
 	}
 
@@ -51,18 +51,25 @@ public class Browser extends ChromeDriver {
 	public static void gt(String s) throws Exception {
 		System.out.println("go to " + s);
 		driver.get(s);
-		int i;
-		for (i=0; i < 5; i++) {
+		waitFor(s);
+		System.out.println("OK");
+	}
+
+	public static void waitFor(String s) throws Exception {
+		int i=0;
+		for (i=0; i < 20; i = i + 1) {
+			Browser.sl(0.5);
 			if (s.equals(Browser.driver.getCurrentUrl())) {
 				break;
-			}
-			Browser.sl(1);
-			System.out.println("wait for " + s);
-			System.out.println("now is " + Browser.driver.getCurrentUrl());
+			}	
+		}
+		if (i>18)
+		{
+			System.err.println("wait for " + s);
+			System.err.println("now is   " + Browser.driver.getCurrentUrl());
 			assertFalse("url doesn't load", true);
 		}
-		
-		System.out.println("OK");
+		System.out.println("wait ok");
 	}
 
 	/*

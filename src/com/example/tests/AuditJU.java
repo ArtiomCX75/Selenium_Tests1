@@ -24,7 +24,7 @@ import com.example.tests.Act;
 import com.example.*;
 
 public class AuditJU {
-	public String urlAudForTest = Constants.urlAudLocal;
+	public String urlAudForTest = Constants.urlAudTest;
 	public static String date;
 	public static String email;
 
@@ -40,11 +40,11 @@ public class AuditJU {
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
 		Browser.sl(3);
-		Browser.browserOff();
+	//	Browser.browserOff();
 	}
 
 	@Test
-	public void main() throws Exception {
+	public void reg_pred() throws Exception {
 		Browser.gt(urlAudForTest + AUD_Landing.url);
 		UserAudPred Pred1 = new UserAudPred();
 		Pred1.setDefault();
@@ -59,7 +59,7 @@ public class AuditJU {
 		AUD_Landing.fldUrSusch7.type(Pred1.urSusch[1]);
 		AUD_Landing.fldUrSusch8.type(Pred1.urSusch[1]);
 		AUD_Landing.btnRassch.click();
-		waitFor(urlAudForTest+AUD_Create.url);
+		Browser.waitFor(urlAudForTest+AUD_Create.url);
 		AUD_Create.fldNazvOrg.type(Pred1.orgName);
 		AUD_Create.fldFIO.type(Pred1.contactName);
 		AUD_Create.fldGenDir.type(Pred1.genDir);
@@ -70,24 +70,17 @@ public class AuditJU {
 		AUD_Create.fldEmail.type(Pred1.email);
 		AUD_Create.fldPass.type(Pred1.password);
 		AUD_Create.btnZakaz.click();
-		waitFor(urlAudForTest+AUD_Pay.url);
+		Browser.waitFor(urlAudForTest+AUD_Pay.url);
 		AUD_Pay.btnGetBill.click();
-		waitFor(urlAudForTest+AUD_Paid.url);
+		Browser.waitFor(urlAudForTest+AUD_Paid.url);
 		AUD_Paid.btnDwnloadDocs.click();
-		waitFor(urlAudForTest+AUD_Docs.url);
-		//AUD_Docs.dwnDownLoad.click();
-		//AUD_Docs.q.click();
-		
-	//	JavascriptExecutor js = (JavascriptExecutor) Browser.driver;
-	//	WebElement element = Browser.driver.findElement(By.xpath("//input[starts-with(@type,'file')][starts-with(@accept,'ap')]"));
-	//	js.executeScript("arguments[0].setAttribute('style', 'position: absolute; width: 0px; height: 0px; z-index: -100000; border: none; margin: 0px; padding: 0px;')",element);
-		Browser.driver.findElement(By.xpath("//input[starts-with(@type,'file')][starts-with(@accept,'ap')]")).sendKeys("C://Users//faa11//workspace//Other//pdffile1.pdf");
-		//Browser.sl(7);
-		Browser.driver.findElement(By.xpath("//input[starts-with(@type,'file')][starts-with(@accept,'ap')]")).sendKeys("C://Users//faa11//workspace//Other//pdffile2.pdf");
-	//	Browser.driver.findElement(By.xpath("//input[starts-with(@type,'file')][starts-with(@accept,'ap')]")).submit();
-		
-		//AUD_Docs.w.type("..//Other//pdffile.pdf");
-		///
+		Browser.waitFor(urlAudForTest+AUD_Docs.url);
+		AUD_Docs.dwnDownloadFile.load(Files.pdffile1);
+		AUD_Docs.dwnDownloadFile.load(Files.pdffile2);
+		AUD_Docs.btnSend.click();
+		AUD_Docs.btnSendNext.click();
+		Browser.waitFor(urlAudForTest+AUD_Cab.url);
+		AUD_Cab.btnReloadStatus.click();
 	}
 
 	public static String what_date(String i) { // узнает дату
@@ -113,18 +106,14 @@ public class AuditJU {
 		return mailbox;
 	}
 
-	public static void waitFor(String s) throws Exception {
-		int i;
-		for (i=0; i < 5; i++) {
-			if (s.equals(Browser.driver.getCurrentUrl())) {
-				break;
-			}
-			Browser.sl(1);
-			System.out.println("wait for " + s);
-			System.out.println("now is " + Browser.driver.getCurrentUrl());
-			assertFalse("w url doesn't load", true);
-		}
+	
 
-	}
 
 }
+/////////////JS
+
+//JavascriptExecutor js = (JavascriptExecutor) Browser.driver;
+//	WebElement element = Browser.driver.findElement(By.xpath("//input[starts-with(@type,'file')][starts-with(@accept,'ap')]"));
+//	js.executeScript("arguments[0].setAttribute('style', 'position: absolute; width: 0px; height: 0px; z-index: -100000; border: none; margin: 0px; padding: 0px;')",element);
+
+
