@@ -29,8 +29,9 @@ public class Test_Reg_Pred extends Browser {
 	static WebDriver wdr2;
 	static WebDriver d;
 	static String email;
-	UserAudPred Pred1 = new UserAudPred();
 	String date;
+	UserAudPred Pred1 = new UserAudPred();
+	
 
 //@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -62,18 +63,16 @@ public class Test_Reg_Pred extends Browser {
 			catch(Exception e){};
 			}
 		});
-		//WebDriver wdr1;
-		//WebDriver d;
-		//String email;
+		
 		String server = Constants.urlAudTest;
 		
 		date = Browser.what_date("post");
 		
 		
-		//email = Browser.setMail(d,"pred"+date);
+		
 		Pred1.setDefault();
 		secondThread.start();
-		//secondThread.join();
+		
 		Browser.sl(2);
 		wdr1 = Browser.on();
 		d=wdr1;

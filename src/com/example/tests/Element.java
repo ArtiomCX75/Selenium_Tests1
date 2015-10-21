@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 
 public class Element {
-	private double t = 0.001;
+	private double t = 0;
 	public String adres;
 	public type mytype;
 	public int id;
