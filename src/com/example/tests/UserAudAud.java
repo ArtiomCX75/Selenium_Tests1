@@ -1,6 +1,8 @@
 package com.example.tests;
 
-public class UserAudAud  extends User {
+import java.io.Serializable;
+
+public class UserAudAud  extends User implements Serializable {
 	public String numberAt;
 	public String exp;
 	public String login;
@@ -32,5 +34,6 @@ public class UserAudAud  extends User {
 		bic="049205603";
 		bill="01234567890123456789";
 		login="login";
+		password="123456";
 	}
 }

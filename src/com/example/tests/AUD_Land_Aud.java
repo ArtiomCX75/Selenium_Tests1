@@ -3,7 +3,7 @@ package com.example.tests;
 import com.example.tests.Element.type;
 
 public class AUD_Land_Aud {
-	public static String url = "/#/auditors";
+	public static Element url = new Element("/#/auditors");
 	public static Element lnkLogoHeader=new Element("html/body/div[1]/div/ng-view/div[1]/header/span",type.lnk);
 	public static Element lnkONas=new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[1]/span",type.lnk);
 	public static Element lnkKakRab=new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[2]/span",type.lnk);
@@ -12,8 +12,8 @@ public class AUD_Land_Aud {
 	public static Element lnkOtzivi=new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[5]/span",type.lnk);
 	public static Element lnkVoprosi=new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[6]/span",type.lnk);
 	public static Element btnVhod=new Element("html/body/div[1]/div/ng-view/div[1]/header/div/span",type.btn);
-	public static Element fldLogin=new Element("html/body/div[5]/table/tbody/tr/td/div/div/form[1]/label[1]/input",type.fld);
-	public static Element fldPass=new Element("html/body/div[5]/table/tbody/tr/td/div/div/form[1]/label[2]/input",type.fld);
+	public static Element fldLogin=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/label[1]/input",type.fld);
+	public static Element fldPass=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/label[2]/input",type.fld);
 	public static Element btnEsc=new Element("html/body/div[4]/table/tbody/tr/td/div/span[2]",type.btn);
 	public static Element btnVojti=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/input",type.btn);
 	public static Element lnkVosstanParol=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/span",type.lnk);

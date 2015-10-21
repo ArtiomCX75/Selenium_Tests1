@@ -1,4 +1,4 @@
-package com.example.tests;
+/*package com.example.tests;
 
 import java.util.concurrent.TimeUnit;
 import org.junit.*;
@@ -22,40 +22,37 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.sql.*;
 
-public class Act {
-	WebDriver driver;
-	
-		Act() {
+
+	public class Act {
+		public static WebDriver driver =new WebDriver();
+		public static double t = 0.2;
+			Act() {
+			
+			
+			}
 		
-		
+		public void click(String adr) throws Exception {
+			Browser.sl(0.3);
+			driver.findElement(By.xpath(adr)).click();
+			//System.out.println("click "+adr);
+			Browser.sl(0.3);
+			
 		}
-	
-	public void click(String adr) throws Exception {
-		Browser.sl(0.3);
-		Browser.driver.findElement(By.xpath(adr)).click();
-		//System.out.println("click "+adr);
-		Browser.sl(0.3);
-		
-	}
-	
-	
-	public void type(String adr, String s) throws Exception {
-		Browser.sl(0.3);
-		//Browser.driver.findElement(By.xpath(adr)).click();
-		//Browser.driver.findElement(By.xpath(adr)).clear();
+	/*public void type(String adr, String s) throws Exception {
+		//Browser.sl(t);
+		// Browser.driver.findElement(By.xpath(adr)).click();
+		Browser.driver.findElement(By.xpath(adr)).clear();
 		Browser.driver.findElement(By.xpath(adr)).sendKeys(s);
-		//System.out.println("type "+s+" in "+ adr);
-		//Browser.sl(0.5);
+		// System.out.println("type "+s+" in "+ adr);
+		// Browser.sl(0.2);
 	}
+
 	public void load(String adr, String s) throws Exception {
-		Browser.sl(0.5);
-		//Browser.driver.findElement(By.xpath(adr)).click();
-		//Browser.driver.findElement(By.xpath(adr)).clear();
+		Browser.sl(t);
 		Browser.driver.findElement(By.xpath(adr)).sendKeys(s);
-		//System.out.println("type "+s+" in "+ adr);
 		Browser.sl(1);
 	}
+
 	
-
-
 }
+*/

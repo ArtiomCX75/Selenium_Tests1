@@ -3,7 +3,8 @@ package com.example.tests;
 import com.example.tests.Element.type;
 
 public class AUD_Land_Pred {
-	public static String url = "/#/";
+//	public static String url = "/#/";
+	public static Element url = new Element("/#/");
 	public static Element lnkLogoHeader=new Element("html/body/div[1]/div/ng-view/div[1]/header/span",type.lnk);
 	public static Element lnkONas=new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[1]/span",type.lnk);
 	public static Element lnkKakPr=new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[2]/span",type.lnk);
@@ -15,7 +16,7 @@ public class AUD_Land_Pred {
 	//after click btnVhod
 	public static Element fldLogin=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/label[1]/input",type.fld);
 	public static Element fldPass=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/label[2]/input",type.fld);
-	public static Element bntLoginSubmit=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/input",type.btn);
+	public static Element btnLoginSubmit=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/input",type.btn);
 	public static Element lnkVosstanParol=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/span",type.lnk);
 	public static Element btnEsc=new Element("html/body/div[4]/table/tbody/tr/td/div/span[2]",type.btn);
 	public static Element btnZakazAud=new Element("html/body/div[1]/div/ng-view/div[1]/section[1]/div/div/div/div/span[2]",type.btn);

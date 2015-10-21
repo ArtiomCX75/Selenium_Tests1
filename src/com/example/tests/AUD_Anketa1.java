@@ -3,7 +3,7 @@ package com.example.tests;
 import com.example.tests.Element.type;
 
 public class AUD_Anketa1 {
-	public static String url = "/#/questionnaire";
+	public static Element url = new Element("/#/questionnaire");
 	public static Element fldSurname=new Element("html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[1]/label/input",type.fld);
 	public static Element fldName=new Element("html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[2]/label/input",type.fld);
 	public static Element fldMiddlename=new Element("html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[3]/label/input",type.fld);
