@@ -22,11 +22,11 @@ public class Paral {
 		d.manage().window().setPosition(new Point(2000, 0));
 		d.manage().window().maximize();
 		d=wdr1;
-		AUD_Land_Pred.url.go(d, server);
+		AudLand_Pred.url.go(d, server);
 		Browser.sl(3);
 		wdr2=Browser.on();
 		d=wdr2;
-		AUD_Land_Aud.url.go(d, server);
+		AudLand_Aud.url.go(d, server);
 		d=wdr1;
 		d.get("http://google.com/");
 		d=wdr2;

@@ -14,7 +14,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
+
 import com.thoughtworks.selenium.webdriven.commands.Click;
 
 import java.sql.Connection;
@@ -31,7 +31,7 @@ public class Discounter {
 		WebDriver driver;
 		driver = new ChromeDriver();
 		//Element lan = new Element();
-		driver.get(Constants.urlAudTest+AUD_Land_Pred.url);
+		driver.get(Constants.urlAudTest+AudLand_Pred.url);
 		
 		
 		

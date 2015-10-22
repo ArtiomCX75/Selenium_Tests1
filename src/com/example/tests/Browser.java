@@ -15,12 +15,30 @@ import com.example.tests.*;
 
 
 public class Browser{
+	public static WebDriver wdr1;
+	public static WebDriver wdr2;
 	public static StringBuffer verificationErrors = new StringBuffer();
 	
-
+	
+/*	public static WebDriver on(WebDriver d){
+		String s=d.toString();
+		if (s!=null){
+			System.out.println("not null "+s);
+		}
+		else{
+			System.out.println("null");
+		System.setProperty("webdriver.chrome.driver", ".//chromedriver.exe");
+		d = new ChromeDriver();
+		d.manage().window().maximize();
+		d.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		System.out.println("now"+d.toString());
+			
+		}
+		return d;
+	}*/
 	
 	public static WebDriver on(){
-		System.setProperty("webdriver.chrome.driver", "..//Other//chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", ".//chromedriver.exe");
 		WebDriver temp;
 		temp = new ChromeDriver();
 		temp.manage().window().maximize();
@@ -99,7 +117,7 @@ public class Browser{
 		SimpleDateFormat format1;
 		if (i == "post") {
 			format1 = new SimpleDateFormat("dd_MM_yyyy_kk_mm"); // дата для
-																// почты
+			format1 = new SimpleDateFormat("dd_MM_yyyy_kk_mm_ss");													// почты
 		} else {
 			format1 = new SimpleDateFormat("dd.MM.yyyy"); // дата для поля
 															// "дата"

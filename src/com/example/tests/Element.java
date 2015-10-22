@@ -7,7 +7,7 @@ import org.openqa.selenium.WebDriver;
 
 
 public class Element {
-	private double t = 0;
+	private double t = 0.0;
 	public String adres;
 	public type mytype;
 	public int id;
@@ -74,8 +74,8 @@ public class Element {
 
 	///
 	public void go(WebDriver driver, String server) throws Exception {
-		adres=server+adres;
-		get(driver, adres);
+		String adresnew=server+adres;
+		get(driver, adresnew);
 
 	}
 	public void go(WebDriver driver) throws Exception {

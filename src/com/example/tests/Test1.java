@@ -13,7 +13,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
-import com.microsoft.sqlserver.jdbc.SQLServerDataSource;
 import com.thoughtworks.selenium.webdriven.commands.Click;
 
 import java.sql.Connection;
