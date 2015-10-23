@@ -1,6 +1,7 @@
-package com.example.tests;
+package audPages;
 
-import com.example.tests.Element.type;
+import browser.Element;
+import browser.Element.type;
 
 public class AudAnketa2 {
 	

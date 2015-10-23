@@ -1,9 +1,9 @@
-package com.example.tests;
+package browser;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import com.example.tests.Element.type;
+import browser.Element.type;
 
 public class TempMail {
 	public static Element url = new Element("https://temp-mail.ru/");

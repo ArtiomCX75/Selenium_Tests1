@@ -1,8 +1,10 @@
-package com.example.tests;
+package audPages;
 
 import java.io.Serializable;
 
-public class UserAudAud  extends User implements Serializable {
+import browser.User;
+
+public class UserAudAud  extends User implements java.io.Serializable  {
 	public String numberAt;
 	public String exp;
 	public String login;

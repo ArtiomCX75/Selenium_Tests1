@@ -1,8 +1,9 @@
-package com.example.tests;
+package audPages;
 
-import com.example.tests.Element.type;
+import browser.Element;
+import browser.Element.type;
 
-public class AudLand_Pred {
+public class AudLandPred {
 //	public static String url = "/#/";
 	public static Element url = new Element("/#/");
 	public static Element lnkLogoHeader=new Element("html/body/div[1]/div/ng-view/div[1]/header/span",type.lnk);

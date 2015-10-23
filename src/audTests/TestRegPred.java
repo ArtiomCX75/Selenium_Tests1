@@ -1,7 +1,9 @@
 
-package com.example.tests;
+package audTests;
 
+import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
@@ -9,9 +11,19 @@ import org.junit.AfterClass;
 import org.junit.Test;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
-import com.example.tests.AudLand_Pred;
 
-public class Test_Reg_Pred extends Browser {
+import audPages.AudAnketPred;
+import audPages.AudCabPred;
+import audPages.AudDocs;
+import audPages.AudLandPred;
+import audPages.AudPaid;
+import audPages.AudPay;
+import audPages.UserAudPred;
+import browser.Browser;
+import browser.Constants;
+import browser.Files;
+
+public class TestRegPred extends Browser {
 	//WebDriver d;
 	static String email;
 	String date;
@@ -32,9 +44,10 @@ public class Test_Reg_Pred extends Browser {
 	
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+		Browser.sl(10);
 		wdr1.quit();
 		wdr2.quit();
-		System.out.println("DONE");
+		
 		
 	}
 	Thread secondThread = new Thread(new Runnable() {
@@ -57,23 +70,23 @@ public class Test_Reg_Pred extends Browser {
 		date = Browser.what_date("post");
 		
 		
-		System.out.println("new mewjdgfsfdfkljskljdf");
+		
 		Pred1.setDefault();
 		secondThread.start();
 				
 		WebDriver d=wdr1;
 		Pred1.contactName=Pred1.contactName+date;
-		AudLand_Pred.url.go(d, server);
-		AudLand_Pred.lnkUznatUr.click(d);
-		AudLand_Pred.fldUrSusch1.type(d, Pred1.urSusch[1]);
-		AudLand_Pred.fldUrSusch2.type(d, Pred1.urSusch[1]);
-		AudLand_Pred.fldUrSusch3.type(d, Pred1.urSusch[1]);
-		AudLand_Pred.fldUrSusch4.type(d, Pred1.urSusch[1]);
-		AudLand_Pred.fldUrSusch5.type(d, Pred1.urSusch[1]);
-		AudLand_Pred.fldUrSusch6.type(d, Pred1.urSusch[1]);
-		AudLand_Pred.fldUrSusch7.type(d, Pred1.urSusch[1]);
-		AudLand_Pred.fldUrSusch8.type(d, Pred1.urSusch[1]);
-		AudLand_Pred.btnRassch.click(d);
+		AudLandPred.url.go(d, server);
+		AudLandPred.lnkUznatUr.click(d);
+		AudLandPred.fldUrSusch1.type(d, Pred1.urSusch[1]);
+		AudLandPred.fldUrSusch2.type(d, Pred1.urSusch[1]);
+		AudLandPred.fldUrSusch3.type(d, Pred1.urSusch[1]);
+		AudLandPred.fldUrSusch4.type(d, Pred1.urSusch[1]);
+		AudLandPred.fldUrSusch5.type(d, Pred1.urSusch[1]);
+		AudLandPred.fldUrSusch6.type(d, Pred1.urSusch[1]);
+		AudLandPred.fldUrSusch7.type(d, Pred1.urSusch[1]);
+		AudLandPred.fldUrSusch8.type(d, Pred1.urSusch[1]);
+		AudLandPred.btnRassch.click(d);
 		Browser.waitFor(d, server+AudAnketPred.url.adres);
 		AudAnketPred.fldNazvOrg.type(d, Pred1.orgName);
 		AudAnketPred.fldContactFio.type(d, Pred1.contactName);
@@ -90,6 +103,7 @@ public class Test_Reg_Pred extends Browser {
 		AudPay.btnGetBill.click(d);
 		Browser.waitFor(d, server+AudPaid.url.adres);
 		AudPaid.btnDwnloadDocs.click(d);
+		Browser.sl(3);
 		Browser.waitFor(d, server+AudDocs.url.adres);
 		AudDocs.dwnDownloadFile.load(d, Files.pdffile1);
 		AudDocs.btnSend.click(d);
@@ -99,7 +113,8 @@ public class Test_Reg_Pred extends Browser {
 		  oos.writeObject(Pred1);
 		  oos.flush();
 		  oos.close();
-		  
+		  System.out.println("DONE");
+		
 	}
 }
 

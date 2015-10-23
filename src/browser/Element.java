@@ -1,4 +1,4 @@
-package com.example.tests;
+package browser;
 
 import static org.junit.Assert.assertFalse;
 
@@ -7,27 +7,27 @@ import org.openqa.selenium.WebDriver;
 
 
 public class Element {
-	private double t = 0.0;
+	private double t = 0.005;
 	public String adres;
 	public type mytype;
 	public int id;
 	private static int counter = 0;
 
-	Element(String s1) {
+	public Element(String s1) {
 		adres = s1;
 		mytype = type.url;
 		id = counter;
 		counter++;
 	}
 
-	Element(String s1, type s2) {
+	public Element(String s1, type s2) {
 		adres = s1;
 		mytype = s2;
 		id = counter;
 		counter++;
 	}
 
-	enum type {
+	public enum type {
 		btn, lnk, chk, dwn, fld, url
 
 	}
@@ -83,10 +83,10 @@ public class Element {
 
 	}
 	public void get(WebDriver driver, String s) throws Exception {
-		System.out.println("go to " + s);
+		//System.out.println("go to " + s);
 		driver.get(s);
 		Browser.waitFor(driver, s);
-		System.out.println("OK");
+		//System.out.println("OK");
 
 	}
 

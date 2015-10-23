@@ -1,4 +1,4 @@
-package com.example.tests;
+package browser;
 
 public class Constants {
 	

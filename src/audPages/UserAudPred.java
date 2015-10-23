@@ -1,8 +1,10 @@
-package com.example.tests;
+package audPages;
 
 import java.io.Serializable;
 
-public class UserAudPred extends User implements Serializable{
+import browser.User;
+
+public class UserAudPred extends User implements java.io.Serializable {
 public int[] urSusch=new int[9];
 public String orgName;
 public String contactName;

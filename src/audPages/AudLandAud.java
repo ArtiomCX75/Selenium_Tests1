@@ -1,8 +1,9 @@
-package com.example.tests;
+package audPages;
 
-import com.example.tests.Element.type;
+import browser.Element;
+import browser.Element.type;
 
-public class AudLand_Aud {
+public class AudLandAud {
 	public static Element url = new Element("/#/auditors");
 	public static Element lnkLogoHeader=new Element("html/body/div[1]/div/ng-view/div[1]/header/span",type.lnk);
 	public static Element lnkONas=new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[1]/span",type.lnk);
@@ -15,7 +16,7 @@ public class AudLand_Aud {
 	public static Element fldLogin=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/label[1]/input",type.fld);
 	public static Element fldPass=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/label[2]/input",type.fld);
 	public static Element btnEsc=new Element("html/body/div[4]/table/tbody/tr/td/div/span[2]",type.btn);
-	public static Element btnVojti=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/input",type.btn);
+	public static Element btnLoginSubmit=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/input",type.btn);
 	public static Element lnkVosstanParol=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/span",type.lnk);
 	public static Element btnStartWork=new Element("html/body/div[1]/div/ng-view/div[1]/section[1]/div/div/div/div[2]/a",type.btn);
 	//public static Element lnk=new Element("",type.lnk);

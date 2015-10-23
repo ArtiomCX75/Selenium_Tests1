@@ -1,4 +1,4 @@
-package com.example.tests;
+package audTests;
 
 
 
@@ -23,12 +23,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeDriverService;
-import com.example.tests.AudLand_Pred;
-import com.example.tests.Element;
-import com.thoughtworks.selenium.webdriven.commands.Click;
-import com.example.*;
 
-public class Test_Reg_Aud extends Browser{
+import com.thoughtworks.selenium.webdriven.commands.Click;
+
+import audPages.AudAnketa1;
+import audPages.AudAnketa2;
+import audPages.AudLandAud;
+import audPages.AudLandPred;
+import audPages.AudList;
+import audPages.UserAudAud;
+import browser.Browser;
+import browser.Constants;
+import browser.Element;
+import browser.Files;
+import browser.TempMail;
+
+
+
+public class TestRegAud extends Browser{
+	
 	//static WebDriver wdr1;
 	//static WebDriver wdr2;
 	//WebDriver d;
@@ -48,7 +61,7 @@ public class Test_Reg_Aud extends Browser{
 
 		@AfterClass
 		public static void tearDownAfterClass() throws Exception {
-			//Browser.sl(1);
+			Browser.sl(1);
 			wdr1.quit();
 			wdr2.quit();
 		}
@@ -60,10 +73,10 @@ public class Test_Reg_Aud extends Browser{
 			System.out.println(date);
 			secondThread.start();
 			WebDriver d=wdr1;
-			AudLand_Aud.url.go(d, server);
+			AudLandAud.url.go(d, server);
 			Aud1.setDefault();
 			//
-			AudLand_Aud.btnStartWork.click(d);
+			AudLandAud.btnStartWork.click(d);
 			Browser.waitFor(d, server+AudAnketa1.url.adres);
 			AudAnketa1.fldSurname.type(d, Aud1.surName);
 			AudAnketa1.fldName.type(d, Aud1.name);
@@ -80,16 +93,16 @@ public class Test_Reg_Aud extends Browser{
 			AudAnketa1.btnSend.click(d);
 			Browser.sl(1.8);
 			AudAnketa1.btnNext.click(d);
-			Browser.waitFor(d, server+AudLand_Aud.url.adres);
+			Browser.waitFor(d, server+AudLandAud.url.adres);
 			
 			
 			
-			AudLand_Aud.url.go(d, server);
-			AudLand_Aud.btnVhod.click(d);
+			AudLandAud.url.go(d, server);
+			AudLandAud.btnVhod.click(d);
 			thirdThread.join();
-			AudLand_Aud.fldLogin.type(d, Aud1.login);
-			AudLand_Aud.fldPass.type(d, Aud1.password);
-			AudLand_Aud.btnVojti.click(d);
+			AudLandAud.fldLogin.type(d, Aud1.login);
+			AudLandAud.fldPass.type(d, Aud1.password);
+			AudLandAud.btnLoginSubmit.click(d);
 			Browser.waitFor(d, server+AudAnketa2.url.adres);
 			AudAnketa2.fldDateOfBirth.type(d, Aud1.dateOfBirth);
 			AudAnketa2.fldSnils.type(d, Aud1.snils);

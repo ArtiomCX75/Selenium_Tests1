@@ -1,4 +1,4 @@
-package com.example.tests;
+package browser;
 
 
 
@@ -24,7 +24,7 @@ import java.util.Date;
 import java.sql.*;
 //import com.microsoft.sqlserver.jdbc.*;
 
-public class Test1 {
+public class Test1SUDO {
   private WebDriver driver;
   private String baseUrl;
   //private boolean acceptNextAlert = true;

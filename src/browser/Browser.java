@@ -1,4 +1,4 @@
-package com.example.tests;
+package browser;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.fail;
@@ -11,7 +11,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
-import com.example.tests.*;
+
+import audTests.*;
 
 
 public class Browser{
@@ -46,14 +47,19 @@ public class Browser{
 		return temp;
 	}
 	
-	Browser() {
+	/*protected Browser() {
 		//System.setProperty("webdriver.chrome.driver", "..//Other//chromedriver.exe");
 		//wd = new ChromeDriver();
 		//wd.manage().window().maximize();
 		//wd.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 
-	}
+	}*/
 	public static void waitFor(WebDriver driver, String s) throws Exception {
+		System.out.println("wait for "+s);
+		waitFr(driver, s);
+	}
+	
+	private static void waitFr(WebDriver driver, String s) throws Exception {
 		int i = 0;
 		for (i = 0; i < 50; i = i + 1) {
 			Browser.sl(0.1);
@@ -66,7 +72,7 @@ public class Browser{
 			System.err.println("now is   " + driver.getCurrentUrl());
 			assertFalse("url doesn't load", true);
 		}
-		System.out.println("wait ok");
+		System.out.println("url OK");
 	}
 /*	public static WebDriver getchdr() {
 		System.setProperty("webdriver.chrome.driver", "..//Other//chromedriver.exe");
