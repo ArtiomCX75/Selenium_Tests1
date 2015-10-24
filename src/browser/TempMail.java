@@ -14,6 +14,16 @@ public class TempMail {
 	public static String getEmail(WebDriver driver)
 	{
 		return driver.findElement(By.xpath("html/body/header/div/div/div/div[2]/div/div[1]/div/input")).getAttribute("Value");
-		
+	}
+	
+	public static String setMail(WebDriver driver, String s) throws Exception { // создание почты
+		TempMail.url.gt(driver);
+		TempMail.btnChange.click(driver);
+		TempMail.fldLogin.type(driver, s);
+		TempMail.btnSubmitChange.click(driver);
+		TempMail.btnReload.click(driver);
+		String email = TempMail.getEmail(driver);
+		System.out.println("email= "+email);
+		return email;
 	}
 }

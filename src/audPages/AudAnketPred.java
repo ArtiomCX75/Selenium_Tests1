@@ -15,7 +15,4 @@ public class AudAnketPred {
 	public static Element fldPass=new Element("html/body/div[1]/div/ng-view/div/div/div/form/div[2]/div[2]/label/input",type.fld);
 	public static Element chkAgree=new Element("html/body/div[1]/div/ng-view/div/div/div/form/div[2]/div[2]/div/div/label/span[1]",type.chk);
 	public static Element btnZakaz=new Element("html/body/div[1]/div/ng-view/div/div/div/form/div[2]/div[1]/div/button",type.btn);
-	
-	
-	//public static Element =new Element("","");
 }

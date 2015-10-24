@@ -1,7 +1,5 @@
 package browser;
 
-import static org.junit.Assert.assertFalse;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -73,6 +71,24 @@ public class Element {
 	}
 
 	///
+	public void gt(WebDriver driver) throws Exception {
+	driver.get(adres);
+	Browser.waitFor(driver, adres);
+	}
+	
+	public void gt(WebDriver driver, String server) throws Exception {
+		driver.get(server+adres);
+		Browser.waitFor(driver, server+adres);
+	}
+	
+	public void gt(WebDriver driver, String server, String urldest) throws Exception {
+		driver.get(server+adres);
+		Browser.waitFor(driver, server+urldest);
+
+	}
+	
+	/*
+	
 	public void go(WebDriver driver, String server) throws Exception {
 		String adresnew=server+adres;
 		get(driver, adresnew);
@@ -86,10 +102,11 @@ public class Element {
 		//System.out.println("go to " + s);
 		driver.get(s);
 		Browser.waitFor(driver, s);
-		//System.out.println("OK");
-
 	}
-
+	public void get(WebDriver driver, String s, String s1) throws Exception {
+		driver.get(s);
+		Browser.waitFor(driver, s1);
+	}*/
 	///
 	
 

@@ -4,7 +4,7 @@ import browser.Element;
 import browser.Element.type;
 
 public class AudLandPred {
-//	public static String url = "/#/";
+
 	public static Element url = new Element("/#/");
 	public static Element lnkLogoHeader=new Element("html/body/div[1]/div/ng-view/div[1]/header/span",type.lnk);
 	public static Element lnkONas=new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[1]/span",type.lnk);
@@ -30,11 +30,6 @@ public class AudLandPred {
 	public static Element fldUrSusch7=new Element("html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[2]/label[3]/input",type.fld);
 	public static Element fldUrSusch8=new Element("html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[2]/label[4]/input",type.fld);
 	public static Element btnRassch=new Element("html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/button",type.btn);
-	
-	
-	//public static Element =new Element("","");
-
-
 }
 	
 

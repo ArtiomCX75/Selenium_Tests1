@@ -17,7 +17,4 @@ public class AudAnketa1 {
 	public static Element chkAgr2=new Element("html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[5]/label/span[1]",type.chk);
 	public static Element btnSend=new Element("html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[6]/button",type.btn);
 	public static Element btnNext=new Element("html/body/div[1]/div/ng-view/div/div/div[1]/a",type.btn);
-	
-	/*public static Element fld=new Element("",type.fld);
-	public static Element fld=new Element("",type.fld);*/
 }

@@ -3,19 +3,12 @@ package audTests;
 import static org.junit.Assert.assertFalse;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-
 import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-
 import audPages.AudCabPred;
 import audPages.AudLandAud;
 import audPages.AudLandPred;
@@ -52,7 +45,7 @@ public class TestPredAuthorization extends Browser {
 	}
 
 	public void loginFromPredLand(WebDriver d, String server, String email, String pass) throws Exception {
-		AudLandPred.url.go(d, server);
+		AudLandPred.url.gt(d, server);
 		AudLandPred.btnVhod.click(d);
 		AudLandPred.fldLogin.type(d, email);
 		AudLandPred.fldPass.type(d, pass);
@@ -74,7 +67,7 @@ public class TestPredAuthorization extends Browser {
 	}
 
 	public void loginFromAudLand(WebDriver d, String server, String email, String pass) throws Exception {
-		AudLandAud.url.go(d, server);
+		AudLandAud.url.gt(d, server);
 		AudLandAud.btnVhod.click(d);
 		AudLandAud.fldLogin.type(d, email);
 		AudLandAud.fldPass.type(d, pass);
@@ -97,7 +90,7 @@ public class TestPredAuthorization extends Browser {
 	}
 
 	public void logout(WebDriver d, String server) throws Exception{
-		AudCabPred.url.go(d, server);
+		AudCabPred.url.gt(d, server);
 		AudCabPred.btnExit.click(d);
 		Browser.waitFor(d, server + AudLandPred.url.adres);
 	}

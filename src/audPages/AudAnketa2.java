@@ -18,6 +18,4 @@ public class AudAnketa2 {
 	public static Element dwnDownloadFile=new Element("//input[starts-with(@type,'file')][starts-with(@accept,'im')]",type.dwn);
 	public static Element chkAgree=new Element("html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[5]/label/span[1]", type.chk);
 	public static Element btnSend=new Element("html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[6]", type.btn);
-	
-	//public static Element fld=new Element("html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[3]/div[3]/label/input",type.fld);
 }

@@ -8,7 +8,7 @@ public class Constants {
 	public final static String adminDiskPassword ="qwerty";
 	public final static String adminRkEmail ="deadron@yandex.ru";
 	public final static String adminRkPassword ="12345";
-	public final static String urlDiskProd="http://discounter-club.ru/";
+	public final static String urlDiskProd="http://prodaction.discounter-club.ru/";
 	public final static String urlDiskTest="http://test.discounter-club.ru/";
 	public final static String urlRkTest="http://92.255.204.112:2000/";
 	public final static String urlRkProd="http://92.255.204.112:200/";

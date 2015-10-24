@@ -1,7 +1,7 @@
 package audPages;
 
 import browser.Element;
-import browser.Element.type;
+//import browser.Element.type;
 
 public class AudList {
 	public static Element url = new Element("/#/list");

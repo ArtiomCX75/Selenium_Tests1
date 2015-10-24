@@ -19,6 +19,4 @@ public class AudLandAud {
 	public static Element btnLoginSubmit=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/input",type.btn);
 	public static Element lnkVosstanParol=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/span",type.lnk);
 	public static Element btnStartWork=new Element("html/body/div[1]/div/ng-view/div[1]/section[1]/div/div/div/div[2]/a",type.btn);
-	//public static Element lnk=new Element("",type.lnk);
-	//public static Element lnk=new Element("",type.lnk);
 }

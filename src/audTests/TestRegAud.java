@@ -1,45 +1,21 @@
 package audTests;
-
-
-
-import static org.junit.Assert.*;
-
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
-//import org.junit.*;
-import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
-
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.By.ByXPath;
-import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeDriverService;
-
-import com.thoughtworks.selenium.webdriven.commands.Click;
-
 import audPages.AudAnketa1;
 import audPages.AudAnketa2;
 import audPages.AudLandAud;
-import audPages.AudLandPred;
 import audPages.AudList;
 import audPages.UserAudAud;
 import browser.Browser;
 import browser.Constants;
-import browser.Element;
 import browser.Files;
 import browser.TempMail;
-
-
-
 public class TestRegAud extends Browser{
 	
 	//static WebDriver wdr1;
@@ -73,7 +49,7 @@ public class TestRegAud extends Browser{
 			System.out.println(date);
 			secondThread.start();
 			WebDriver d=wdr1;
-			AudLandAud.url.go(d, server);
+			AudLandAud.url.gt(d, server);
 			Aud1.setDefault();
 			//
 			AudLandAud.btnStartWork.click(d);
@@ -94,10 +70,7 @@ public class TestRegAud extends Browser{
 			Browser.sl(1.8);
 			AudAnketa1.btnNext.click(d);
 			Browser.waitFor(d, server+AudLandAud.url.adres);
-			
-			
-			
-			AudLandAud.url.go(d, server);
+			AudLandAud.url.gt(d, server);
 			AudLandAud.btnVhod.click(d);
 			thirdThread.join();
 			AudLandAud.fldLogin.type(d, Aud1.login);
@@ -117,8 +90,7 @@ public class TestRegAud extends Browser{
 			AudAnketa2.chkAgree.click(d);
 			AudAnketa2.btnSend.click(d);
 			Browser.waitFor(d, server+AudList.url.adres);
-			
-			
+						
 			 FileOutputStream fos = new FileOutputStream("temp_aud.txt");
 			  ObjectOutputStream oos = new ObjectOutputStream(fos);
 			  oos.writeObject(Aud1);
@@ -132,7 +104,7 @@ public class TestRegAud extends Browser{
 			{	try{
 				System.out.println("second");
 				WebDriver d=wdr2;
-				email = Browser.setMail(d, "aud"+date);
+				email = TempMail.setMail(d, "aud"+date);
 				Aud1.email = email;
 				//wdr2.quit();
 			}
@@ -161,6 +133,6 @@ public class TestRegAud extends Browser{
 			}
 		});
 		
-	}
+}
 
 

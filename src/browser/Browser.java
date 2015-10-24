@@ -1,18 +1,14 @@
 package browser;
 
 import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.fail;
+
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
-import audTests.*;
 
 
 public class Browser{
@@ -131,16 +127,7 @@ public class Browser{
 		return format1.format(d);
 	}
 
-	public static String setMail(WebDriver driver, String s) throws Exception { // создание почты
-		TempMail.url.go(driver);
-		TempMail.btnChange.click(driver);
-		TempMail.fldLogin.type(driver, s);
-		TempMail.btnSubmitChange.click(driver);
-		TempMail.btnReload.click(driver);
-		String email = TempMail.getEmail(driver);
-		System.out.println("email= "+email);
-		return email;
-	}
+
 	/////
 	
 //

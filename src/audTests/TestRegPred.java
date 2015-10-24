@@ -1,17 +1,13 @@
 
 package audTests;
 
-import java.io.FileInputStream;
 import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import org.junit.BeforeClass;
 import org.junit.AfterClass;
-
 import org.junit.Test;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.WebDriver;
-
 import audPages.AudAnketPred;
 import audPages.AudCabPred;
 import audPages.AudDocs;
@@ -22,6 +18,7 @@ import audPages.UserAudPred;
 import browser.Browser;
 import browser.Constants;
 import browser.Files;
+import browser.TempMail;
 
 public class TestRegPred extends Browser {
 	//WebDriver d;
@@ -29,16 +26,13 @@ public class TestRegPred extends Browser {
 	String date;
 	UserAudPred Pred1 = new UserAudPred();
 	
-
 @BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		
 			wdr1=Browser.on();
 			wdr2=Browser.on();
 			wdr2.manage().window().setPosition(new Point(2000, 0));
-			wdr2.manage().window().maximize();	
-		
-			
+			wdr2.manage().window().maximize();			
 	}
 	
 	
@@ -46,15 +40,13 @@ public class TestRegPred extends Browser {
 	public static void tearDownAfterClass() throws Exception {
 		Browser.sl(10);
 		wdr1.quit();
-		wdr2.quit();
-		
-		
+		wdr2.quit();	
 	}
 	Thread secondThread = new Thread(new Runnable() {
 		public void run() 
 		{	try{
 			System.out.println("second");
-			email = Browser.setMail(wdr2,"pred"+date);
+			email = TempMail.setMail(wdr2,"pred"+date);
 			Pred1.email = email;
 			wdr2.quit();
 		}
@@ -63,20 +55,13 @@ public class TestRegPred extends Browser {
 	});
 	@Test
 	public void reg_pred() throws Exception {
-		
-		
 		String server = Constants.urlAudTest;
-		
 		date = Browser.what_date("post");
-		
-		
-		
 		Pred1.setDefault();
 		secondThread.start();
-				
 		WebDriver d=wdr1;
 		Pred1.contactName=Pred1.contactName+date;
-		AudLandPred.url.go(d, server);
+		AudLandPred.url.gt(d, server);
 		AudLandPred.lnkUznatUr.click(d);
 		AudLandPred.fldUrSusch1.type(d, Pred1.urSusch[1]);
 		AudLandPred.fldUrSusch2.type(d, Pred1.urSusch[1]);
@@ -114,7 +99,6 @@ public class TestRegPred extends Browser {
 		  oos.flush();
 		  oos.close();
 		  System.out.println("DONE");
-		
 	}
 }
 
