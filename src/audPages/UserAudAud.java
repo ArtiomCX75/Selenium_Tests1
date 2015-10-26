@@ -21,7 +21,7 @@ public class UserAudAud  extends User implements java.io.Serializable  {
 	public void setDefault() {
 		surName="Ivanov";
 		name="Ivan";
-		middleName="Ivanovich";
+		middleName="Kuzmich_";
 		phoneNumber="9172890647";
 		email="faa1192@gmail.com";
 		numberAt="12345678";

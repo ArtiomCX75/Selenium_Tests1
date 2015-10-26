@@ -23,8 +23,8 @@ import browser.TempMail;
 public class TestRegPred extends Browser {
 	//WebDriver d;
 	static String email;
-	String date;
-	UserAudPred Pred1 = new UserAudPred();
+	static String date;
+	static UserAudPred Pred1 = new UserAudPred();
 	
 @BeforeClass
 	public static void setUpBeforeClass() throws Exception {
@@ -42,22 +42,26 @@ public class TestRegPred extends Browser {
 		wdr1.quit();
 		wdr2.quit();	
 	}
-	Thread secondThread = new Thread(new Runnable() {
+	static Thread secondThread = new Thread(new Runnable() {
 		public void run() 
 		{	try{
 			System.out.println("second");
 			email = TempMail.setMail(wdr2,"pred"+date);
 			Pred1.email = email;
-			wdr2.quit();
+			//wdr2.quit();
 		}
 		catch(Exception e){};
 		}
 	});
 	@Test
-	public void reg_pred() throws Exception {
+	public void regPred() throws Exception {
+		reg_pred();
+	}
+	public static void reg_pred() throws Exception {
 		String server = Constants.urlAudTest;
 		date = Browser.what_date("post");
 		Pred1.setDefault();
+		Pred1.email="";
 		secondThread.start();
 		WebDriver d=wdr1;
 		Pred1.contactName=Pred1.contactName+date;
@@ -88,12 +92,13 @@ public class TestRegPred extends Browser {
 		AudPay.btnGetBill.click(d);
 		Browser.waitFor(d, server+AudPaid.url.adres);
 		AudPaid.btnDwnloadDocs.click(d);
-		//Browser.sl(3);
+		Browser.sl(3);
 		Browser.waitFor(d, server+AudDocs.url.adres);
 		AudDocs.dwnDownloadFile.load(d, Files.pdffile1);
 		//Browser.sl(10);
 		AudDocs.btnSend.click(d);
 		Browser.waitFor(d, server+AudCabPred.url.adres);
+		Browser.sl(3);
 		FileOutputStream fos = new FileOutputStream("temp_pred.txt");
 		  ObjectOutputStream oos = new ObjectOutputStream(fos);
 		  oos.writeObject(Pred1);

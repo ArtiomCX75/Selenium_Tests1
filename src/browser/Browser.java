@@ -39,13 +39,13 @@ public class Browser{
 		WebDriver temp;
 		temp = new ChromeDriver();
 		temp.manage().window().maximize();
-		temp.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		temp.manage().timeouts().implicitlyWait(7, TimeUnit.SECONDS);
 		return temp;
 	}
 	
 
 	public static void waitFor(WebDriver driver, String s) throws Exception {
-		System.out.println("wait for "+s);
+		System.out.print("\n wait for "+s);
 		waitFr(driver, s);
 	}
 	
@@ -62,7 +62,7 @@ public class Browser{
 			System.err.println("now is   " + driver.getCurrentUrl());
 			assertFalse("url doesn't load", true);
 		}
-		System.out.println("url OK");
+		System.out.print("\t \t url OK \n");
 	}
 
 
@@ -88,8 +88,8 @@ public class Browser{
 		Date d = new Date();
 		SimpleDateFormat format1;
 		if (i == "post") {
-			format1 = new SimpleDateFormat("dd_MM_yyyy_kk_mm"); // дата для
-			format1 = new SimpleDateFormat("dd_MM_yyyy_kk_mm_ss");													// почты
+			//format1 = new SimpleDateFormat("dd_MM_yyyy_kk_mm"); // дата для
+			format1 = new SimpleDateFormat("ddMMyykkmmss");	// почты
 		} else {
 			format1 = new SimpleDateFormat("dd.MM.yyyy"); // дата для поля
 															// "дата"

@@ -22,8 +22,8 @@ public class TestRegAud extends Browser{
 	//static WebDriver wdr2;
 	//WebDriver d;
 	static String email;
-	String date;
-	UserAudAud Aud1 = new UserAudAud();
+	static String date;
+	static UserAudAud Aud1 = new UserAudAud();
 
 		@BeforeClass
 		public static void setUpBeforeClass() throws Exception {
@@ -43,7 +43,11 @@ public class TestRegAud extends Browser{
 		}
 		
 		@Test
-		public void reg_aud() throws Exception {
+		public void regAud() throws Exception{
+			reg_aud();
+		}
+		
+		public static void reg_aud() throws Exception {
 			String server = Constants.urlAudTest;
 			date = Browser.what_date("post");
 			System.out.println(date);
@@ -56,7 +60,7 @@ public class TestRegAud extends Browser{
 			Browser.waitFor(d, server+AudAnketa1.url.adres);
 			AudAnketa1.fldSurname.type(d, Aud1.surName);
 			AudAnketa1.fldName.type(d, Aud1.name);
-			AudAnketa1.fldMiddlename.type(d, Aud1.middleName);
+			
 			AudAnketa1.fldPhone.type(d, Aud1.phoneNumber);
 			AudAnketa1.fldNumberAt.type(d, Aud1.numberAt);
 			AudAnketa1.fldExp.type(d, Aud1.exp);
@@ -65,6 +69,7 @@ public class TestRegAud extends Browser{
 			AudAnketa1.chkAgr2.click(d);
 			secondThread.join();
 			thirdThread.start();
+			AudAnketa1.fldMiddlename.type(d, Aud1.middleName);
 			AudAnketa1.fldEmail.type(d, Aud1.email);
 			AudAnketa1.btnSend.click(d);
 			Browser.sl(2);
@@ -99,19 +104,20 @@ public class TestRegAud extends Browser{
 			//проверить с помощью судо и дж эс
 			
 		}
-		Thread secondThread = new Thread(new Runnable() {
+		static Thread secondThread = new Thread(new Runnable() {
 			public void run() 
 			{	try{
 				System.out.println("second");
 				WebDriver d=wdr2;
 				email = TempMail.setMail(d, "aud"+date);
+				Aud1.middleName=Aud1.middleName+date;
 				Aud1.email = email;
 				//wdr2.quit();
 			}
 			catch(Exception e){};
 			}
 		});
-		Thread thirdThread = new Thread(new Runnable() {
+		static Thread thirdThread = new Thread(new Runnable() {
 			public void run() 
 			{	try{
 				System.out.println("third");
@@ -127,7 +133,7 @@ public class TestRegAud extends Browser{
 				Aud1.login=d.findElement(By.xpath("html/body/div[1]/div/div/div[2]/div/div/div[3]/table/tbody/tr/td/table[2]/tbody/tr[7]/td[2]/p/span")).getText();
 				Aud1.password=d.findElement(By.xpath("html/body/div[1]/div/div/div[2]/div/div/div[3]/table/tbody/tr/td/table[2]/tbody/tr[8]/td[2]/p/span")).getText();
 				System.out.println("login "+Aud1.login+"  pass "+Aud1.password);
-				wdr2.quit();
+				//wdr2.quit();
 			}
 			catch(Exception e){};
 			}
