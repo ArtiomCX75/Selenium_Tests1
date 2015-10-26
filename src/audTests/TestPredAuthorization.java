@@ -39,9 +39,14 @@ public class TestPredAuthorization extends Browser {
 		System.out.println("email= " + Pred1.email);
 		System.out.println("pass= " + Pred1.password);
 
-		loginFromAudLand(wdr1, server, Pred1.email, Pred1.password);
+		loginFromPredLand(wdr1, server, Pred1.email, Pred1.password);
+		Browser.sl(0.5);
 		System.out.println("next");
 		logout(wdr1, server);
+		//System.out.println("next");
+		//loginFromAudLand(wdr1, server, Pred1.email, Pred1.password);
+		//System.out.println("next");
+		//logout(wdr1, server);
 	}
 
 	public void loginFromPredLand(WebDriver d, String server, String email, String pass) throws Exception {
@@ -49,21 +54,23 @@ public class TestPredAuthorization extends Browser {
 		AudLandPred.btnVhod.click(d);
 		AudLandPred.fldLogin.type(d, email);
 		AudLandPred.fldPass.type(d, pass);
+		//Browser.sl(0.3);
 		AudLandPred.btnLoginSubmit.click(d);
 		try {
 			String val = d.findElement(By.xpath("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/p")).getText();
-			if (val.equals("Неверный логин или пароль")) {
-				System.err.println("Неверный логин или пароль");
-				assertFalse("Неверный логин или пароль", true);
-			}
+		//	if (val.equals("Неверный логин или пароль")) { //проверять на файнд_элементс
+				//System.err.println("Неверный логин или пароль");
+				//assertFalse("Неверный логин или пароль", true);
+			//}
 		} catch (NoSuchElementException e) {
 		}
+		
 		Browser.waitFor(d, server + AudCabPred.url.adres);
-		String s = d.findElement(By.xpath("html/body/div[1]/div/ng-view/div/div/div[2]/div[4]/strong")).getText();
-		if (!(s.equals(email))) {
+		//String s = d.findElement(By.xpath("html/body/div[1]/div/ng-view/div/div/div[2]/div[4]/strong")).getText();
+		/*if (!(s.equals(email))) {
 			System.err.println("Некорректно авторизовался");
 			assertFalse("Некорректно авторизовался", true);
-		}
+		}*/
 	}
 
 	public void loginFromAudLand(WebDriver d, String server, String email, String pass) throws Exception {
@@ -90,7 +97,7 @@ public class TestPredAuthorization extends Browser {
 	}
 
 	public void logout(WebDriver d, String server) throws Exception{
-		AudCabPred.url.gt(d, server);
+		//AudCabPred.url.gt(d, server);
 		AudCabPred.btnExit.click(d);
 		Browser.waitFor(d, server + AudLandPred.url.adres);
 	}

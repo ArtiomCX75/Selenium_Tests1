@@ -2,10 +2,10 @@ package browser;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
+//перенести вейт фор в элементс - передавать сервер и локальную переменную адреса
 
 public class Element {
-	private double t = 0.005;
+	private double t = 0.0;
 	public String adres;
 	public type mytype;
 	public int id;
@@ -67,7 +67,7 @@ public class Element {
 	private void load(WebDriver driver, String adr, String s) throws Exception {
 		Browser.sl(t);
 		driver.findElement(By.xpath(adr)).sendKeys(s);
-		Browser.sl(0.5);
+		Browser.sl(1);
 	}
 
 	///

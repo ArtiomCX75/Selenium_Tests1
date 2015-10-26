@@ -38,7 +38,7 @@ public class TestRegPred extends Browser {
 	
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
-		Browser.sl(10);
+		//Browser.sl(10);
 		wdr1.quit();
 		wdr2.quit();	
 	}
@@ -88,9 +88,10 @@ public class TestRegPred extends Browser {
 		AudPay.btnGetBill.click(d);
 		Browser.waitFor(d, server+AudPaid.url.adres);
 		AudPaid.btnDwnloadDocs.click(d);
-		Browser.sl(3);
+		//Browser.sl(3);
 		Browser.waitFor(d, server+AudDocs.url.adres);
 		AudDocs.dwnDownloadFile.load(d, Files.pdffile1);
+		//Browser.sl(10);
 		AudDocs.btnSend.click(d);
 		Browser.waitFor(d, server+AudCabPred.url.adres);
 		FileOutputStream fos = new FileOutputStream("temp_pred.txt");

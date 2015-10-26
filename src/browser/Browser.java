@@ -43,13 +43,7 @@ public class Browser{
 		return temp;
 	}
 	
-	/*protected Browser() {
-		//System.setProperty("webdriver.chrome.driver", "..//Other//chromedriver.exe");
-		//wd = new ChromeDriver();
-		//wd.manage().window().maximize();
-		//wd.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 
-	}*/
 	public static void waitFor(WebDriver driver, String s) throws Exception {
 		System.out.println("wait for "+s);
 		waitFr(driver, s);
@@ -70,27 +64,7 @@ public class Browser{
 		}
 		System.out.println("url OK");
 	}
-/*	public static WebDriver getchdr() {
-		System.setProperty("webdriver.chrome.driver", "..//Other//chromedriver.exe");
-		WebDriver d = new ChromeDriver();
-		d.manage().window().maximize();
-		d.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 
-		return d;
-	}*/
-
-	/*public WebDriver on() throws Exception {
-
-		// if (this == null) {
-
-		System.setProperty("webdriver.chrome.driver", "..//Other//chromedriver.exe");
-		wd = new ChromeDriver();
-		wd.manage().window().maximize();
-		wd.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
-		// }
-		stat="stat stat";
-		return wd;
-	}*/
 
 	public static void off(ChromeDriver driver) throws Exception {
 		driver.quit();
@@ -108,11 +82,7 @@ public class Browser{
 
 	}
 
-	/*
-	 * public static void go_to(String url) throws Exception { driver.get(url);
-	 * sl(3); }
-	 */
-
+	
 
 	public static String what_date(String i) { // узнает дату
 		Date d = new Date();
@@ -128,11 +98,7 @@ public class Browser{
 	}
 
 
-	/////
 	
-//
-
-
 
 	////
 	/*
