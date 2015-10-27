@@ -67,15 +67,15 @@ public class TestDeal extends Browser {
 		String s="html/body/div[1]/div/ng-view/div/div/div/div[3]/ul/li[div/div/p[1][text()='Контактное лицо: "+Pred1.contactName+"']]/div/div[2]/button";
 		wdr2.findElement(By.xpath(s)).click();
 		//AudBid.url.gt(wdr2, server);
-		Browser.sl(3);
+		Browser.sl(1);
 		AudBid.dwnDownloadFile.load(wdr2, Files.pdffile1);
 		AudBid.lnkAudRabDoc.click(wdr2);
-		Browser.sl(5);
+		Browser.sl(1);
 		AudBid.lnkAudZakl.click(wdr2);
-		Browser.sl(5);
+		Browser.sl(1);
 		AudBid.chkVeryGood.click(wdr2);
 		System.out.println("END");
-		Browser.sl(5);
+		Browser.sl(1);
 	
 	}
 }

@@ -72,7 +72,7 @@ public class TestRegAud extends Browser{
 			AudAnketa1.fldMiddlename.type(d, Aud1.middleName);
 			AudAnketa1.fldEmail.type(d, Aud1.email);
 			AudAnketa1.btnSend.click(d);
-			Browser.sl(2);
+			Browser.sl(3);
 			AudAnketa1.btnNext.click(d);
 			Browser.waitFor(d, server+AudLandAud.url.adres);
 			AudLandAud.url.gt(d, server);

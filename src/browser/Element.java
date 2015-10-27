@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 //перенести вейт фор в элементс - передавать сервер и локальную переменную адреса
 
 public class Element {
-	private double t = 0.00;
+	private double t = 0.50;
 	public String adres;
 	public type mytype;
 	public int id;

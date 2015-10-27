@@ -24,14 +24,14 @@ public void setDefault() {
 	genDir="Ivanov Ivan Ivanovich";
 	vidDej="prodaja";
 	usualPhone="9172890647";
-	urSusch[1]=10;
-	urSusch[2]=10;
-	urSusch[3]=10;
-	urSusch[4]=10;
-	urSusch[5]=10;
-	urSusch[6]=10;
-	urSusch[7]=10;
-	urSusch[8]=10;
+	urSusch[0]=10;
+	urSusch[1]=20;
+	urSusch[2]=30;
+	urSusch[3]=40;
+	urSusch[4]=50;
+	urSusch[5]=60;
+	urSusch[6]=70;
+	urSusch[7]=80;
 	FIO=surName+" "+ name+" "+middleName;
 }
 }
