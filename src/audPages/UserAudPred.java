@@ -39,41 +39,21 @@ public void setDefault() {
 	FIO=surName+" "+ name+" "+middleName;
 }//FileNotFoundException
 
+static FileInputStream fis;
+static ObjectInputStream oin;
 
-	public static UserAudPred readLast()  {
+	public static UserAudPred readLast() throws Exception  {
 	System.out.println("1");
-	UserAudPred user = new UserAudPred();
-	user.setDefault();
+	UserAudPred user;
 	System.out.println("2");
-	FileInputStream fis = null;
-	try {
-		fis = new FileInputStream("temp_pred.txt");
-	} catch (FileNotFoundException e2) {
-		// TODO Auto-generated catch block
-		e2.printStackTrace();
-	}
+	fis = new FileInputStream("temp_pred.txt");
 	System.out.println("3");
 	ObjectInputStream oin = null;
-	try {
-		oin = new ObjectInputStream(fis);
-	} catch (IOException e1) {
-		// TODO Auto-generated catch block
-		e1.printStackTrace();
-	}
+	oin = new ObjectInputStream(fis);
 	System.out.println("4");
-	try {
-		user = (UserAudPred) oin.readObject();
-	} catch (ClassNotFoundException | IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+	user = (UserAudPred) oin.readObject();
 	System.out.println("5");
-	try {
-		oin.close();
-	} catch (IOException e) {
-		// TODO Auto-generated catch block
-		e.printStackTrace();
-	}
+	oin.close();
 	System.out.println("6");
 	System.out.println("email= " + user.email);
 	System.out.println("pass= " + user.password);
