@@ -14,21 +14,12 @@ import audPages.UserAudPred;
 import browser.Browser;
 import browser.Constants;
 
-public class TestAuthPred extends Browser {
+public class TestAuthPred extends TestBase {
 
 	FileInputStream fis;
 	ObjectInputStream oin;
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-		
-		wdr1=Browser.on();
-	}
-	
-	@After
-	public void after() {
-		wdr1.quit();
-	}
+
 
 	@Test
 	public void authorization() throws Exception {
@@ -41,10 +32,10 @@ public class TestAuthPred extends Browser {
 		System.out.println("email= " + Pred1.email);
 		System.out.println("pass= " + Pred1.password);
 		
-		loginFromPredLand(wdr1, server, Pred1.email, Pred1.password);
-		logout(wdr1, server);
-		loginFromAudLand(wdr1, server, Pred1.email, Pred1.password);
-		logout(wdr1, server);
+		loginFromPredLand(Browser.wdr1, server, Pred1.email, Pred1.password);
+		logout(Browser.wdr1, server);
+		loginFromAudLand(Browser.wdr1, server, Pred1.email, Pred1.password);
+		logout(Browser.wdr1, server);
 	}
 	
 	public static void loginFromPredLand(WebDriver d, String server, String email, String pass) throws Exception {
@@ -68,7 +59,7 @@ public class TestAuthPred extends Browser {
 	}
 
 	public static void logout(WebDriver d, String server) throws Exception {
-		if (!(wdr1.getCurrentUrl().equals(server + AudCabPred.url.adres))) {
+		if (!(Browser.wdr1.getCurrentUrl().equals(server + AudCabPred.url.adres))) {
 			System.out.println("dflfdlfllffllf fl lfl fllfl f lfl fl fllflwww");
 			AudCabPred.url.gt(d, server);
 		}

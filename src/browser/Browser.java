@@ -58,7 +58,7 @@ public class Browser{
 			}
 		}
 		if (i > 48) {
-			System.err.println("wait for " + s);
+			System.err.println("\nwait for " + s);
 			System.err.println("now is   " + driver.getCurrentUrl());
 			assertFalse("url doesn't load", true);
 		}
