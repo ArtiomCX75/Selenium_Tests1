@@ -1,4 +1,4 @@
-package diskTests;
+package audPages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

@@ -1,7 +1,12 @@
 package diskTests;
 
 public class UserDisc {
-public String username;
+public String email;
 public String pass;
+
+public UserDisc(String email, String pass) {
+	this.email=email;
+	this.pass=pass;
+}
 
 }

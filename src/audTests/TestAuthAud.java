@@ -41,10 +41,12 @@ public class TestAuthAud extends Browser {
 		System.out.println("login= " + Aud1.login);
 		System.out.println("pass= " + Aud1.password);
 		
+		for (int i=0;i<10;i++){
 		loginFromPredLand(wdr1, server, Aud1.login, Aud1.password);
 		logout(wdr1, server);
 		loginFromAudLand(wdr1, server, Aud1.login, Aud1.password);
 		logout(wdr1, server);
+		}
 	}
 	
 	public static void loginFromPredLand(WebDriver d, String server, String email, String pass) throws Exception {

@@ -1,20 +1,20 @@
 package audTests;
 
-import org.junit.After;
-import org.junit.BeforeClass;
-import org.openqa.selenium.WebDriver;
+import org.junit.AfterClass;
 
-import browser.Browser;
+import audPages.ApplicationManager;
+import browser.Constants;
+import oracle.jrockit.jfr.tools.ConCatRepository;
 
 public class TestBase {
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-		
-		Browser.wdr1=Browser.on();
-	}
+	static String baseUrl =Constants.urlAudTest;
+	static ApplicationManager app = new ApplicationManager(baseUrl); 
+	//static ApplicationManager app2 = new ApplicationManager(baseUrl); 
 	
-	@After
-	public void after() {
-		Browser.wdr1.quit();
+	@AfterClass
+	public static void after() throws Exception{
+		//Thread.sleep(1);
+		app.Driver.close();
+	//	app2.Driver.close();
 	}
 }

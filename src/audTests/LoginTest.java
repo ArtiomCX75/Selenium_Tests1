@@ -1,4 +1,4 @@
-package diskTests;
+package audTests;
 
 import org.junit.Test;
 
@@ -6,8 +6,9 @@ public class LoginTest extends TestBase{
 	UserDisc account;
 	@Test
 	public void loginTest() throws Exception{
-	account = new UserDisc("ref1@freeletter.me", "12345");
-	
+	account = new UserDisc();{
+	account.username="deadron@yandex.ru";
+	account.pass="qwerty";}
 	
 	//app.landingpage.loginlinkclick().login(account).logout();
 	

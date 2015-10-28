@@ -45,7 +45,7 @@ public class Browser{
 	
 
 	public static void waitFor(WebDriver driver, String s) throws Exception {
-		System.out.print("\n wait for "+s);
+		System.out.println("wait for "+s);
 		waitFr(driver, s);
 	}
 	
@@ -62,7 +62,7 @@ public class Browser{
 			System.err.println("now is   " + driver.getCurrentUrl());
 			assertFalse("url doesn't load", true);
 		}
-		System.out.print("\t \t url OK \n");
+		System.out.println("url OK \n");
 	}
 
 

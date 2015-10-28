@@ -23,21 +23,21 @@ public class TestAuthPred extends TestBase {
 
 	@Test
 	public void authorization() throws Exception {
-		String server = Constants.urlAudTest;
+		
 		UserAudPred Pred1 = new UserAudPred();
-		FileInputStream fis = new FileInputStream("temp_pred.txt");
-		ObjectInputStream oin = new ObjectInputStream(fis);
-		Pred1 = (UserAudPred) oin.readObject();
-		oin.close();
-		System.out.println("email= " + Pred1.email);
-		System.out.println("pass= " + Pred1.password);
+		Pred1=UserAudPred.readLast();		
+		//app.landPred.btnVhodClick().login(Pred1);
+		
+		
+		/*
 		
 		loginFromPredLand(Browser.wdr1, server, Pred1.email, Pred1.password);
 		logout(Browser.wdr1, server);
 		loginFromAudLand(Browser.wdr1, server, Pred1.email, Pred1.password);
 		logout(Browser.wdr1, server);
+		*/
 	}
-	
+	/*
 	public static void loginFromPredLand(WebDriver d, String server, String email, String pass) throws Exception {
 		AudLandPred.url.gt(d, server);
 		AudLandPred.btnVhod.click(d);
@@ -92,4 +92,5 @@ public class TestAuthPred extends TestBase {
 			}
 		catch(Exception e) {return false;}
 	}
+*/
 }

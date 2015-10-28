@@ -1,10 +1,28 @@
 package audPages;
 
-import browser.Element;
-import browser.Element.type;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class AudCabPred {
-	public static Element url = new Element("/#/cabinet");
-	public static Element btnReloadStatus=new Element("html/body/div[1]/div/ng-view/div/div/div[2]/div[4]/span", type.btn);
-	public static Element btnExit=new Element("html/body/div[1]/div/ng-view/header/div/div/a", type.btn);
+	private ApplicationManager manager;
+	private WebDriver wd;
+	private String url="/#/cabinet";
+	
+	public AudCabPred(ApplicationManager manager) {
+		this.manager=manager;
+		this.wd=manager.Driver;
+		PageFactory.initElements(this.wd, this);
+	}
+
+	public AudCabPred open(){
+		wd.get(manager.BaseUrl+url);
+		return new AudCabPred(manager);
+	}
+	
+	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div/div[2]/div[4]/span")
+	public WebElement btnReloadStatus;
+	@FindBy(xpath="html/body/div[1]/div/ng-view/header/div/div/a")
+	public WebElement btnExit;
 }
