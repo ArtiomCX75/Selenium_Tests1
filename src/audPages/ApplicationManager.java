@@ -22,7 +22,9 @@ public class ApplicationManager {
 	public AudPaid paid;
 	public AudPay pay;
 	public TempMail tempMail;
-	
+	public AudLoginHelper login;
+	public AudRegHelper reg;
+
 	public ApplicationManager(String baseUrl) {
 		System.setProperty("webdriver.chrome.driver", ".//chromedriver.exe");
 		Driver=new ChromeDriver();
@@ -43,6 +45,9 @@ public class ApplicationManager {
 		paid = new AudPaid(this);
 		pay = new AudPay(this);
 		tempMail = new TempMail(this);
+		login = new AudLoginHelper(this);
+		reg = new AudRegHelper(this);
+		
 		
 		
 	}

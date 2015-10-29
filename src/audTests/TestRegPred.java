@@ -47,19 +47,28 @@ public class TestRegPred extends TestBase {
 		Pred1.setDefault();
 		Pred1.email="";
 		secondThread.start();
-		WebDriver d=wdr1;
+		
 		Pred1.contactName=Pred1.contactName+date;
-		AudLandPred.url.gt(d, server);
-		AudLandPred.lnkUznatUr.click(d);
-		AudLandPred.fldUrSusch1.type(d, Pred1.urSusch[0]);
-		AudLandPred.fldUrSusch2.type(d, Pred1.urSusch[1]);
-		AudLandPred.fldUrSusch3.type(d, Pred1.urSusch[2]);
-		AudLandPred.fldUrSusch4.type(d, Pred1.urSusch[3]);
-		AudLandPred.fldUrSusch5.type(d, Pred1.urSusch[4]);
-		AudLandPred.fldUrSusch6.type(d, Pred1.urSusch[5]);
-		AudLandPred.fldUrSusch7.type(d, Pred1.urSusch[6]);
-		AudLandPred.fldUrSusch8.type(d, Pred1.urSusch[7]);
-		AudLandPred.btnRassch.click(d);
+		app.landPred.open().lnkUznatUr.click();
+        app.landPred.fldUrSusch1.sendKeys("10");
+        
+        app.landPred.fldUrSusch2.sendKeys("10");
+        
+        app.landPred.fldUrSusch2.sendKeys("10");
+        
+        app.landPred.fldUrSusch3.sendKeys("10");
+        
+        app.landPred.fldUrSusch4.sendKeys("10");
+        
+        app.landPred.fldUrSusch5.sendKeys("10");
+        
+        app.landPred.fldUrSusch6.sendKeys("10");
+        
+        app.landPred.fldUrSusch7.sendKeys("10");
+        
+        app.landPred.fldUrSusch8.sendKeys("10");
+        
+        app.landPred.btnRassch.click();
 		Browser.waitFor(d, server+AudAnketPred.url.adres);
 		AudAnketPred.fldNazvOrg.type(d, Pred1.orgName);
 		AudAnketPred.fldContactFio.type(d, Pred1.contactName);

@@ -16,9 +16,9 @@ public class AudLandPred extends AllPages{
 		PageFactory.initElements(this.wd, this);
 	}
 	
-	public AllPages open(){
+	public AudLandPred open(){
 		wd.get(manager.BaseUrl+url);
-		return new AllPages(manager);
+		return new AudLandPred(manager);
 	}
 	
 	public AudLoginHelper btnVhodClick(){
