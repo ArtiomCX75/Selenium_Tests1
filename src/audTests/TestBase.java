@@ -13,7 +13,7 @@ public class TestBase {
 	
 	@AfterClass
 	public static void after() throws Exception{
-		//Thread.sleep(1);
+		Thread.sleep(2);
 		app.Driver.close();
 	//	app2.Driver.close();
 	}

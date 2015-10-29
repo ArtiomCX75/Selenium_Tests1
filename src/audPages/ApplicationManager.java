@@ -21,7 +21,8 @@ public class ApplicationManager {
 	public AudList list;
 	public AudPaid paid;
 	public AudPay pay;
-
+	public TempMail tempMail;
+	
 	public ApplicationManager(String baseUrl) {
 		System.setProperty("webdriver.chrome.driver", ".//chromedriver.exe");
 		Driver=new ChromeDriver();
@@ -41,6 +42,7 @@ public class ApplicationManager {
 		list= new AudList(this);
 		paid = new AudPaid(this);
 		pay = new AudPay(this);
+		tempMail = new TempMail(this);
 		
 		
 	}

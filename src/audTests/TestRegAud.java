@@ -11,11 +11,11 @@ import audPages.AudAnketa1;
 import audPages.AudAnketa2;
 import audPages.AudLandAud;
 import audPages.AudList;
+import audPages.TempMail;
 import audPages.UserAudAud;
 import browser.Browser;
 import browser.Constants;
 import browser.Files;
-import browser.TempMail;
 public class TestRegAud extends Browser{
 	
 	//static WebDriver wdr1;

@@ -14,39 +14,23 @@ import audPages.AudDocs;
 import audPages.AudLandPred;
 import audPages.AudPaid;
 import audPages.AudPay;
+import audPages.TempMail;
 import audPages.UserAudPred;
 import browser.Browser;
 import browser.Constants;
 import browser.Files;
-import browser.TempMail;
 
-public class TestRegPred extends Browser {
-	//WebDriver d;
+public class TestRegPred extends TestBase {
+	
 	static String email;
 	static String date;
 	static UserAudPred Pred1 = new UserAudPred();
 	
-@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-		
-			wdr1=Browser.on();
-			wdr2=Browser.on();
-			wdr2.manage().window().setPosition(new Point(2000, 0));
-			wdr2.manage().window().maximize();			
-	}
-	
-	
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-		//Browser.sl(10);
-		wdr1.quit();
-		wdr2.quit();	
-	}
 	static Thread secondThread = new Thread(new Runnable() {
 		public void run() 
 		{	try{
 			System.out.println("second");
-			email = TempMail.setMail(wdr2,"pred"+date);
+			email = app.tempMail.setMail("pred"+date);
 			Pred1.email = email;
 			//wdr2.quit();
 		}
