@@ -5,6 +5,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import audHelpers.LoginHelper;
+
 public class AudLandAud extends AllPages{
 	private ApplicationManager manager;
 	private WebDriver wd;
@@ -21,9 +23,9 @@ public class AudLandAud extends AllPages{
 		return new AudLandAud(manager);
 	}
 	
-	public AudLoginHelper btnVhodClick(){
+	public LoginHelper btnVhodClick(){
 		wait(btnVhod).click();
-		return new AudLoginHelper(manager);
+		return new LoginHelper(manager);
 	}
 	
 	@FindBy(xpath="html/body/div[1]/div/ng-view/div[1]/header/span")

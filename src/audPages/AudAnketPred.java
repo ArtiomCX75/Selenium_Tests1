@@ -5,7 +5,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AudAnketPred {
+import audHelpers.LoginHelper;
+
+public class AudAnketPred extends AllPages{
 	private ApplicationManager manager;
 	private WebDriver wd;
 	private String url="/#/create";
@@ -20,6 +22,23 @@ public class AudAnketPred {
 		wd.get(manager.BaseUrl+url);
 		return new AudAnketPred(manager);
 	}
+	
+	public AudAnketPred fillTheCompany(UserAudPred user){
+		fldNazvOrg.sendKeys(user.orgName);
+		fldContactFio.sendKeys(user.contactName);
+		fldVidDej.sendKeys(user.vidDej);
+		fldGenDir.sendKeys(user.genDir);
+		fldUsualPhone.sendKeys(user.usualPhone);
+		fldPhone.sendKeys(user.phoneNumber);
+		return new AudAnketPred(manager);
+	}
+	public AudAnketPred fillAccount(UserAudPred user){
+		fldEmail.sendKeys(user.email);
+		fldPass.sendKeys(user.password);
+		return new AudAnketPred(manager);
+	}
+	
+		
 	
 	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div/div/form/div[1]/div[1]/label[1]/input")
 	public WebElement fldNazvOrg;

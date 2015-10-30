@@ -2,7 +2,7 @@ package diskTests;
 
 import org.junit.AfterClass;
 
-public class TestBase {
+public class TestBase extends AllPages{
 	static String baseUrl = "http://test.discounter-club.ru/";
 	static ApplicationManager app = new ApplicationManager(baseUrl); 
 	//static ApplicationManager app2 = new ApplicationManager(baseUrl); 

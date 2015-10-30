@@ -25,7 +25,10 @@ public class TestAuthPred extends TestBase {
 	public void authorization() throws Exception {
 		
 		UserAudPred Pred1 = new UserAudPred();
-		Pred1=UserAudPred.readLast();		
+		Pred1=UserAudPred.readLast();	
+		app.landPred.btnVhodClick().login(Pred1);
+		
+		
 		//app.landPred.btnVhodClick().login(Pred1);
 		
 		

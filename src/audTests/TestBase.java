@@ -1,5 +1,8 @@
 package audTests;
 
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+
 import org.junit.AfterClass;
 
 import audPages.ApplicationManager;
@@ -13,8 +16,17 @@ public class TestBase {
 	
 	@AfterClass
 	public static void after() throws Exception{
-		Thread.sleep(2);
+		//Thread.sleep(3);
 		app.Driver.close();
 	//	app2.Driver.close();
+	}
+	
+	
+	public static void writeObject(Object obj, String s) throws Exception{
+		FileOutputStream fos = new FileOutputStream(s);
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(obj);
+		oos.flush();
+		oos.close();
 	}
 }

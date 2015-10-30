@@ -1,16 +1,23 @@
-package audPages;
+package audHelpers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class AudLoginHelper extends AllPages{
+import audPages.AllPages;
+import audPages.ApplicationManager;
+import audPages.AudBid;
+import audPages.AudCabPred;
+import audPages.UserAudAud;
+import audPages.UserAudPred;
+
+public class LoginHelper extends AllPages{
 	private ApplicationManager manager;
 	private WebDriver wd;
 	//private String url="/#/create";
 
-	public AudLoginHelper(ApplicationManager manager) {
+	public LoginHelper(ApplicationManager manager) {
 		this.manager=manager;
 		this.wd=manager.Driver;
 		PageFactory.initElements(this.wd, this);
@@ -29,25 +36,15 @@ public class AudLoginHelper extends AllPages{
 		return new AudBid(manager);
 	}
 	private void login(String login, String pass){
-		wait(fldLogin).sendKeys(login);
-		wait(fldLogin).sendKeys(pass);
-		wait(fldLogin).click();
+		wait(manager.landPred.fldLogin).sendKeys(login);
+		wait(manager.landPred.fldLogin).sendKeys(pass);
+		wait(manager.landPred.fldLogin).click();
 	}
 	
 	public AllPages btnEscClick(){
-		wait(btnEsc).click();
+		wait(manager.landPred.btnEsc).click();
 		return new AllPages(manager);
 	}
 	
-	@FindBy(xpath="html/body/div[4]/table/tbody/tr/td/div/div/form[1]/label[1]/input")
-	public WebElement fldLogin;
-	@FindBy(xpath="html/body/div[4]/table/tbody/tr/td/div/div/form[1]/label[2]/input")
-	public WebElement fldPass;
-	@FindBy(xpath="html/body/div[4]/table/tbody/tr/td/div/div/form[1]/input")
-	public WebElement btnLoginSubmit;
-	@FindBy(xpath="html/body/div[4]/table/tbody/tr/td/div/div/form[1]/span")
-	public WebElement lnkVosstanParol;
-	@FindBy(xpath="html/body/div[4]/table/tbody/tr/td/div/span[2]")
-	public WebElement btnEsc;
 }
 	
