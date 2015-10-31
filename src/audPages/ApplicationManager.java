@@ -37,7 +37,7 @@ public class ApplicationManager {
 		Driver=new ChromeDriver();
 		//Driver = new FirefoxDriver();
 		Driver.manage().window().maximize();
-		Driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		Driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		BaseUrl=baseUrl;
 		all=new AllPages(this);
 		

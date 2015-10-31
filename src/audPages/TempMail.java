@@ -37,26 +37,26 @@ public class TempMail extends AllPages{
 	
 	public String getEmail() throws Exception
 	{
-		System.out.println("6");
+		
 	//	Thread.sleep(500);
 		return currentEmail.getAttribute("Value");
 	}
 	
 	public  String setMail(String s) throws Exception  { // создание почты
 		open();
-		System.out.println("1");
+		
 		//Thread.sleep(500);
 		btnChange.click();
-		System.out.println("2");
+		
 		//Thread.sleep(500);
 		fldLogin.sendKeys(s);
-		System.out.println("3");
+		
 		//Thread.sleep(500);
 		btnSubmitChange.click();
-		System.out.println("4");
+		;
 		//Thread.sleep(500);
 		btnReload.click();
-		System.out.println("5");
+		
 		//Thread.sleep(500);
 		String email = getEmail();
 		System.out.println("email= "+email);
