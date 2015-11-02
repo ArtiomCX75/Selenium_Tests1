@@ -2,7 +2,6 @@ package audPages;
 
 import org.openqa.selenium.WebDriver;
 
-import browser.Browser;
 import browser.Element;
 import browser.Files;
 

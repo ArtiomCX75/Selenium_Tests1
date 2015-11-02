@@ -5,23 +5,23 @@ import org.junit.Test;
 
 import audPages.UserAudPred;
 import browser.Browser;
+import browser.Mail;
 
 public class TestRegPred extends TestBase {
 
 	@Test
 	public void regPred() throws Exception {
 		String date = Browser.what_date("post");
+		Mail mail = app.tempMail;
 		UserAudPred Pred1 = new UserAudPred();
 		Pred1.setDefault();
-		Pred1.email = app.tempMail.setMail("pred" + date);
+		Pred1.email = mail.setMail("pred" + date);
 		Pred1.contactName = Pred1.contactName + date;
-		
+
 		app.helper.reg_pred(Pred1);
-		
-		
+
 	}
 
-	
 }
 
 /*

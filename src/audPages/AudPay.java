@@ -21,5 +21,5 @@ public class AudPay extends AllPages{
 		return new AudPay(manager);
 	}
 	
-	public Element btnGetBill = new Element("html/body/div[1]/div/ng-view/div/div/div/a");
+	public Element btnGetBill = new Element("html/body/div[1]/div/ng-view/div/div/div/a[contains(text(),'25 000')]");
 }

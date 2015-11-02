@@ -10,6 +10,8 @@ import audHelpers.LoginHelper;
 import browser.Browser;
 import browser.Element;
 import browser.Files;
+import browser.TempMail;
+import browser.TempMail2;
 import audHelpers.Helper;
 
 @SuppressWarnings("unused")
@@ -41,7 +43,7 @@ public class ApplicationManager {
 		Driver=new ChromeDriver();
 		//Driver = new FirefoxDriver();
 		Driver.manage().window().maximize();
-		Driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		BaseUrl=baseUrl;
 		all=new AllPages(this);
 		

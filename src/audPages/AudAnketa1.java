@@ -34,7 +34,7 @@ public class AudAnketa1 {
 		fldMiddlename.sendKeys(user.middleName);
 		fldEmail.sendKeys(user.email);
 		btnSend.click();
-		Browser.sl(2);
+		Browser.sl(3);
 		btnNext.click();
 	}
 	

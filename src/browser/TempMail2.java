@@ -1,13 +1,13 @@
-package audPages;
+package browser;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import browser.Browser;
-import browser.Element;
+import audPages.AllPages;
+import audPages.ApplicationManager;
 
 
-public class TempMail2 extends AllPages{
+public class TempMail2 extends AllPages implements Mail{
 	private ApplicationManager manager;
 	private WebDriver wd;
 	private String url="http://www.mfsa.info/";

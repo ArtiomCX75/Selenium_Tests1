@@ -12,7 +12,7 @@ public class AudLandPred extends AllPages {
 	public AudLandPred(ApplicationManager manager) {
 		this.manager = manager;
 		this.wd = manager.Driver;
-		
+
 	}
 
 	public AudLandPred open() {
@@ -90,8 +90,3 @@ public class AudLandPred extends AllPages {
 	public Element btnRassch = new Element("html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/button");
 
 }
-
-/*
- * "") public WebElement ;
- * 
- */

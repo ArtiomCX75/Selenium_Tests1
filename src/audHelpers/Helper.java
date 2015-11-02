@@ -29,7 +29,6 @@ public class Helper extends AllPages {
 				.fillTheCompany(user).fillAccount(user).chkAgree.click();
 		manager.anketaPred.btnZakaz.click();
 		manager.pay.btnGetBill.click();
-		Thread.sleep(100);
 		manager.paid.btnDwnloadDocs.click();
 		manager.doc.dwnDownloadFile.sendKeys(Files.pdffile1);
 		Thread.sleep(1500);

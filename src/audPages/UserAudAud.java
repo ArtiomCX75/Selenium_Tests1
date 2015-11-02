@@ -1,6 +1,8 @@
 package audPages;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.Serializable;
 
@@ -44,19 +46,36 @@ public class UserAudAud  extends User implements java.io.Serializable  {
 	static FileInputStream fis;
 	static ObjectInputStream oin;
 	
-	public static UserAudAud readLast() throws Exception  {
-		System.out.println("1");
-		UserAudAud user;
-		System.out.println("2");
-		fis = new FileInputStream("temp_aud.txt");
-		System.out.println("3");
+	public static UserAudAud readLast()   {
+		UserAudAud user=null;
+		try {
+			fis = new FileInputStream("temp_aud.txt");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		ObjectInputStream oin = null;
-		oin = new ObjectInputStream(fis);
-		System.out.println("4");
-		user = (UserAudAud) oin.readObject();
-		System.out.println("5");
-		oin.close();
-		System.out.println("6");
+		try {
+			oin = new ObjectInputStream(fis);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			user = (UserAudAud) oin.readObject();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			oin.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("email= " + user.email);
 		System.out.println("pass= " + user.password);
 		return user;

@@ -20,5 +20,5 @@ public class AudPaid extends AllPages {
 		return new AudPaid(manager);
 	}
 
-	public Element btnDwnloadDocs = new Element("html/body/div[1]/div/ng-view/div/div/div/a");
+	public Element btnDwnloadDocs = new Element("html/body/div[1]/div/ng-view/div/div/div/a[contains(text(),'Перейти')]");
 }

@@ -1,14 +1,17 @@
 package browser;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
 import audPages.AllPages;
 import audPages.ApplicationManager;
 
 public class Element extends AllPages {
 	public String xp;
 	private static WebDriver wd;
-	Double t = 01.60;
+	public static Double t = 0.10;
 	@SuppressWarnings("unused")
 	private ApplicationManager manager;
 
@@ -25,20 +28,37 @@ public class Element extends AllPages {
 
 	public void click(){
 		
-			Browser.sl(t);
-		
-		while (wd.findElements(By.xpath(xp)).isEmpty()) {
+		boolean present=false;;
+		while (present==false){
 			try {
-				System.out.println("sleep............");
-				Thread.sleep(5000);
-			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				wd.findElement(By.xpath(xp));
+				present = true;
+				//System.out.println("true "+xp);
+				} 
+			catch (NoSuchElementException e) {
+				present = false;
+				System.out.println("false "+xp);
 			}
 		}
+		
+		
 		wd.findElement(By.xpath(xp)).click();
 	}
 
+	public void safeClick() {
+		Browser.sl(t);
+		WebElement webElement = wd.findElement(By.xpath(xp)); 
+		if(webElement != null) {
+			wd.findElement(By.xpath(xp)).click();
+		}
+		else 
+		{
+			System.out.println("q");
+			safeClick();
+		}
+	}
+	
+	
 	public void clear() {
 		wd.findElement(By.xpath(xp)).clear();
 	}

@@ -1,12 +1,12 @@
-package audPages;
+package browser;
 
 import org.openqa.selenium.WebDriver;
 
-import browser.Browser;
-import browser.Element;
+import audPages.AllPages;
+import audPages.ApplicationManager;
 
 
-public class TempMail extends AllPages{
+public class TempMail extends AllPages implements Mail{
 	private ApplicationManager manager;
 	private WebDriver wd;
 	private String url="https://temp-mail.ru/";
@@ -34,8 +34,6 @@ public class TempMail extends AllPages{
 	
 	public String getEmail() throws Exception
 	{
-		
-	//	Thread.sleep(500);
 		return currentEmail.getAttribute("Value");
 	}
 	
