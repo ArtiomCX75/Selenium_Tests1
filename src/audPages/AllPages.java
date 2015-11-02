@@ -1,18 +1,11 @@
 package audPages;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
-
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class AllPages {
+	@SuppressWarnings("unused")
 	private ApplicationManager manager;
 	private WebDriver wd;
 	WebDriverWait wait;
@@ -28,14 +21,14 @@ public class AllPages {
 		wait = new WebDriverWait(wd, 10);
 		
 	}
-	
+	/*
 	public WebElement wait(WebElement we){
 		
 		wait.until(ExpectedConditions.elementToBeClickable(we));
 		
 	
 		return we;
-	}
+	}*/
 
 	
 }

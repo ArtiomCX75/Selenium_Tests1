@@ -2,112 +2,104 @@ package browser;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-//перенести вейт фор в элементс - передавать сервер и локальную переменную адреса
+import audPages.AllPages;
+import audPages.ApplicationManager;
 
-public class Element {
-	private double t = 0.0;
-	public String adres;
-	public type mytype;
-	public int id;
-	private static int counter = 0;
+public class Element extends AllPages {
+	public String xp;
+	private static WebDriver wd;
+	Double t = 0.50;
+	@SuppressWarnings("unused")
+	private ApplicationManager manager;
 
-	public Element(String s1) {
-		adres = s1;
-		mytype = type.url;
-		id = counter;
-		counter++;
+	public Element(String s) {
+		this.xp = s;
+		
 	}
 
-	public Element(String s1, type s2) {
-		adres = s1;
-		mytype = s2;
-		id = counter;
-		counter++;
+	public Element(ApplicationManager manager) {
+		this.manager = manager;
+		wd = manager.Driver;
+		
 	}
 
-	public enum type {
-		btn, lnk, chk, dwn, fld, url
-
+	public void click(){
+		
+			Browser.sl(t);
+		
+		while (wd.findElements(By.xpath(xp)).isEmpty()) {
+			try {
+				System.out.println("sleep............");
+				Thread.sleep(5000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		wd.findElement(By.xpath(xp)).click();
 	}
 
-	public void click(WebDriver driver) throws Exception {
-
-		click(driver, adres);
+	public void clear() {
+		wd.findElement(By.xpath(xp)).clear();
 	}
 
-	private void click(WebDriver driver, String adr) throws Exception {
+	public String getTagName() {
+		return wd.findElement(By.xpath(xp)).getTagName();
+	}
+
+	public String getText() {
+		return wd.findElement(By.xpath(xp)).getText();
+	}
+
+	public boolean isDisplayed() {
+		return wd.findElement(By.xpath(xp)).isDisplayed();
+	}
+
+	public boolean isEnabled() {
+		return wd.findElement(By.xpath(xp)).isEnabled();
+	}
+
+	public boolean isSelected() {
+		return wd.findElement(By.xpath(xp)).isSelected();
+	}
+
+	public void sendKeys(CharSequence... arg0) {
 		Browser.sl(t);
-		driver.findElement(By.xpath(adr)).click();
-		Browser.sl(t);
+		wd.findElement(By.xpath(xp)).sendKeys(arg0);
+		
 	}
 
-	///
-	public void type(WebDriver driver, String s) throws Exception {
-		type(driver, adres, s);
-
-	}
-
-	public void type(WebDriver driver, int i) throws Exception {
-		type(driver, adres, Integer.toString(i));
+	public void submit() {
+		wd.findElement(By.xpath(xp)).submit();
 
 	}
 
-	private void type(WebDriver driver, String adr, String s) throws Exception {
-		Browser.sl(t);
-		driver.findElement(By.xpath(adr)).sendKeys(s);
-		//Browser.sl(t);
+	public String getAttribute(String arg0) {
+		return wd.findElement(By.xpath(xp)).getAttribute(arg0);
 	}
 
-	///
-	public void load(WebDriver driver, String s) throws Exception {
-		load(driver, adres, s);
-
-	}
-
-	private void load(WebDriver driver, String adr, String s) throws Exception {
-		Browser.sl(t);
-		driver.findElement(By.xpath(adr)).sendKeys(s);
-		Browser.sl(1);
-	}
-
-	///
-	public void gt(WebDriver driver) throws Exception {
-	driver.get(adres);
-	Browser.waitFor(driver, adres);
-	}
-	
-	public void gt(WebDriver driver, String server) throws Exception {
-		driver.get(server+adres);
-		Browser.waitFor(driver, server+adres);
-	}
-	
-	public void gt(WebDriver driver, String server, String urldest) throws Exception {
-		driver.get(server+adres);
-		Browser.waitFor(driver, server+urldest);
-
-	}
-	
 	/*
-	
-	public void go(WebDriver driver, String server) throws Exception {
-		String adresnew=server+adres;
-		get(driver, adresnew);
-
-	}
-	public void go(WebDriver driver) throws Exception {
-		get(driver, adres);
-
-	}
-	public void get(WebDriver driver, String s) throws Exception {
-		//System.out.println("go to " + s);
-		driver.get(s);
-		Browser.waitFor(driver, s);
-	}
-	public void get(WebDriver driver, String s, String s1) throws Exception {
-		driver.get(s);
-		Browser.waitFor(driver, s1);
-	}*/
-	///
-	
-
+	 * @Override public <X> X getScreenshotAs(OutputType<X> arg0) throws
+	 * WebDriverException { // Auto-generated method stub return null; }
+	 * 
+	 * public WebElement findElement(By arg0) { // Auto-generated method stub
+	 * return null; }
+	 * 
+	 * @Override public List<WebElement> findElements(By arg0) { //
+	 * Auto-generated method stub return null; }
+	 * 
+	 * @Override
+	 * 
+	 * 
+	 * @Override public String getCssValue(String arg0) { // Auto-generated
+	 * method stub return null; }
+	 * 
+	 * @Override public Point getLocation() { // Auto-generated method stub
+	 * return null; }
+	 * 
+	 * @Override public Dimension getSize() { // Auto-generated method stub
+	 * return null; }
+	 * 
+	 * 
+	 */
 }

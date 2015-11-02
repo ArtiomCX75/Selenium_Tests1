@@ -2,36 +2,37 @@ package audTests;
 
 import java.io.FileInputStream;
 import java.io.ObjectInputStream;
-import org.junit.After;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import audPages.AudList;
-import audPages.AudLandAud;
-import audPages.AudLandPred;
 import audPages.UserAudAud;
 import browser.Browser;
-import browser.Constants;
 
-public class TestAuthAud extends Browser {
+public class TestAuthAud extends TestBase {
 
 	FileInputStream fis;
 	ObjectInputStream oin;
 
-	@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-		
-		wdr1=Browser.on();
-	}
-	
-	@After
-	public void after() {
-		wdr1.quit();
-	}
-
 	@Test
 	public void authorization() throws Exception {
+		
+		UserAudAud Aud1 = UserAudAud.readLast();	
+		app.landPred.open().btnVhodClick().login(Aud1);
+		app.cabPred.btnExit.click();
+		
+		//app.landPred.btnVhodClick().login(Pred1);
+		
+		
+		/*
+		
+		loginFromPredLand(Browser.wdr1, server, Pred1.email, Pred1.password);
+		logout(Browser.wdr1, server);
+		loginFromAudLand(Browser.wdr1, server, Pred1.email, Pred1.password);
+		logout(Browser.wdr1, server);
+		*/
+	}
+}
+/*
+	
+	public void authorization_old() throws Exception {
 		String server = Constants.urlAudTest;
 		UserAudAud Aud1 = new UserAudAud();
 		FileInputStream fis = new FileInputStream("temp_aud.txt");
@@ -104,3 +105,4 @@ public class TestAuthAud extends Browser {
 		catch(Exception e) {return false;}
 	}
 }
+*/

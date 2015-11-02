@@ -1,34 +1,20 @@
 package audTests;
 
-import java.io.FileInputStream;
-import java.io.ObjectInputStream;
-import org.junit.After;
-import org.junit.BeforeClass;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import audPages.AudCabPred;
-import audPages.AudLandAud;
-import audPages.AudLandPred;
 import audPages.UserAudPred;
-import browser.Browser;
-import browser.Constants;
 
 public class TestAuthPred extends TestBase {
 
-	FileInputStream fis;
-	ObjectInputStream oin;
+
 
 
 
 	@Test
 	public void authorization() throws Exception {
 		
-		UserAudPred Pred1 = new UserAudPred();
-		Pred1=UserAudPred.readLast();	
-		app.landPred.btnVhodClick().login(Pred1);
-		
-		
+		UserAudPred Pred1 = UserAudPred.readLast();	
+		app.landPred.open().btnVhodClick().login(Pred1);
+		app.cabPred.btnExit.click();
 		//app.landPred.btnVhodClick().login(Pred1);
 		
 		

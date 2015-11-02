@@ -1,8 +1,6 @@
 package audHelpers;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import audPages.AllPages;
@@ -36,13 +34,13 @@ public class LoginHelper extends AllPages{
 		return new AudBid(manager);
 	}
 	private void login(String login, String pass){
-		wait(manager.landPred.fldLogin).sendKeys(login);
-		wait(manager.landPred.fldLogin).sendKeys(pass);
-		wait(manager.landPred.fldLogin).click();
+		manager.landPred.fldLogin.sendKeys(login);
+		manager.landPred.fldPass.sendKeys(pass);
+		manager.landPred.btnLoginSubmit.click();
 	}
 	
 	public AllPages btnEscClick(){
-		wait(manager.landPred.btnEsc).click();
+		manager.landPred.btnEsc.click();
 		return new AllPages(manager);
 	}
 	

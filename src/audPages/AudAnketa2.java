@@ -1,47 +1,62 @@
 package audPages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+
+import browser.Browser;
+import browser.Element;
+import browser.Files;
 
 public class AudAnketa2 {
 	private ApplicationManager manager;
 	private WebDriver wd;
-	private String url="/#/auditors/registration";
-	
+	private String url = "/#/auditors/registration";
+
 	public AudAnketa2(ApplicationManager manager) {
-		this.manager=manager;
-		this.wd=manager.Driver;
-		PageFactory.initElements(this.wd, this);
+		this.manager = manager;
+		this.wd = manager.Driver;
+		
 	}
 
-	public AudAnketa2 open(){
-		wd.get(manager.BaseUrl+url);
+	public AudAnketa2 open() {
+		wd.get(manager.BaseUrl + url);
 		return new AudAnketa2(manager);
 	}
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[1]/label/input")
-	public WebElement fldDateOfBirth;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[2]/label/input")
-	public WebElement fldSnils;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[3]/label/input")
-	public WebElement fldPassNumber;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[4]/label/input")
-	public WebElement fldCity;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[5]/label/input")
-	public WebElement fldStreet;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[6]/label/input")
-	public WebElement fldHouse;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[7]/label/input")
-	public WebElement fldFlat;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[3]/div[1]/label/input")
-	public WebElement fldBic;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[3]/div[4]/label/input")
-	public WebElement fldBill;
-	@FindBy(xpath="//input[starts-with(@type,'file')][starts-with(@accept,'im')]")
-	public WebElement dwnDownloadFile;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[5]/label/span[1]")
-	public WebElement chkAgree;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[6]")
-	public WebElement btnSend;
+
+	public void fillFields(UserAudAud user){
+		manager.anketa2.fldDateOfBirth.sendKeys(user.dateOfBirth);
+		manager.anketa2.fldSnils.sendKeys(user.snils);
+		manager.anketa2.fldPassNumber.sendKeys(user.passNumber);
+		manager.anketa2.fldCity.sendKeys(user.city);
+		manager.anketa2.fldStreet.sendKeys(user.street);
+		manager.anketa2.fldHouse.sendKeys(user.house);
+		manager.anketa2.fldFlat.sendKeys(user.flat);
+		manager.anketa2.fldBic.sendKeys(user.bic);
+		manager.anketa2.fldBill.sendKeys(user.bill);
+		manager.anketa2.dwnDownloadFile.sendKeys(Files.jpgfile1);
+		manager.anketa2.chkAgree.click();
+		manager.anketa2.btnSend.click();
+		
+	}
+	
+	public Element fldDateOfBirth = new Element(
+			"html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[1]/label/input");
+	public Element fldSnils = new Element(
+			"html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[2]/label/input");
+	public Element fldPassNumber = new Element(
+			"html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[3]/label/input");
+	public Element fldCity = new Element(
+			"html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[4]/label/input");
+	public Element fldStreet = new Element(
+			"html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[5]/label/input");
+	public Element fldHouse = new Element(
+			"html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[6]/label/input");
+	public Element fldFlat = new Element(
+			"html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[7]/label/input");
+	public Element fldBic = new Element(
+			"html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[3]/div[1]/label/input");
+	public Element fldBill = new Element(
+			"html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[3]/div[4]/label/input");
+	public Element dwnDownloadFile = new Element("//input[starts-with(@type,'file')][starts-with(@accept,'im')]");
+	public Element chkAgree = new Element("html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[5]/label/span[1]");
+	public Element btnSend = new Element("html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[6]");
 }

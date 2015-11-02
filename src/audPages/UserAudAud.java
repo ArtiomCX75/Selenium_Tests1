@@ -1,5 +1,7 @@
 package audPages;
 
+import java.io.FileInputStream;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 
 import browser.User;
@@ -38,4 +40,26 @@ public class UserAudAud  extends User implements java.io.Serializable  {
 		login="login";
 		password="123456";
 	}
+	
+	static FileInputStream fis;
+	static ObjectInputStream oin;
+	
+	public static UserAudAud readLast() throws Exception  {
+		System.out.println("1");
+		UserAudAud user;
+		System.out.println("2");
+		fis = new FileInputStream("temp_aud.txt");
+		System.out.println("3");
+		ObjectInputStream oin = null;
+		oin = new ObjectInputStream(fis);
+		System.out.println("4");
+		user = (UserAudAud) oin.readObject();
+		System.out.println("5");
+		oin.close();
+		System.out.println("6");
+		System.out.println("email= " + user.email);
+		System.out.println("pass= " + user.password);
+		return user;
+		}
+	
 }

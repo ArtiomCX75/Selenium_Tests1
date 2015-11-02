@@ -1,12 +1,7 @@
 package audPages;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import browser.Element;
 
 public class AudDocs extends AllPages{
 	private ApplicationManager manager;
@@ -16,7 +11,6 @@ public class AudDocs extends AllPages{
 	public AudDocs(ApplicationManager manager) {
 		this.manager=manager;
 		this.wd=manager.Driver;
-		PageFactory.initElements(this.wd, this);
 	}
 	
 	public AudDocs open(){
@@ -24,19 +18,13 @@ public class AudDocs extends AllPages{
 		return new AudDocs(manager);
 	}
 	
-	@FindBy(xpath="//input[starts-with(@type,'file')][starts-with(@accept,'ap')]")
-	public WebElement dwnDownloadFile;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[4]/div[1]/input")
-	public WebElement fldSearch;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[3]/div/div/label")
-	public WebElement chkAnyAuditor;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[4]/div[2]/div[1]")
-	public WebElement chkAuditor1;
+	public Element dwnDownloadFile=new Element("//input[starts-with(@type,'file')][starts-with(@accept,'ap')]");
+	public Element fldSearch=new Element("html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[4]/div[1]/input");
+	public Element chkAnyAuditor=new Element("html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[3]/div/div/label");
+	public Element chkAuditor1=new Element("html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[4]/div[2]/div[1]");
 	//@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[5]/button")
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[5]/button[@class='documents__submit btn btn_green']")
-	public WebElement btnSend;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div/a")
-	public WebElement btnSendNext;
+	public Element btnSend=new Element("html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[5]/button[@class='documents__submit btn btn_green']");
+	public Element btnSendNext=new Element("html/body/div[1]/div/ng-view/div/div[2]/div/a");
 
 	
 }

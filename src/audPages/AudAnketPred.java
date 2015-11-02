@@ -1,11 +1,8 @@
 package audPages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
 
-import audHelpers.LoginHelper;
+import browser.Element;
 
 public class AudAnketPred extends AllPages{
 	private ApplicationManager manager;
@@ -15,7 +12,7 @@ public class AudAnketPred extends AllPages{
 	public AudAnketPred(ApplicationManager manager) {
 		this.manager=manager;
 		this.wd=manager.Driver;
-		PageFactory.initElements(this.wd, this);
+		
 	}
 
 	public AudAnketPred open(){
@@ -40,25 +37,25 @@ public class AudAnketPred extends AllPages{
 	
 		
 	
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div/div/form/div[1]/div[1]/label[1]/input")
-	public WebElement fldNazvOrg;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div/div/form/div[1]/div[1]/label[2]/input")
-	public WebElement fldContactFio;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div/div/form/div[1]/div[1]/label[3]/input")
-	public WebElement fldVidDej;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div/div/form/div[1]/div[2]/label[1]/input")
-	public WebElement fldGenDir;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div/div/form/div[1]/div[2]/label[2]/input")
-	public WebElement fldUsualPhone;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div/div/form/div[1]/div[2]/label[3]/input")
-	public WebElement fldPhone;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div/div/form/div[2]/div[1]/label/input")
-	public WebElement fldEmail;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div/div/form/div[2]/div[2]/label/input")
-	public WebElement fldPass;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div/div/form/div[2]/div[2]/div/div/label/span[1]")
-	public WebElement chkAgree;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div/div/form/div[2]/div[1]/div/button")
-	public WebElement btnZakaz;
+	public Element fldNazvOrg = new Element(	"html/body/div[1]/div/ng-view/div/div/div/form/div[1]/div[1]/label[1]/input"
+);
+	public Element fldContactFio = new Element(	"html/body/div[1]/div/ng-view/div/div/div/form/div[1]/div[1]/label[2]/input"
+);
+	public Element fldVidDej = new Element(	"html/body/div[1]/div/ng-view/div/div/div/form/div[1]/div[1]/label[3]/input"
+);
+	public Element fldGenDir = new Element(	"html/body/div[1]/div/ng-view/div/div/div/form/div[1]/div[2]/label[1]/input"
+);
+	public Element fldUsualPhone = new Element(	"html/body/div[1]/div/ng-view/div/div/div/form/div[1]/div[2]/label[2]/input"
+);
+	public Element fldPhone = new Element(	"html/body/div[1]/div/ng-view/div/div/div/form/div[1]/div[2]/label[3]/input"
+);
+	public Element fldEmail = new Element(	"html/body/div[1]/div/ng-view/div/div/div/form/div[2]/div[1]/label/input"
+);
+	public Element fldPass = new Element(	"html/body/div[1]/div/ng-view/div/div/div/form/div[2]/div[2]/label/input"
+);
+	public Element chkAgree = new Element(	"html/body/div[1]/div/ng-view/div/div/div/form/div[2]/div[2]/div/div/label/span[1]"
+);
+	
+	public Element btnZakaz = new Element("html/body/div[1]/div/ng-view/div/div/div/form/div[2]/div[1]/div/button");
 	
 }

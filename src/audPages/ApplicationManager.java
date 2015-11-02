@@ -7,9 +7,12 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import audHelpers.LoginHelper;
-import audHelpers.Helper;
+import browser.Browser;
+import browser.Element;
+import browser.Files;
 import audHelpers.Helper;
 
+@SuppressWarnings("unused")
 public class ApplicationManager {
 
 	public String BaseUrl;
@@ -27,9 +30,9 @@ public class ApplicationManager {
 	public AudPaid paid;
 	public AudPay pay;
 	public TempMail tempMail;
+	public Element el;
 	
 	
-	public Helper regH;
 	public Helper helper;
 	public LoginHelper loginH;
 	public ApplicationManager(String baseUrl) {
@@ -40,6 +43,8 @@ public class ApplicationManager {
 		Driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		BaseUrl=baseUrl;
 		all=new AllPages(this);
+		
+		el = new Element(this);
 		
 		anketa1 = new AudAnketa1(this);
 		anketa2 = new AudAnketa2(this);
@@ -54,10 +59,10 @@ public class ApplicationManager {
 		pay = new AudPay(this);
 		tempMail = new TempMail(this);
 		loginH = new LoginHelper(this);
-		regH = new Helper(this);
 		helper = new Helper(this);
 		
 		
+	
 		
 	}
 

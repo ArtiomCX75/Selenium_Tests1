@@ -74,11 +74,16 @@ public class Browser{
 		}*/
 	}
 
-	public static void sl(double d) throws InterruptedException { // пауза в
+	public static void sl(double d) { // пауза в
 																	// секундах
 		d = d * 1000;
 		int i = (int) d;
-		Thread.sleep(i);
+		try {
+			Thread.sleep(i);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

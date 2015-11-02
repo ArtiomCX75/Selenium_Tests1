@@ -1,9 +1,9 @@
 package audPages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+
+
+import browser.Element;
 
 public class AudPay extends AllPages{
 	private ApplicationManager manager;
@@ -13,7 +13,7 @@ public class AudPay extends AllPages{
 	public AudPay(ApplicationManager manager) {
 		this.manager=manager;
 		this.wd=manager.Driver;
-		PageFactory.initElements(this.wd, this);
+	
 	}
 
 	public AudPay open(){
@@ -21,6 +21,5 @@ public class AudPay extends AllPages{
 		return new AudPay(manager);
 	}
 	
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div/div/a")
-	public WebElement btnGetBill;
+	public Element btnGetBill = new Element("html/body/div[1]/div/ng-view/div/div/div/a");
 }

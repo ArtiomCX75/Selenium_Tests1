@@ -1,49 +1,62 @@
 package audPages;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.PageFactory;
+
+import browser.Browser;
+import browser.Element;
+import browser.Files;
 
 public class AudAnketa1 {
 	private ApplicationManager manager;
 	private WebDriver wd;
-	private String url="/#/questionnaire";
-	
+	private String url = "/#/questionnaire";
+
 	public AudAnketa1(ApplicationManager manager) {
-		this.manager=manager;
-		this.wd=manager.Driver;
-		PageFactory.initElements(this.wd, this);
+		this.manager = manager;
+		this.wd = manager.Driver;
+		
 	}
-	
-	public AudAnketa1 open(){
-		wd.get(manager.BaseUrl+url);
+
+	public AudAnketa1 open() {
+		wd.get(manager.BaseUrl + url);
 		return new AudAnketa1(manager);
 	}
-	
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[1]/label/input")
-	public WebElement fldSurname;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[2]/label/input")
-	public WebElement fldName;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[3]/label/input")
-	public WebElement fldMiddlename;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[4]/label/input")
-	public WebElement fldPhone;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[5]/label/input")
-	public WebElement fldEmail;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[2]/div[1]/label/input")
-	public WebElement fldNumberAt;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[2]/div[2]/label/input")
-	public WebElement fldExp;
-	@FindBy(xpath="//input[starts-with(@type,'file')][starts-with(@accept,'ap')]")
-	public WebElement dwnDownloadFile;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[4]/label/span[1]")
-	public WebElement chkAgr1;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[5]/label/span[1]")
-	public WebElement chkAgr2;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[6]/button")
-	public WebElement btnSend;
-	@FindBy(xpath="html/body/div[1]/div/ng-view/div/div/div[1]/a")
-	public WebElement btnNext;
-}
 
+	public void fillFields(UserAudAud user) throws Exception{
+		fldSurname.sendKeys(user.surName);
+		fldName.sendKeys(user.name);
+		fldPhone.sendKeys(user.phoneNumber);
+		fldNumberAt.sendKeys(user.numberAt);
+		fldExp.sendKeys(user.exp);
+		dwnDownloadFile.sendKeys(Files.pdffile1);
+		chkAgr1.click();
+		chkAgr2.click();
+		fldMiddlename.sendKeys(user.middleName);
+		fldEmail.sendKeys(user.email);
+		btnSend.click();
+		Browser.sl(2);
+		btnNext.click();
+	}
+	
+	
+	public static Element fldSurname = new Element("html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[1]/label/input");
+	public Element fldName = new Element(
+			"html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[2]/label/input");
+	public Element fldMiddlename = new Element(
+			"html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[3]/label/input");
+	public Element fldPhone = new Element(
+			"html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[4]/label/input");
+	public Element fldEmail = new Element(
+			"html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[5]/label/input");
+	public Element fldNumberAt = new Element(
+			"html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[2]/div[1]/label/input");
+	public Element fldExp = new Element(
+			"html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[2]/div[2]/label/input");
+	public Element dwnDownloadFile = new Element("//input[starts-with(@type,'file')][starts-with(@accept,'ap')]");
+	public Element chkAgr1 = new Element("html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[4]/label/span[1]");
+	public Element chkAgr2 = new Element("html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[5]/label/span[1]");
+
+	public Element btnSend = new Element("html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[6]/button");
+
+	public Element btnNext = new Element("html/body/div[1]/div/ng-view/div/div/div[1]/a");
+}

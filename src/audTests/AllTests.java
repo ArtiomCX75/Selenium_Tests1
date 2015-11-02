@@ -11,8 +11,9 @@ import org.junit.runners.Suite;
 TestRegAud.class, 
 TestRegPred.class,
 TestAuthPred.class,
-TestAuthAud.class,
-TestDeal.class})
+TestAuthAud.class
+
+})
 
 
 public class AllTests {
