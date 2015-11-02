@@ -8,7 +8,7 @@ import audPages.ApplicationManager;
 public class Element extends AllPages {
 	public String xp;
 	private static WebDriver wd;
-	Double t = 0.50;
+	Double t = 01.60;
 	@SuppressWarnings("unused")
 	private ApplicationManager manager;
 

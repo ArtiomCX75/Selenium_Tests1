@@ -31,10 +31,11 @@ public class ApplicationManager {
 	public AudPay pay;
 	public TempMail tempMail;
 	public Element el;
-	
+	public TempMail2 tempMail2;
 	
 	public Helper helper;
 	public LoginHelper loginH;
+	
 	public ApplicationManager(String baseUrl) {
 		System.setProperty("webdriver.chrome.driver", ".//chromedriver.exe");
 		Driver=new ChromeDriver();
@@ -58,6 +59,7 @@ public class ApplicationManager {
 		paid = new AudPaid(this);
 		pay = new AudPay(this);
 		tempMail = new TempMail(this);
+		tempMail2 = new TempMail2(this);
 		loginH = new LoginHelper(this);
 		helper = new Helper(this);
 		

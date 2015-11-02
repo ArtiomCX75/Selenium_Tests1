@@ -23,7 +23,7 @@ public class TestBase {
 	//static ApplicationManager app2 = new ApplicationManager(baseUrl); 
 	}
 	
-	@AfterClass
+	//@AfterClass
 	public static void after() throws Exception{
 		app.Driver.quit();
 	//	app2.Driver.close();
