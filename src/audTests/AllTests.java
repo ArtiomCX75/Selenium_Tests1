@@ -11,22 +11,10 @@ import org.junit.runners.Suite;
 TestRegAud.class, 
 TestRegPred.class,
 TestAuthPred.class,
-TestAuthAud.class,
-TestDeal.class})
+TestAuthAud.class
 
+})
 
 public class AllTests {
 
 }
-/*
-один тестовый класс логин-логаут в котором обычные методы логин и логаут.
-в других (тестовых) методах вызывать методы логин/логаут
-
-
-
-
-
-
-
-
-*/

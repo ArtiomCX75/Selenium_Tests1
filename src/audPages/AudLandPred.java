@@ -1,35 +1,92 @@
 package audPages;
 
+import org.openqa.selenium.WebDriver;
+import audHelpers.LoginHelper;
 import browser.Element;
-import browser.Element.type;
 
-public class AudLandPred {
+public class AudLandPred extends AllPages {
+	private ApplicationManager manager;
+	private WebDriver wd;
+	private String url = "/";
 
-	public static Element url = new Element("/#/");
-	public static Element lnkLogoHeader=new Element("html/body/div[1]/div/ng-view/div[1]/header/span",type.lnk);
-	public static Element lnkONas=new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[1]/span",type.lnk);
-	public static Element lnkKakPr=new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[2]/span",type.lnk);
-	public static Element lnkKomanda=new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[3]/span",type.lnk);
-	public static Element lnkVoprosy=new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[4]/span",type.lnk);
-	public static Element lnkZakon=new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[5]/span",type.lnk);
-	public static Element lnkUznatUr=new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[6]/span",type.lnk);
-	public static Element btnVhod=new Element("html/body/div[1]/div/ng-view/div[1]/header/div/span",type.btn);
-	//after click btnVhod
-	public static Element fldLogin=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/label[1]/input",type.fld);
-	public static Element fldPass=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/label[2]/input",type.fld);
-	public static Element btnLoginSubmit=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/input",type.btn);
-	public static Element lnkVosstanParol=new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/span",type.lnk);
-	public static Element btnEsc=new Element("html/body/div[4]/table/tbody/tr/td/div/span[2]",type.btn);
-	public static Element btnZakazAud=new Element("html/body/div[1]/div/ng-view/div[1]/section[1]/div/div/div/div/span[2]",type.btn);
-	public static Element fldUrSusch1=new Element("html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[1]/label[1]/input",type.fld);
-	public static Element fldUrSusch2=new Element("html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[1]/label[2]/input",type.fld);
-	public static Element fldUrSusch3=new Element("html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[1]/label[3]/input",type.fld);
-	public static Element fldUrSusch4=new Element("html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[1]/label[4]/input",type.fld);
-	public static Element fldUrSusch5=new Element("html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[2]/label[1]/input",type.fld);
-	public static Element fldUrSusch6=new Element("html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[2]/label[2]/input",type.fld);
-	public static Element fldUrSusch7=new Element("html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[2]/label[3]/input",type.fld);
-	public static Element fldUrSusch8=new Element("html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[2]/label[4]/input",type.fld);
-	public static Element btnRassch=new Element("html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/button",type.btn);
+	public AudLandPred(ApplicationManager manager) {
+		this.manager = manager;
+		this.wd = manager.Driver;
+
+	}
+
+	public AudLandPred open() {
+		wd.get(manager.BaseUrl + url);
+
+		return new AudLandPred(manager);
+	}
+
+	public LoginHelper btnVhodClick() {
+		btnVhod.click();
+		return new LoginHelper(manager);
+	}
+
+	public AudLandPred btnZakazAudClick() {
+		btnZakazAud.click();
+		return new AudLandPred(manager);
+	}
+
+	public AudAnketPred fillTheFields(int s1, int s2, int s3, int s4, int s5, int s6, int s7, int s8) {
+
+		fillTheFields(Integer.toString(s1), Integer.toString(s2), Integer.toString(s3), Integer.toString(s4),
+				Integer.toString(s5), Integer.toString(s6), Integer.toString(s7), Integer.toString(s8));
+		return new AudAnketPred(manager);
+	}
+
+	public AudAnketPred fillTheFields(String s1, String s2, String s3, String s4, String s5, String s6, String s7,
+			String s8) {
+		fldUrSusch1.sendKeys(s1);
+		fldUrSusch2.sendKeys(s2);
+		fldUrSusch3.sendKeys(s3);
+		fldUrSusch4.sendKeys(s4);
+		fldUrSusch5.sendKeys(s5);
+		fldUrSusch6.sendKeys(s6);
+		fldUrSusch7.sendKeys(s7);
+		fldUrSusch8.sendKeys(s8);
+		btnRassch.click();
+		return new AudAnketPred(manager);
+
+	}
+
+	public Element lnkLogoHeader = new Element("html/body/div[1]/div/ng-view/div[1]/header/span");
+	public Element lnkONas = new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[1]/span");
+	public Element lnkKakPr = new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[2]/span");
+	public Element lnkKomanda = new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[3]/span");
+	public Element lnkVoprosy = new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[4]/span");
+	public Element lnkZakon = new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[5]/span");
+	public Element lnkUznatUr = new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[6]/span");
+
+	public Element btnVhod = new Element("html/body/div[1]/div/ng-view/div[1]/header/div/span");
+
+	public Element fldLogin = new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/label[1]/input");
+	public Element fldPass = new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/label[2]/input");
+	public Element btnLoginSubmit = new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/input");
+	public Element lnkVosstanParol = new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/span");
+	public Element btnEsc = new Element("html/body/div[4]/table/tbody/tr/td/div/span[2]");
+
+	public Element btnZakazAud = new Element("html/body/div[1]/div/ng-view/div[1]/section[1]/div/div/div/div/span[2]");
+
+	public Element fldUrSusch1 = new Element(
+			"html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[1]/label[1]/input");
+	public Element fldUrSusch2 = new Element(
+			"html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[1]/label[2]/input");
+	public Element fldUrSusch3 = new Element(
+			"html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[1]/label[3]/input");
+	public Element fldUrSusch4 = new Element(
+			"html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[1]/label[4]/input");
+	public Element fldUrSusch5 = new Element(
+			"html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[2]/label[1]/input");
+	public Element fldUrSusch6 = new Element(
+			"html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[2]/label[2]/input");
+	public Element fldUrSusch7 = new Element(
+			"html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[2]/label[3]/input");
+	public Element fldUrSusch8 = new Element(
+			"html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/div/div[2]/label[4]/input");
+	public Element btnRassch = new Element("html/body/div[1]/div/ng-view/div[1]/section[8]/div/form/button");
+
 }
-	
-

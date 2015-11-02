@@ -1,9 +1,25 @@
 package audPages;
 
-import browser.Element;
-import browser.Element.type;
+import org.openqa.selenium.WebDriver;
 
-public class AudPay {
-	public static Element url = new Element("/#/create/pay");
-	public static Element btnGetBill=new Element("html/body/div[1]/div/ng-view/div/div/div/a",type.btn);
+
+import browser.Element;
+
+public class AudPay extends AllPages{
+	private ApplicationManager manager;
+	private WebDriver wd;
+	private String url="/#/create/pay";
+	
+	public AudPay(ApplicationManager manager) {
+		this.manager=manager;
+		this.wd=manager.Driver;
+	
+	}
+
+	public AudPay open(){
+		wd.get(manager.BaseUrl+url);
+		return new AudPay(manager);
+	}
+	
+	public Element btnGetBill = new Element("html/body/div[1]/div/ng-view/div/div/div/a[contains(text(),'25 000')]");
 }

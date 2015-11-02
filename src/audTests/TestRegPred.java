@@ -1,111 +1,77 @@
 
 package audTests;
 
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
-import org.junit.BeforeClass;
-import org.junit.AfterClass;
 import org.junit.Test;
-import org.openqa.selenium.Point;
-import org.openqa.selenium.WebDriver;
-import audPages.AudAnketPred;
-import audPages.AudCabPred;
-import audPages.AudDocs;
-import audPages.AudLandPred;
-import audPages.AudPaid;
-import audPages.AudPay;
+
 import audPages.UserAudPred;
 import browser.Browser;
-import browser.Constants;
-import browser.Files;
-import browser.TempMail;
+import browser.Mail;
 
-public class TestRegPred extends Browser {
-	//WebDriver d;
-	static String email;
-	static String date;
-	static UserAudPred Pred1 = new UserAudPred();
-	
-@BeforeClass
-	public static void setUpBeforeClass() throws Exception {
-		
-			wdr1=Browser.on();
-			wdr2=Browser.on();
-			wdr2.manage().window().setPosition(new Point(2000, 0));
-			wdr2.manage().window().maximize();			
-	}
-	
-	
-	@AfterClass
-	public static void tearDownAfterClass() throws Exception {
-		//Browser.sl(10);
-		wdr1.quit();
-		wdr2.quit();	
-	}
-	static Thread secondThread = new Thread(new Runnable() {
-		public void run() 
-		{	try{
-			System.out.println("second");
-			email = TempMail.setMail(wdr2,"pred"+date);
-			Pred1.email = email;
-			//wdr2.quit();
-		}
-		catch(Exception e){};
-		}
-	});
+public class TestRegPred extends TestBase {
+
 	@Test
 	public void regPred() throws Exception {
-		reg_pred();
-	}
-	public static void reg_pred() throws Exception {
-		String server = Constants.urlAudTest;
-		date = Browser.what_date("post");
+		String date = Browser.what_date("post");
+		Mail mail = app.tempMail;
+		UserAudPred Pred1 = new UserAudPred();
 		Pred1.setDefault();
-		Pred1.email="";
-		secondThread.start();
-		WebDriver d=wdr1;
-		Pred1.contactName=Pred1.contactName+date;
-		AudLandPred.url.gt(d, server);
-		AudLandPred.lnkUznatUr.click(d);
-		AudLandPred.fldUrSusch1.type(d, Pred1.urSusch[0]);
-		AudLandPred.fldUrSusch2.type(d, Pred1.urSusch[1]);
-		AudLandPred.fldUrSusch3.type(d, Pred1.urSusch[2]);
-		AudLandPred.fldUrSusch4.type(d, Pred1.urSusch[3]);
-		AudLandPred.fldUrSusch5.type(d, Pred1.urSusch[4]);
-		AudLandPred.fldUrSusch6.type(d, Pred1.urSusch[5]);
-		AudLandPred.fldUrSusch7.type(d, Pred1.urSusch[6]);
-		AudLandPred.fldUrSusch8.type(d, Pred1.urSusch[7]);
-		AudLandPred.btnRassch.click(d);
-		Browser.waitFor(d, server+AudAnketPred.url.adres);
-		AudAnketPred.fldNazvOrg.type(d, Pred1.orgName);
-		AudAnketPred.fldContactFio.type(d, Pred1.contactName);
-		AudAnketPred.fldGenDir.type(d, Pred1.genDir);
-		AudAnketPred.fldVidDej.type(d, Pred1.vidDej);
-		AudAnketPred.fldUsualPhone.type(d, Pred1.usualPhone);
-		AudAnketPred.fldPhone.type(d, Pred1.phoneNumber);
-		AudAnketPred.fldPass.type(d, Pred1.password);
-		secondThread.join();
-		AudAnketPred.fldEmail.type(d, Pred1.email);
-		AudAnketPred.chkAgree.click(d);
-		AudAnketPred.btnZakaz.click(d);
-		Browser.waitFor(d, server+AudPay.url.adres);
-		AudPay.btnGetBill.click(d);
-		Browser.waitFor(d, server+AudPaid.url.adres);
-		AudPaid.btnDwnloadDocs.click(d);
-		Browser.sl(3);
-		Browser.waitFor(d, server+AudDocs.url.adres);
-		AudDocs.dwnDownloadFile.load(d, Files.pdffile1);
-		//Browser.sl(10);
-		AudDocs.btnSend.click(d);
-		Browser.waitFor(d, server+AudCabPred.url.adres);
-		Browser.sl(3);
-		FileOutputStream fos = new FileOutputStream("temp_pred.txt");
-		  ObjectOutputStream oos = new ObjectOutputStream(fos);
-		  oos.writeObject(Pred1);
-		  oos.flush();
-		  oos.close();
-		  System.out.println("DONE");
+		Pred1.email = mail.setMail("pred" + date);
+		Pred1.contactName = Pred1.contactName + date;
+
+		app.helper.reg_pred(Pred1);
+
 	}
+
 }
 
-
+/*
+ * // Google's search is rendered dynamically with JavaScript. // Wait for the
+ * page to load, timeout after 10 seconds (new WebDriverWait(driver,
+ * 10)).until(new ExpectedCondition<Boolean>() { public Boolean apply(WebDriver
+ * d) { return d.getTitle().toLowerCase().startsWith("cheese!"); } });
+ * 
+ * 
+ * 
+ * 
+ * public void safeClick(String elementLocator) { WebElement webElement =
+ * getDriver().findElement(By.XXXX(elementLocator)); if(webElement != null) {
+ * selenium.click(elementLocator); } else { // Используем TestNG API для
+ * логирования Reporter.log("Element: " +elementLocator+
+ * ", is not available on page - " + getDriver().getUrl()); } }
+ * 
+ * 
+ * 
+ * 
+ * 
+ * public static File captureElementBitmap(WebDriver, driver, WebElement
+ * element) throws Exception { // Делаем скриншот страницы File screen =
+ * ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE); // Создаем
+ * экземпляр BufferedImage для работы с изображением BufferedImage img =
+ * ImageIO.read(screen); // Получаем размеры элемента int width =
+ * element.getSize().getWidth(); int height = element.getSize().getHeight(); //
+ * Создаем прямоуголник (Rectangle) с размерами элемента Rectangle rect = new
+ * Rectangle(width, height); // Получаем координаты элемента Point p =
+ * element.getLocation(); // Вырезаем изображенеи элемента из общего изображения
+ * BufferedImage dest = img.getSubimage(p.getX(), p.getY(), rect.width,
+ * rect.height); // Перезаписываем File screen ImageIO.write(dest, "png",
+ * screen); // Возвращаем File c изображением элемента return screen; }
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ * 
+ */

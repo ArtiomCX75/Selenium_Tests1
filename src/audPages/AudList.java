@@ -1,11 +1,24 @@
 package audPages;
 
-import browser.Element;
-//import browser.Element.type;
-import browser.Element.type;
+import org.openqa.selenium.WebDriver;
 
-public class AudList {
-	public static Element url = new Element("/#/list");
-	//public static Element fldDateOfBirth=new Element("html/body/div[1]/div/ng-view/div/div[2]/div[2]/form/div[1]/div[1]/label/input", type.fld);
-	public static Element btnExit=new Element("html/body/div[1]/div/ng-view/header/div/div/a", type.btn);
+import browser.Element;
+
+public class AudList extends AllPages {
+	private ApplicationManager manager;
+	private WebDriver wd;
+	private String url = "#/list";
+
+	public AudList(ApplicationManager manager) {
+		this.manager = manager;
+		this.wd = manager.Driver;
+		
+	}
+
+	public AudList open() {
+		wd.get(manager.BaseUrl + url);
+		return new AudList(manager);
+	}
+
+	public Element btnExit = new Element("html/body/div[1]/div/ng-view/header/div/div/a");
 }

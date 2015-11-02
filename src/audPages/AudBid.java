@@ -1,21 +1,34 @@
 package audPages;
 
+import org.openqa.selenium.WebDriver;
+
+
 import browser.Element;
-import browser.Element.type;
+
 
 public class AudBid {
-	public static Element url = new Element("/#/bid");
-	public static Element dwnDownloadFile=new Element("//input[@type='file']",type.dwn);
-	public static Element btnSendOrder=new Element("html/body/div[1]/div/ng-view/div/div/div[2]/div[2]/button", type.btn);
-	public static Element lnkZajavka=new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[1]/div[1]", type.lnk);
+	private ApplicationManager manager;
+	private WebDriver wd;
+	private String url="/#/bid";
 	
-	public static Element lnkAudZakl=new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[1]/div[2]", type.lnk);
-	public static Element chkVeryGood=new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[3]/div[1]/div[1]", type.chk);
-	
-	public static Element lnkAudRabDoc=new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[1]/div[3]", type.lnk);
+	public AudBid(ApplicationManager manager) {
+		this.manager=manager;
+		this.wd=manager.Driver;
+		
+		}
 
+	public AudBid open(){
+		wd.get(manager.BaseUrl+url);
+		return new AudBid(manager);
+	}
 	
-	public static Element btnSend=new Element("html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[5]/button", type.btn);
-	public static Element btnSendNext=new Element("html/body/div[1]/div/ng-view/div/div[2]/div/a", type.btn);
-	//input[@type='file']
+	public Element dwnDownloadFile = new Element("//input[@type='file']");
+	public Element btnSendOrder = new Element("html/body/div[1]/div/ng-view/div/div/div[2]/div[2]/button");
+	public Element lnkZajavka = new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[1]/div[1]");
+	public Element lnkAudZakl = new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[1]/div[2]");
+	public Element chkVeryGood = new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[3]/div[1]/div[1]");
+	public Element lnkAudRabDoc = new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[1]/div[3");
+	public Element btnSend = new Element("html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[5]/button");
+	public Element btnSendNext = new Element("html/body/div[1]/div/ng-view/div/div[2]/div/a");
+	public Element btnExit = new Element("html/body/div[1]/div/ng-view/header/div/div/a");
 }

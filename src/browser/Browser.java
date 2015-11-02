@@ -45,7 +45,7 @@ public class Browser{
 	
 
 	public static void waitFor(WebDriver driver, String s) throws Exception {
-		System.out.print("\n wait for "+s);
+		System.out.println("wait for "+s);
 		waitFr(driver, s);
 	}
 	
@@ -58,11 +58,11 @@ public class Browser{
 			}
 		}
 		if (i > 48) {
-			System.err.println("wait for " + s);
+			System.err.println("\nwait for " + s);
 			System.err.println("now is   " + driver.getCurrentUrl());
 			assertFalse("url doesn't load", true);
 		}
-		System.out.print("\t \t url OK \n");
+		System.out.println("url OK \n");
 	}
 
 
@@ -74,11 +74,16 @@ public class Browser{
 		}*/
 	}
 
-	public static void sl(double d) throws InterruptedException { // пауза в
+	public static void sl(double d) { // пауза в
 																	// секундах
 		d = d * 1000;
 		int i = (int) d;
-		Thread.sleep(i);
+		try {
+			Thread.sleep(i);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 
 	}
 

@@ -1,5 +1,9 @@
 package audPages;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 
 import browser.User;
@@ -33,5 +37,44 @@ public void setDefault() {
 	urSusch[6]=70;
 	urSusch[7]=80;
 	FIO=surName+" "+ name+" "+middleName;
-}
+}//FileNotFoundException
+
+static FileInputStream fis;
+static ObjectInputStream oin;
+
+	public static UserAudPred readLast(){
+	UserAudPred user=null;
+	try {
+		fis = new FileInputStream("temp_pred.txt");
+	} catch (FileNotFoundException e3) {
+		// TODO Auto-generated catch block
+		e3.printStackTrace();
+	}
+	ObjectInputStream oin = null;
+	try {
+		oin = new ObjectInputStream(fis);
+	} catch (IOException e2) {
+		// TODO Auto-generated catch block
+		e2.printStackTrace();
+	}
+	try {
+		user = (UserAudPred) oin.readObject();
+	} catch (ClassNotFoundException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	} catch (IOException e1) {
+		// TODO Auto-generated catch block
+		e1.printStackTrace();
+	}
+	try {
+		oin.close();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	System.out.println("email= " + user.email);
+	System.out.println("pass= " + user.password);
+	return user;
+	}
+
 }

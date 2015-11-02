@@ -1,5 +1,9 @@
 package audPages;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.Serializable;
 
 import browser.User;
@@ -38,4 +42,43 @@ public class UserAudAud  extends User implements java.io.Serializable  {
 		login="login";
 		password="123456";
 	}
+	
+	static FileInputStream fis;
+	static ObjectInputStream oin;
+	
+	public static UserAudAud readLast()   {
+		UserAudAud user=null;
+		try {
+			fis = new FileInputStream("temp_aud.txt");
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		ObjectInputStream oin = null;
+		try {
+			oin = new ObjectInputStream(fis);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			user = (UserAudAud) oin.readObject();
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			oin.close();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("email= " + user.email);
+		System.out.println("pass= " + user.password);
+		return user;
+		}
+	
 }

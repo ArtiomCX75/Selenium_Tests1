@@ -1,16 +1,16 @@
 package diskPages;
 
-import browser.Element;
-import browser.Element.type;
+import browser.OldElement;
+import browser.OldElement.type;
 
 public class DiskSettings extends DiskHeader {
-	public static Element url = new Element("/profile/settings");
-	public static Element fldSurname=new Element("html/body/ui-view/div/ui-view/div/div/div[2]/div/div/form/div[1]/div[1]/input-placeholder/div/ng-transclude/input", type.fld);
-	public static Element fldName=new Element("html/body/ui-view/div/ui-view/div/div/div[2]/div/div/form/div[1]/div[2]/input-placeholder/div/ng-transclude/input", type.fld);
-	public static Element fldMiddleName=new Element("html/body/ui-view/div/ui-view/div/div/div[2]/div/div/form/div[1]/div[3]/input-placeholder/div/ng-transclude/input", type.fld);
-	public static Element fldEmail=new Element("html/body/ui-view/div/ui-view/div/div/div[2]/div/div/form/div[1]/div[4]/input-placeholder/div/ng-transclude/input", type.fld);
-	public static Element fldBirthday=new Element("html/body/ui-view/div/ui-view/div/div/div[2]/div/div/form/div[1]/div[5]/input-placeholder/div/ng-transclude/input", type.fld);
-	public static Element fldOldPass=new Element("html/body/ui-view/div/ui-view/div/div/div[2]/div/div/form/div[1]/div[6]/input-placeholder/div/ng-transclude/input", type.fld);
-	public static Element fldNewPass=new Element("html/body/ui-view/div/ui-view/div/div/div[2]/div/div/form/div[1]/div[7]/input-placeholder/div/ng-transclude/input", type.fld);
-	public static Element btnSubmitChanges=new Element("html/body/ui-view/div/ui-view/div/div/div[2]/div/div/form/button", type.btn);
+	public static OldElement url = new OldElement("/profile/settings");
+	public static OldElement fldSurname=new OldElement("html/body/ui-view/div/ui-view/div/div/div[2]/div/div/form/div[1]/div[1]/input-placeholder/div/ng-transclude/input", type.fld);
+	public static OldElement fldName=new OldElement("html/body/ui-view/div/ui-view/div/div/div[2]/div/div/form/div[1]/div[2]/input-placeholder/div/ng-transclude/input", type.fld);
+	public static OldElement fldMiddleName=new OldElement("html/body/ui-view/div/ui-view/div/div/div[2]/div/div/form/div[1]/div[3]/input-placeholder/div/ng-transclude/input", type.fld);
+	public static OldElement fldEmail=new OldElement("html/body/ui-view/div/ui-view/div/div/div[2]/div/div/form/div[1]/div[4]/input-placeholder/div/ng-transclude/input", type.fld);
+	public static OldElement fldBirthday=new OldElement("html/body/ui-view/div/ui-view/div/div/div[2]/div/div/form/div[1]/div[5]/input-placeholder/div/ng-transclude/input", type.fld);
+	public static OldElement fldOldPass=new OldElement("html/body/ui-view/div/ui-view/div/div/div[2]/div/div/form/div[1]/div[6]/input-placeholder/div/ng-transclude/input", type.fld);
+	public static OldElement fldNewPass=new OldElement("html/body/ui-view/div/ui-view/div/div/div[2]/div/div/form/div[1]/div[7]/input-placeholder/div/ng-transclude/input", type.fld);
+	public static OldElement btnSubmitChanges=new OldElement("html/body/ui-view/div/ui-view/div/div/div[2]/div/div/form/button", type.btn);
 }
