@@ -11,7 +11,7 @@ import audPages.ApplicationManager;
 public class Element extends AllPages {
 	public String xp;
 	private static WebDriver wd;
-	public static Double t = 0.10;
+	public static Double t = 0.250;
 	@SuppressWarnings("unused")
 	private ApplicationManager manager;
 
@@ -46,7 +46,7 @@ public class Element extends AllPages {
 	}
 
 	public void safeClick() {
-		Browser.sl(t);
+		sl(t);
 		WebElement webElement = wd.findElement(By.xpath(xp)); 
 		if(webElement != null) {
 			wd.findElement(By.xpath(xp)).click();
@@ -84,7 +84,7 @@ public class Element extends AllPages {
 	}
 
 	public void sendKeys(CharSequence... arg0) {
-		Browser.sl(t);
+		sl(t);
 		wd.findElement(By.xpath(xp)).sendKeys(arg0);
 		
 	}
@@ -96,6 +96,16 @@ public class Element extends AllPages {
 
 	public String getAttribute(String arg0) {
 		return wd.findElement(By.xpath(xp)).getAttribute(arg0);
+	}
+	
+	public static void sl(double d) { 
+		d = d * 1000;
+		int i = (int) d;
+		try {
+			Thread.sleep(i);
+		} catch (InterruptedException e) {
+		e.printStackTrace();
+		}
 	}
 
 	/*

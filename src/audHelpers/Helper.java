@@ -9,6 +9,7 @@ import audPages.AllPages;
 import audPages.ApplicationManager;
 import audPages.UserAudAud;
 import audPages.UserAudPred;
+import browser.Element;
 import browser.Files;
 
 public class Helper extends AllPages {
@@ -51,17 +52,11 @@ public class Helper extends AllPages {
 		//
 	}
 
-	public void reg_aud(UserAudAud user) throws Exception {
+	public void reg_aud(UserAudAud user, String semiemail) throws Exception {
 		manager.landAud.open().btnStartWork.click();
 		manager.anketa1.fillFields(user);
-		manager.tempMail.open();
-		while (manager.Driver.findElements(By.xpath("html/body/div[1]/div/div/div[2]/div/div/table/tbody/tr/td[2]/a")).isEmpty()) {
-			manager.tempMail.btnReload.click();
-		}
-		manager.Driver.findElement(By.xpath("html/body/div[1]/div/div/div[2]/div/div/table/tbody/tr/td[2]/a")).click();
-		user.login = manager.Driver.findElement(By.xpath("html/body/div[1]/div/div/div[2]/div/div/div[3]/table/tbody/tr/td/table[2]/tbody/tr[7]/td[2]/p/span")).getText();
-		user.password = manager.Driver.findElement(By.xpath("html/body/div[1]/div/div/div[2]/div/div/div[3]/table/tbody/tr/td/table[2]/tbody/tr[8]/td[2]/p/span")).getText();
-		System.out.println("login " + user.login + "  pass " + user.password);
+		manager.mail.setMail(semiemail);
+		user=manager.mail.readMail_aud_reg(user);
 		manager.landAud.open().btnVhodClick().login(user);
 		manager.anketa2.fillFields(user);
 		manager.cabPred.btnExit.click();

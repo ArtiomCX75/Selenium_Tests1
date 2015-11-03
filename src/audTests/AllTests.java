@@ -14,7 +14,5 @@ TestAuthPred.class,
 TestAuthAud.class
 
 })
-
 public class AllTests {
-
 }

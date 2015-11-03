@@ -23,18 +23,18 @@ public class AudAnketa1 {
 	}
 
 	public void fillFields(UserAudAud user) throws Exception{
+		dwnDownloadFile.sendKeys(Files.pdffile1);
 		fldSurname.sendKeys(user.surName);
 		fldName.sendKeys(user.name);
+		fldMiddlename.sendKeys(user.middleName);
 		fldPhone.sendKeys(user.phoneNumber);
 		fldNumberAt.sendKeys(user.numberAt);
 		fldExp.sendKeys(user.exp);
-		dwnDownloadFile.sendKeys(Files.pdffile1);
+		fldEmail.sendKeys(user.email);
 		chkAgr1.click();
 		chkAgr2.click();
-		fldMiddlename.sendKeys(user.middleName);
-		fldEmail.sendKeys(user.email);
 		btnSend.click();
-		Browser.sl(3);
+		Element.sl(3);
 		btnNext.click();
 	}
 	

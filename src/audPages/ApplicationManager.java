@@ -10,6 +10,7 @@ import audHelpers.LoginHelper;
 import browser.Browser;
 import browser.Element;
 import browser.Files;
+import browser.Mail;
 import browser.TempMail;
 import browser.TempMail2;
 import audHelpers.Helper;
@@ -34,6 +35,7 @@ public class ApplicationManager {
 	public TempMail tempMail;
 	public Element el;
 	public TempMail2 tempMail2;
+	public Mail mail;
 	
 	public Helper helper;
 	public LoginHelper loginH;
@@ -64,6 +66,7 @@ public class ApplicationManager {
 		tempMail2 = new TempMail2(this);
 		loginH = new LoginHelper(this);
 		helper = new Helper(this);
+		mail = this.tempMail;
 		
 		
 	

@@ -1,9 +1,13 @@
 package browser;
 
+import static org.junit.Assert.assertFalse;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import audPages.AllPages;
 import audPages.ApplicationManager;
+import audPages.UserAudAud;
 
 
 public class TempMail extends AllPages implements Mail{
@@ -24,20 +28,13 @@ public class TempMail extends AllPages implements Mail{
 	
 	
 	
-	public Element btnReload=new Element("html/body/div[1]/div/div/div[1]/ul/li[2]/a");
-	public Element btnChange=new Element("html/body/div[1]/div/div/div[1]/ul/li[3]/a");
-	public Element fldLogin=new Element("html/body/div[1]/div/div/div[2]/div[1]/div[2]/div/form/div[1]/div/input");
-	public Element btnSubmitChange=new Element("html/body/div[1]/div/div/div[2]/div[1]/div[2]/div/form/div[3]/div[2]/button");
-	public Element currentEmail=new Element("html/body/header/div/div/div/div[2]/div/div[1]/div/input");
-
 
 	
-	public String getEmail() throws Exception
-	{
+	public String getEmail(){
 		return currentEmail.getAttribute("Value");
 	}
 	
-	public  String setMail(String s) throws Exception  { // создание почты
+	public  String setMail(String s){ // создание почты
 		open();
 		btnChange.click();
 		fldLogin.sendKeys(s);
@@ -47,9 +44,37 @@ public class TempMail extends AllPages implements Mail{
 		System.out.println("email= "+email);
 		return email;
 	}
-}
-/*
 
+	
+	public UserAudAud readMail_aud_reg(UserAudAud user) {
+		//open();
+		int i=0;
+		while (manager.Driver.findElements(By.xpath("html/body/div[1]/div/div/div[2]/div/div/table/tbody/tr/td[2]/a")).isEmpty()) {
+			manager.tempMail.btnReload.click();
+			i=i+1;
+			Element.sl(1);
+			if (i>3){
+				System.err.println("there is not email for reg aud");
+				assertFalse("there is not email for reg aud", true);
+				}
+		}
+		wd.findElement(By.xpath("html/body/div[1]/div/div/div[2]/div/div/table/tbody/tr/td[2]/a")).click();
+		user.login = wd.findElement(By.xpath("html/body/div[1]/div/div/div[2]/div/div/div[3]/table/tbody/tr/td/table[2]/tbody/tr[7]/td[2]/p/span")).getText();
+		user.password = wd.findElement(By.xpath("html/body/div[1]/div/div/div[2]/div/div/div[3]/table/tbody/tr/td/table[2]/tbody/tr[8]/td[2]/p/span")).getText();
+		System.out.println("login " + user.login + "  pass " + user.password);
+		return user;
+	}
+	
+
+	public Element btnReload=new Element("html/body/div[1]/div/div/div[1]/ul/li[2]/a");
+	public Element btnChange=new Element("html/body/div[1]/div/div/div[1]/ul/li[3]/a");
+	public Element fldLogin=new Element("html/body/div[1]/div/div/div[2]/div[1]/div[2]/div/form/div[1]/div/input");
+	public Element btnSubmitChange=new Element("html/body/div[1]/div/div/div[2]/div[1]/div[2]/div/form/div[3]/div[2]/button");
+	public Element currentEmail=new Element("html/body/header/div/div/div/div[2]/div/div[1]/div/input");
+
+}
+
+/*
 @FindBy(xpath="")
 public WebElement ;
 WebElement e = wait.until(ExpectedConditions.visibilityOf(By.id(locatorArg)));

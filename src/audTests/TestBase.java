@@ -22,12 +22,14 @@ public class TestBase {
 	@BeforeClass
 	public static void before() throws Exception{
 	baseUrl = Constants.urlAudTest;
+	//app.mail = app.tempMail2;
 	
 	//Element.t=0.2;
 	//app2 = new ApplicationManager(baseUrl); 
 	//app2.Driver.manage().window().setPosition(new Point(2000, 0));
 	//app2.Driver.manage().window().maximize();	
 	app = new ApplicationManager(baseUrl); 
+	app.mail = app.tempMail;
 	}
 	
 	@AfterClass
