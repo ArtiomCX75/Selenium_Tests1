@@ -2,9 +2,9 @@ package audPages;
 
 import org.openqa.selenium.WebDriver;
 
-import browser.Element;
+import audHelpers.Element;
 
-public class AudList extends AllPages {
+public class AudList   {
 	private ApplicationManager manager;
 	private WebDriver wd;
 	private String url = "#/list";

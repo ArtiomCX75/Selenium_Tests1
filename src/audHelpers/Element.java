@@ -1,14 +1,15 @@
-package browser;
+package audHelpers;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-
-import audPages.AllPages;
 import audPages.ApplicationManager;
 
-public class Element extends AllPages {
+public class Element {
 	public String xp;
 	private static WebDriver wd;
 	public static Double t = 0.250;
@@ -108,6 +109,18 @@ public class Element extends AllPages {
 		}
 	}
 
+	public static String what_date(String i) { // узнает дату
+		Date d = new Date();
+		SimpleDateFormat format1;
+		if (i == "post") {
+			//format1 = new SimpleDateFormat("dd_MM_yyyy_kk_mm"); // дата для
+			format1 = new SimpleDateFormat("ddMMyykkmmss");	// почты
+		} else {
+			format1 = new SimpleDateFormat("dd.MM.yyyy"); // дата для поля
+															// "дата"
+		}
+		return format1.format(d);
+	}
 	/*
 	 * @Override public <X> X getScreenshotAs(OutputType<X> arg0) throws
 	 * WebDriverException { // Auto-generated method stub return null; }
@@ -130,6 +143,7 @@ public class Element extends AllPages {
 	 * @Override public Dimension getSize() { // Auto-generated method stub
 	 * return null; }
 	 * 
-	 * 
+	 * wait = new WebDriverWait(wd, 10);
+		wait.until(ExpectedConditions.elementToBeClickable(we));
 	 */
 }

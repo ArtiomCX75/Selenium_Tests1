@@ -2,9 +2,8 @@ package audPages;
 
 import org.openqa.selenium.WebDriver;
 
-import browser.Browser;
-import browser.Element;
-import browser.Files;
+import audHelpers.Files;
+import audHelpers.Element;
 
 public class AudAnketa1 {
 	private ApplicationManager manager;
@@ -33,6 +32,7 @@ public class AudAnketa1 {
 		fldEmail.sendKeys(user.email);
 		chkAgr1.click();
 		chkAgr2.click();
+		Element.sl(1);
 		btnSend.click();
 		Element.sl(3);
 		btnNext.click();

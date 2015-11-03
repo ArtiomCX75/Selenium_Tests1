@@ -2,8 +2,8 @@ package audPages;
 
 import org.openqa.selenium.WebDriver;
 
-import browser.Element;
-import browser.Files;
+import audHelpers.Element;
+import audHelpers.Files;
 
 public class AudAnketa2 {
 	private ApplicationManager manager;

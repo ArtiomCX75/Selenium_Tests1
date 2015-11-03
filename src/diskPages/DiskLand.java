@@ -1,12 +1,34 @@
 package diskPages;
 
-import browser.OldElement;
-import browser.OldElement.type;
+import org.openqa.selenium.WebDriver;
+
+import diskHelpers.Element;
+
+
 
 public class DiskLand {
-	public static OldElement url = new OldElement("/");
-	public static OldElement fldCodeReg=new OldElement("html/body/ui-view/div/div[1]/div[3]/form/div[1]/input-placeholder/div/ng-transclude/input",type.fld);
-	public static OldElement btnCodeSubmit=new OldElement("html/body/ui-view/div/div[1]/div[3]/form/div[1]/button",type.btn);
-	public static OldElement lnkLogin=new OldElement("html/body/ui-view/div/div[1]/div[2]/div[1]/div/span[1]",type.lnk);
+	private ApplicationManager manager;
+	private WebDriver wd;
+	private String url = "";
+
+	public DiskLand(ApplicationManager manager) {
+		this.manager = manager;
+		this.wd = manager.Driver;
+		
+	}
+
+	public DiskLand open() {
+		wd.get(manager.BaseUrl + url);
+		return new DiskLand(manager);
+	}
+
+	public DiskLogin loginlinkclick() {
+		lnkLogin.click();
+		return new DiskLogin(manager);
+	}
+	
+	public  Element fldCodeReg=new Element("html/body/ui-view/div/div[1]/div[3]/form/div[1]/input-placeher/div/ng-transclude/input");
+	public  Element btnCodeSubmit=new Element("html/body/ui-view/div/div[1]/div[3]/form/div[1]/button");
+	public  Element lnkLogin=new Element("html/body/ui-view/div/div[1]/div[2]/div[1]/div/span[1]");
 	
 }

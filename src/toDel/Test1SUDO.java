@@ -1,4 +1,4 @@
-package browser;
+package toDel;
 
 
 
@@ -7,26 +7,18 @@ import org.junit.*;
 import static org.junit.Assert.*;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
-import java.util.regex.Pattern;
-import static org.hamcrest.CoreMatchers.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.Select;
-
-import com.thoughtworks.selenium.webdriven.commands.Click;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.sql.*;
-//import com.microsoft.sqlserver.jdbc.*;
 
 public class Test1SUDO {
   private WebDriver driver;
-  private String baseUrl;
+  @SuppressWarnings("unused")
+private String baseUrl;
   //private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
   String urlmail, urldisktest, urldiskprod, urlrktest, urlrkprod,adminmaildisk, adminmailrk, adminpassdisk, adminpassrk;
@@ -705,7 +697,8 @@ public class Test1SUDO {
 
 public static void sl(int s) throws InterruptedException {	//пауза в секундах
 	  for (int i=s; i>0; i--, Thread.sleep(1000))  {
-		 int q=0;
+		 @SuppressWarnings("unused")
+		int q=0;
 	  	}
   	}
   

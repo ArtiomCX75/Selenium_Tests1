@@ -1,9 +1,10 @@
 package audTests;
 
 import org.junit.Test;
+
+import audHelpers.Element;
 import audPages.UserAudAud;
 import audPages.UserAudPred;
-import browser.Browser;
 
 public class TestDeal extends TestBase {
 	
@@ -19,9 +20,9 @@ public class TestDeal extends TestBase {
 		System.out.println("\nP login= " + Pred1.email);
 		System.out.println("P pass= " + Pred1.password);
 		app.landPred.open().btnVhodClick().login(Pred1);
-		Browser.sl(5);
+		Element.sl(5);
 		app.landAud.open().btnVhodClick().login(Aud1);
-		Browser.sl(5);
+		Element.sl(5);
 		/*
 		TestAuthAud.loginFromPredLand(wdr2, server, Aud1.login, Aud1.password);
 		System.out.println(Pred1.contactName);

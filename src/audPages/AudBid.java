@@ -2,8 +2,7 @@ package audPages;
 
 import org.openqa.selenium.WebDriver;
 
-
-import browser.Element;
+import audHelpers.Element;
 
 
 public class AudBid {

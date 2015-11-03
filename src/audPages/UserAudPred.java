@@ -4,11 +4,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.Serializable;
 
-import browser.User;
+import audHelpers.User;
 
-public class UserAudPred extends User implements java.io.Serializable {
+@SuppressWarnings("serial")
+public class UserAudPred extends User  {
 public int[] urSusch=new int[9];
 public String orgName;
 public String contactName;

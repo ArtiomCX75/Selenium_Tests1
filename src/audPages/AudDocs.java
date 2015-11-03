@@ -1,9 +1,10 @@
 package audPages;
 
 import org.openqa.selenium.WebDriver;
-import browser.Element;
 
-public class AudDocs extends AllPages{
+import audHelpers.Element;
+
+public class AudDocs {
 	private ApplicationManager manager;
 	private WebDriver wd;
 	private String url="/#/documents";

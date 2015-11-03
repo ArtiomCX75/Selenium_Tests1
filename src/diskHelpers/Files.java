@@ -1,4 +1,4 @@
-package browser;
+package diskHelpers;
 
 public class Files {
 public static String pdffile1 = "C://Users//faa11//workspace//Other//pdffile1.pdf";

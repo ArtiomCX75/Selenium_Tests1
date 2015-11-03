@@ -7,20 +7,18 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import audHelpers.LoginHelper;
-import browser.Browser;
-import browser.Element;
-import browser.Files;
-import browser.Mail;
-import browser.TempMail;
-import browser.TempMail2;
-import audHelpers.Helper;
+import audHelpers.Element;
+import audHelpers.Mail;
+import audHelpers.TempMail;
+import audHelpers.TempMail2;
+import audHelpers.Files;
+import audHelpers.audHelper;
 
 @SuppressWarnings("unused")
 public class ApplicationManager {
 
 	public String BaseUrl;
 	public WebDriver Driver;
-	public AllPages all;
 	public AudAnketa1 anketa1;
 	public AudAnketa2 anketa2;
 	public AudAnketPred anketaPred;
@@ -37,7 +35,7 @@ public class ApplicationManager {
 	public TempMail2 tempMail2;
 	public Mail mail;
 	
-	public Helper helper;
+	public audHelper audHelper;
 	public LoginHelper loginH;
 	
 	public ApplicationManager(String baseUrl) {
@@ -47,10 +45,7 @@ public class ApplicationManager {
 		Driver.manage().window().maximize();
 		Driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		BaseUrl=baseUrl;
-		all=new AllPages(this);
-		
 		el = new Element(this);
-		
 		anketa1 = new AudAnketa1(this);
 		anketa2 = new AudAnketa2(this);
 		anketaPred = new AudAnketPred(this);
@@ -65,7 +60,7 @@ public class ApplicationManager {
 		tempMail = new TempMail(this);
 		tempMail2 = new TempMail2(this);
 		loginH = new LoginHelper(this);
-		helper = new Helper(this);
+		audHelper = new audHelper(this);
 		mail = this.tempMail;
 		
 		

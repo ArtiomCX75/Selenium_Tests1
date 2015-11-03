@@ -2,9 +2,9 @@ package audPages;
 
 import org.openqa.selenium.WebDriver;
 import audHelpers.LoginHelper;
-import browser.Element;
+import audHelpers.Element;
 
-public class AudLandPred extends AllPages {
+public class AudLandPred   {
 	private ApplicationManager manager;
 	private WebDriver wd;
 	private String url = "/";

@@ -1,16 +1,42 @@
 package diskTests;
 
-import org.junit.AfterClass;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
 
-public class TestBase extends AllPages{
-	static String baseUrl = "http://test.discounter-club.ru/";
-	static ApplicationManager app = new ApplicationManager(baseUrl); 
-	//static ApplicationManager app2 = new ApplicationManager(baseUrl); 
+import org.junit.AfterClass;
+import org.junit.BeforeClass;
+import org.openqa.selenium.Point;
+
+import diskHelpers.Constants;
+import diskHelpers.Element;
+import diskPages.ApplicationManager;
+
+
+
+@SuppressWarnings("unused")
+public class TestBase {
+	static String baseUrl;
+	static ApplicationManager app;
+	static ApplicationManager app2;
+	
+	@BeforeClass
+	public static void before() throws Exception{
+	baseUrl = Constants.urlDiskTest;
+	//app.mail = app.tempMail2;
+	
+	Element.t=0.01;
+	//app2 = new ApplicationManager(baseUrl); 
+	//app2.Driver.manage().window().setPosition(new Point(2000, 0));
+	//app2.Driver.manage().window().maximize();	
+	app = new ApplicationManager(baseUrl); 
+	app.mail = app.tempMail;
+	}
 	
 	@AfterClass
 	public static void after() throws Exception{
-		//Thread.sleep(1);
-		app.Driver.close();
-	//	app2.Driver.close();
+		app.Driver.quit();
+	//	app2.Driver.quit();
 	}
 }
+	
+	

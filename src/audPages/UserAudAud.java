@@ -4,11 +4,11 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.io.Serializable;
 
-import browser.User;
+import audHelpers.User;
 
-public class UserAudAud  extends User implements java.io.Serializable  {
+@SuppressWarnings("serial")
+public class UserAudAud  extends User  {
 	public String numberAt;
 	public String exp;
 	public String login;

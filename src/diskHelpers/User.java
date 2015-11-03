@@ -1,5 +1,6 @@
-package browser;
+package diskHelpers;
 
+@SuppressWarnings("serial")
 public class User implements java.io.Serializable  {
 	public String email;
 	public String password;

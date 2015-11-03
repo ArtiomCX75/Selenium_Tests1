@@ -1,4 +1,4 @@
-package browser;
+package toDel;
 
 import static org.junit.Assert.assertFalse;
 

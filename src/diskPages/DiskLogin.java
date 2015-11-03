@@ -1,16 +1,39 @@
 package diskPages;
 
-import browser.OldElement;
-import browser.OldElement.type;
+import org.openqa.selenium.WebDriver;
+
+import diskHelpers.Element;
+import diskTests.UserDisc;
+
 
 public class DiskLogin {
-	public static OldElement url = new OldElement("/login");
-	public static OldElement fldEmail=new OldElement("html/body/ui-view/div/div/div[4]/div/div/form/div[1]/div[1]/input-placeholder/div/ng-transclude/input",type.fld);
-	public static OldElement fldPass=new OldElement("html/body/ui-view/div/div/div[4]/div/div/form/div[1]/div[2]/input-placeholder/div/ng-transclude/input",type.fld);
-	public static OldElement btnSubmitLogin=new OldElement("html/body/ui-view/div/div/div[4]/div/div/form/button",type.btn);
-	public static OldElement lnkRecPass=new OldElement("html/body/ui-view/div/div/div[4]/div/div/form/a", type.lnk);
-	public static OldElement lnkReg=new OldElement("html/body/ui-view/div/div/div[2]/div[1]/div/span[2]", type.lnk);
-	public static OldElement lnkLogo=new OldElement("html/body/ui-view/div/div/div[1]", type.lnk);
+	private ApplicationManager manager;
+	private WebDriver wd;
+	private String url = "/login";
+
+	public DiskLogin(ApplicationManager manager) {
+		this.manager = manager;
+		this.wd = manager.Driver;	
+	}
+
+	public DiskLogin open() {
+		wd.get(manager.BaseUrl + url);
+		return new DiskLogin(manager);
+	}
+	
+	public DiskProfile login(UserDisc user) {
+		fldEmail.sendKeys(user.email);
+		fldPass.sendKeys(user.password);
+		btnSubmitLogin.click();
+		return new DiskProfile(manager);
+	}
+										
+	public Element fldEmail=new Element("html/body/ui-view/div/div/div[4]/div/div/form/div[1]/div[1]/input-placeholder/div/ng-transclude/input");
+	public Element fldPass=new Element("html/body/ui-view/div/div/div[4]/div/div/form/div[1]/div[2]/input-placeholder/div/ng-transclude/input");
+	public Element btnSubmitLogin=new Element("html/body/ui-view/div/div/div[4]/div/div/form/button");
+	public Element lnkRecPass=new Element("html/body/ui-view/div/div/div[4]/div/div/form/a");
+	public Element lnkReg=new Element("html/body/ui-view/div/div/div[2]/div[1]/div/span[2]");
+	public Element lnkLogo=new Element("html/body/ui-view/div/div/div[1]");
 	
 
 }

@@ -2,15 +2,13 @@ package audHelpers;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-
-import audPages.AllPages;
 import audPages.ApplicationManager;
 import audPages.AudBid;
 import audPages.AudCabPred;
 import audPages.UserAudAud;
 import audPages.UserAudPred;
 
-public class LoginHelper extends AllPages{
+public class LoginHelper {
 	private ApplicationManager manager;
 	private WebDriver wd;
 	//private String url="/#/create";
@@ -39,9 +37,9 @@ public class LoginHelper extends AllPages{
 		manager.landPred.btnLoginSubmit.click();
 	}
 	
-	public AllPages btnEscClick(){
+	public void btnEscClick(){
 		manager.landPred.btnEsc.click();
-		return new AllPages(manager);
+		//return new AllPages(manager);
 	}
 	
 }

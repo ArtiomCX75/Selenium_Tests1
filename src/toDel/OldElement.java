@@ -1,8 +1,10 @@
-package browser;
+package toDel;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 //перенести вейт фор в элементс - передавать сервер и локальную переменную адреса
+
+
 
 public class OldElement {
 	private double t = 0.0;

@@ -1,16 +1,15 @@
-package browser;
+package audHelpers;
 
 import static org.junit.Assert.assertFalse;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import audPages.AllPages;
 import audPages.ApplicationManager;
 import audPages.UserAudAud;
 
 
-public class TempMail2 extends AllPages implements Mail{
+public class TempMail2  implements Mail{
 	private ApplicationManager manager;
 	private WebDriver wd;
 	private String url="http://www.mfsa.info/";

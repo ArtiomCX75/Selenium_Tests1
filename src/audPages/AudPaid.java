@@ -2,9 +2,9 @@ package audPages;
 
 import org.openqa.selenium.WebDriver;
 
-import browser.Element;
+import audHelpers.Element;
 
-public class AudPaid extends AllPages {
+public class AudPaid   {
 	private ApplicationManager manager;
 	private WebDriver wd;
 	private String url = "/#/create/paid";

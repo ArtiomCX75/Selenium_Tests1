@@ -7,10 +7,9 @@ import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.openqa.selenium.Point;
 
+import audHelpers.Constants;
 import audPages.ApplicationManager;
-import browser.Browser;
-import browser.Constants;
-import browser.Element;
+
 
 
 @SuppressWarnings("unused")

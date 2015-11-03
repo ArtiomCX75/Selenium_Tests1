@@ -1,16 +1,12 @@
-package browser;
+package diskHelpers;
 
-import static org.junit.Assert.assertFalse;
-
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import audPages.AllPages;
-import audPages.ApplicationManager;
-import audPages.UserAudAud;
+import diskPages.ApplicationManager;
 
 
-public class TempMail extends AllPages implements Mail{
+
+public class TempMail   implements Mail{
 	private ApplicationManager manager;
 	private WebDriver wd;
 	private String url="https://temp-mail.ru/";
@@ -46,7 +42,7 @@ public class TempMail extends AllPages implements Mail{
 	}
 
 	
-	public UserAudAud readMail_aud_reg(UserAudAud user) {
+	/*public UserAudAud readMail_aud_reg(UserAudAud user) {
 		//open();
 		int i=0;
 		while (manager.Driver.findElements(By.xpath("html/body/div[1]/div/div/div[2]/div/div/table/tbody/tr/td[2]/a")).isEmpty()) {
@@ -63,7 +59,7 @@ public class TempMail extends AllPages implements Mail{
 		user.password = wd.findElement(By.xpath("html/body/div[1]/div/div/div[2]/div/div/div[3]/table/tbody/tr/td/table[2]/tbody/tr[8]/td[2]/p/span")).getText();
 		System.out.println("login " + user.login + "  pass " + user.password);
 		return user;
-	}
+	}*/
 	
 
 	public Element btnReload=new Element("html/body/div[1]/div/div/div[1]/ul/li[2]/a");

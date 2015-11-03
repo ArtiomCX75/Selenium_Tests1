@@ -1,18 +1,35 @@
 package diskPages;
 
-import browser.OldElement;
-import browser.OldElement.type;
+import org.openqa.selenium.WebDriver;
 
-public class DiskCard extends DiskHeader{
-	public static OldElement url = new OldElement("/profile/card");
-	public static OldElement fldMoney=new OldElement("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[1]/div[2]/div[2]/input", type.fld);
-	public static OldElement btnPay=new OldElement("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[1]/div[2]/button", type.btn);
-	public static OldElement fldIndex=new OldElement("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[2]/div[2]/form/div/div/input-placeholder/div/ng-transclude/input", type.fld);
-	public static OldElement fldRegion=new OldElement("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[2]/div[2]/form/div[2]/div/div[1]/input-placeholder/div/ng-transclude/input", type.fld);
-	public static OldElement fldCity=new OldElement("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[2]/div[2]/form/div[2]/div/div[2]/input-placeholder/div/ng-transclude/input", type.fld);
-	public static OldElement fldStreet=new OldElement("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[2]/div[2]/form/div[2]/div/div[3]/oi-select/div[1]/ul/li[2]/input", type.fld);
-	public static OldElement fldHouse=new OldElement("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[2]/div[2]/form/div[2]/div/div[4]/input-placeholder/div/ng-transclude/input", type.fld);
-	public static OldElement fldBuil=new OldElement("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[2]/div[2]/form/div[2]/div/div[5]/input-placeholder/div/ng-transclude/input", type.fld);
-	public static OldElement fldFlat=new OldElement("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[2]/div[2]/form/div[2]/div/div[6]/input-placeholder/div/ng-transclude/input", type.fld);
-	public static OldElement btnSendCard=new OldElement("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[2]/div[2]/form/div[2]/div/div[7]/button", type.btn);
+import diskPages.ApplicationManager;
+import diskHelpers.Element;
+
+
+public class DiskCard {
+	private ApplicationManager manager;
+	private WebDriver wd;
+	private String url = "/profile/card";
+
+	public DiskCard(ApplicationManager manager) {
+		this.manager = manager;
+		this.wd = manager.Driver;
+		
+	}
+
+	public DiskCard open() {
+		wd.get(manager.BaseUrl + url);
+		return new DiskCard(manager);
+	}
+	
+	public Element fldMoney=new Element("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[1]/div[2]/div[2]/input");
+	public Element btnPay=new Element("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[1]/div[2]/button");
+	public Element fldIndex=new Element("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[2]/div[2]/form/div/div/input-placeher/div/ng-transclude/input");
+	public Element fldRegion=new Element("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[2]/div[2]/form/div[2]/div/div[1]/input-placeher/div/ng-transclude/input");
+	public Element fldCity=new Element("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[2]/div[2]/form/div[2]/div/div[2]/input-placeher/div/ng-transclude/input");
+	public Element fldStreet=new Element("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[2]/div[2]/form/div[2]/div/div[3]/oi-select/div[1]/ul/li[2]/input");
+	public Element fldHouse=new Element("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[2]/div[2]/form/div[2]/div/div[4]/input-placeher/div/ng-transclude/input");
+	public Element fldBuil=new Element("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[2]/div[2]/form/div[2]/div/div[5]/input-placeher/div/ng-transclude/input");
+	public Element fldFlat=new Element("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[2]/div[2]/form/div[2]/div/div[6]/input-placeher/div/ng-transclude/input");
+	public Element btnSendCard=new Element("html/body/ui-view/div/ui-view/div/div/div/div[3]/div/div[1]/div[2]/div[2]/form/div[2]/div/div[7]/button");
 }

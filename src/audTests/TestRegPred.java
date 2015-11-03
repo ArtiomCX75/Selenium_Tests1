@@ -3,20 +3,21 @@ package audTests;
 
 import org.junit.Test;
 
+import audHelpers.Element;
 import audPages.UserAudPred;
-import browser.Browser;
+
 
 public class TestRegPred extends TestBase {
 
 	@Test
 	public void regPred() throws Exception {
-		String date = Browser.what_date("post");
+		String date = Element.what_date("post");
 		UserAudPred Pred1 = new UserAudPred();
 		Pred1.setDefault();
 		Pred1.email = app.mail.setMail("pred" + date);
 		Pred1.contactName = Pred1.contactName + date;
 
-		app.helper.reg_pred(Pred1);
+		app.audHelper.reg_pred(Pred1);
 
 	}
 

@@ -3,22 +3,18 @@ package audHelpers;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import audPages.AllPages;
 import audPages.ApplicationManager;
 import audPages.UserAudAud;
 import audPages.UserAudPred;
-import browser.Element;
-import browser.Files;
 
-public class Helper extends AllPages {
+public class audHelper {
 	private ApplicationManager manager;
 	@SuppressWarnings("unused")
 	private WebDriver wd;
 	// private String url="/#/create";
 
-	public Helper(ApplicationManager manager) {
+	public audHelper(ApplicationManager manager) {
 		this.manager = manager;
 		this.wd = manager.Driver;
 

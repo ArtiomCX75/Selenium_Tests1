@@ -2,9 +2,9 @@ package audPages;
 
 import org.openqa.selenium.WebDriver;
 import audHelpers.LoginHelper;
-import browser.Element;
+import audHelpers.Element;
 
-public class AudLandAud extends AllPages {
+public class AudLandAud   {
 	private ApplicationManager manager;
 	private WebDriver wd;
 	private String url = "/#/auditors";
