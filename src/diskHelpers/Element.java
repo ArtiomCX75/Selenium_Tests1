@@ -1,5 +1,7 @@
 package diskHelpers;
 
+
+import static org.junit.Assert.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -9,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import diskPages.ApplicationManager;
 
-public class Element   {
+public class Element {
 	public String xp;
 	private static WebDriver wd;
 	public static Double t = 0.250;
@@ -18,48 +20,49 @@ public class Element   {
 
 	public Element(String s) {
 		this.xp = s;
-		
+
 	}
 
 	public Element(ApplicationManager manager) {
 		this.manager = manager;
 		wd = manager.Driver;
-		
+
 	}
 
-	public void click(){
+	public void click() {
+		sl(t);
+		int i = 0;
+		boolean present = false;
 		
-		boolean present=false;;
-		while (present==false){
+		while (present == false) {
 			try {
 				wd.findElement(By.xpath(xp));
 				present = true;
-				//System.out.println("true "+xp);
-				} 
-			catch (NoSuchElementException e) {
+				// System.out.println("true "+xp);
+			} catch (NoSuchElementException e) {
+				i++;
 				present = false;
-				System.out.println("false "+xp);
+				System.out.println("false " + xp);
+				if (i > 3) {
+					assertFalse("there is not element: "+xp, true);
+				}
 			}
 		}
-		
-		
+
 		wd.findElement(By.xpath(xp)).click();
 	}
 
 	public void safeClick() {
 		sl(t);
-		WebElement webElement = wd.findElement(By.xpath(xp)); 
-		if(webElement != null) {
+		WebElement webElement = wd.findElement(By.xpath(xp));
+		if (webElement != null) {
 			wd.findElement(By.xpath(xp)).click();
-		}
-		else 
-		{
+		} else {
 			System.out.println("q");
 			safeClick();
 		}
 	}
-	
-	
+
 	public void clear() {
 		wd.findElement(By.xpath(xp)).clear();
 	}
@@ -87,7 +90,7 @@ public class Element   {
 	public void sendKeys(CharSequence... arg0) {
 		sl(t);
 		wd.findElement(By.xpath(xp)).sendKeys(arg0);
-		
+
 	}
 
 	public void submit() {
@@ -98,14 +101,14 @@ public class Element   {
 	public String getAttribute(String arg0) {
 		return wd.findElement(By.xpath(xp)).getAttribute(arg0);
 	}
-	
-	public static void sl(double d) { 
+
+	public static void sl(double d) {
 		d = d * 1000;
 		int i = (int) d;
 		try {
 			Thread.sleep(i);
 		} catch (InterruptedException e) {
-		e.printStackTrace();
+			e.printStackTrace();
 		}
 	}
 
@@ -113,8 +116,8 @@ public class Element   {
 		Date d = new Date();
 		SimpleDateFormat format1;
 		if (i == "post") {
-			//format1 = new SimpleDateFormat("dd_MM_yyyy_kk_mm"); // дата для
-			format1 = new SimpleDateFormat("ddMMyykkmmss");	// почты
+			// format1 = new SimpleDateFormat("dd_MM_yyyy_kk_mm"); // дата для
+			format1 = new SimpleDateFormat("ddMMyykkmmss"); // почты
 		} else {
 			format1 = new SimpleDateFormat("dd.MM.yyyy"); // дата для поля
 															// "дата"
@@ -146,3 +149,44 @@ public class Element   {
 	 * 
 	 */
 }
+///////////// JS
+
+// JavascriptExecutor js = (JavascriptExecutor) Browser.driver;
+// WebElement element =
+// Browser.driver.findElement(By.xpath("//input[starts-with(@type,'file')][starts-with(@accept,'ap')]"));
+// js.executeScript("arguments[0].setAttribute('style', 'position: absolute;
+// width: 0px; height: 0px; z-index: -100000; border: none; margin: 0px;
+// padding: 0px;')",element);
+/*
+ * public void sudo_sendkeys(WebElement el, String s ) { Actions actions = new
+ * Actions(driver); actions.moveToElement(el); actions.click();
+ * actions.sendKeys(s); actions.build().perform(); }
+ * 
+ * public void sudo_click(WebElement el) { Actions actions = new
+ * Actions(driver); actions.moveToElement(el); actions.click();
+ * actions.build().perform(); }
+ * 
+ * 
+ * public void sql(String sql) {// Create a variable for the connection string.
+ * String connectionUrl = "jdbc:sqlserver://192.168.0.105:1433;" +
+ * "databaseName=Discounter;user=sa;password=12345";
+ * 
+ * // Declare the JDBC objects. Connection con = null; Statement stmt = null;
+ * ResultSet rs = null;
+ * 
+ * try { // Establish the connection.
+ * Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver"); con =
+ * DriverManager.getConnection(connectionUrl);
+ * 
+ * // Create and execute an SQL statement that returns some data. stmt =
+ * con.createStatement(); rs = stmt.executeQuery(sql);
+ * 
+ * // Iterate through the data in the result set and display it. //while
+ * (rs.next()) { // System.out.println(rs.getString(1) + " " + rs.getString(2) +
+ * " " + rs.getString(3) + " " + rs.getString(4) + " " + rs.getString(5)); } }
+ * 
+ * // Handle any errors that may have occurred. catch (Exception e) {
+ * e.printStackTrace(); } finally { if (rs != null) try { rs.close(); }
+ * catch(Exception e) {} if (stmt != null) try { stmt.close(); } catch(Exception
+ * e) {} if (con != null) try { con.close(); } catch(Exception e) {} } }
+ */

@@ -1,12 +1,14 @@
 package diskHelpers;
 
+import static org.junit.Assert.assertFalse;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-
 import diskPages.ApplicationManager;
+import diskPages.DiskReg;
 
 
 
-public class TempMail   implements Mail{
+public class TempMail implements Mail{
 	private ApplicationManager manager;
 	private WebDriver wd;
 	private String url="https://temp-mail.ru/";
@@ -67,6 +69,26 @@ public class TempMail   implements Mail{
 	public Element fldLogin=new Element("html/body/div[1]/div/div/div[2]/div[1]/div[2]/div/form/div[1]/div/input");
 	public Element btnSubmitChange=new Element("html/body/div[1]/div/div/div[2]/div[1]/div[2]/div/form/div[3]/div[2]/button");
 	public Element currentEmail=new Element("html/body/header/div/div/div/div[2]/div/div[1]/div/input");
+
+	
+	public DiskReg readDiskRegMail() {
+		int i=0;
+		while (wd.findElements(By.xpath("html/body/div[1]/div/div/div[2]/div/div/table/tbody/tr/td[2]/a")).isEmpty()) {
+			manager.tempMail.btnReload.click();
+			i=i+1;
+			Element.sl(1);
+			if (i>3){
+				System.err.println("there is not email for reg disk");
+				assertFalse("there is not email for reg disk", true);
+				}
+		}
+		wd.findElement(By.xpath("html/body/div[1]/div/div/div[2]/div/div/table/tbody/tr/td[2]/a")).click();
+		Element.sl(1);
+		wd.findElement(By.xpath("html/body/div[1]/div/div/div[2]/div/div/div[3]/div/div[2]/p[6]/a")).click();
+		manager.land.btnCodeSubmit.click();
+		return new DiskReg(manager);
+		
+	}
 
 }
 

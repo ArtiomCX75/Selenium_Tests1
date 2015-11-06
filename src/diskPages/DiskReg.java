@@ -3,6 +3,7 @@ package diskPages;
 import org.openqa.selenium.WebDriver;
 
 import diskHelpers.Element;
+import diskHelpers.UserDisc;
 
 
 public class DiskReg {
@@ -21,18 +22,28 @@ public class DiskReg {
 		return new DiskReg(manager);
 	}
 
-
+	public DiskProfile fillfields(UserDisc user) {
+		fldPhone.sendKeys(user.phoneNumber);
+		fldBirthday.sendKeys(user.birthDay);
+		fldPass.sendKeys(user.password);
+		chkAgree.click();
+		btnSubmit.click();
+		Element.sl(2);
+		return new DiskProfile(manager);
+	}
 	public  Element lnkLogin=new Element("html/body/ui-view/div/div/div[2]/div[1]/div/span[1]");
 	public  Element lnkLogo=new Element("html/body/ui-view/div/div/div[1]");
-	public  Element fldCodeReg=new Element("html/body/ui-view/div/div/div[4]/div/div[2]/form/div[1]/div[1]/ng-form/input-placeher/div/ng-transclude/input");
-	public  Element fldSurname=new Element("html/body/ui-view/div/div/div[4]/div/div[2]/form/div[1]/div[2]/input-placeher/div/ng-transclude/input");
-	public  Element fldName=new Element("html/body/ui-view/div/div/div[4]/div/div[2]/form/div[1]/div[3]/input-placeher/div/ng-transclude/input");
-	public  Element fldMiddleName=new Element("html/body/ui-view/div/div/div[4]/div/div[2]/form/div[1]/div[4]/input-placeher/div/ng-transclude/input");
-	public  Element fldEmail=new Element("html/body/ui-view/div/div/div[4]/div/div[2]/form/div[1]/div[5]/input-placeher/div/ng-transclude/input");
-	public  Element fldPhone=new Element("html/body/ui-view/div/div/div[4]/div/div[2]/form/div[1]/div[6]/input-placeher/div/ng-transclude/input");
-	public  Element fldBirthday=new Element("html/body/ui-view/div/div/div[4]/div/div[2]/form/div[1]/div[7]/input-placeher/div/ng-transclude/input");
-	public  Element fldPass=new Element("html/body/ui-view/div/div/div[4]/div/div[2]/form/div[1]/div[8]/input-placeher/div/ng-transclude/input");
-	public  Element chkAgree=new Element("html/body/ui-view/div/div/div[4]/div/div[2]/form/div[1]/div[9]/div/label/span");
+	public  Element fldCodeReg=new Element(".//input[contains(@ng-model,'cod')]");
+	public  Element fldSurname=new Element(".//input[contains(@ng-model,'las')]");
+	public  Element fldName=new Element(".//input[contains(@ng-model,'fir')]");
+	public  Element fldMiddleName=new Element(".//input[contains(@ng-model,'secon')]");
+	public  Element fldEmail=new Element(".//input[contains(@ng-model,'em')]");
+	public  Element fldPhone=new Element(".//input[contains(@ng-model,'ph')]");
+	public  Element fldBirthday=new Element(".//input[contains(@ng-model,'date')]");
+	public  Element fldPass=new Element(".//input[contains(@ng-model,'pa')]");
+	public  Element chkAgree=new Element(".//div[contains(@class, 'check')]/label/span");
 	public  Element btnSubmit=new Element("html/body/ui-view/div/div/div[4]/div/div[2]/form/button");
+
+	
 	
 }

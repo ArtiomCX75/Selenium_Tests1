@@ -9,6 +9,7 @@ import audPages.UserAudAud;
 import audPages.UserAudPred;
 
 public class LoginHelper {
+	
 	private ApplicationManager manager;
 	private WebDriver wd;
 	//private String url="/#/create";

@@ -24,7 +24,7 @@ public class TestBase {
 	baseUrl = Constants.urlDiskTest;
 	//app.mail = app.tempMail2;
 	
-	Element.t=0.01;
+	Element.t=00.00;
 	//app2 = new ApplicationManager(baseUrl); 
 	//app2.Driver.manage().window().setPosition(new Point(2000, 0));
 	//app2.Driver.manage().window().maximize();	
@@ -34,9 +34,15 @@ public class TestBase {
 	
 	@AfterClass
 	public static void after() throws Exception{
+		Element.sl(1);
 		app.Driver.quit();
 	//	app2.Driver.quit();
 	}
 }
 	
-	
+/*	Thread t2 = new Thread(new Runnable() {public void run(){try {
+app2.landingpage.open().loginlinkclick().login(account).logout().loginlinkclick();
+} catch (Exception e) {
+
+e.printStackTrace();
+}}});*/	

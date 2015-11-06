@@ -24,6 +24,7 @@ public class DiskLand {
 
 	public DiskLogin loginlinkclick() {
 		lnkLogin.click();
+		Element.sl(1);
 		return new DiskLogin(manager);
 	}
 	

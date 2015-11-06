@@ -27,6 +27,15 @@ public class Helper {
 		manager.profile.lnkLogout.click();
 		return new DiskLand(manager);
 	}
+	
+	
+	public void writeObject(Object obj, String s) throws Exception {
+		FileOutputStream fos = new FileOutputStream(s);
+		ObjectOutputStream oos = new ObjectOutputStream(fos);
+		oos.writeObject(obj);
+		oos.flush();
+		oos.close();
+	}
 	////////////
 	/*
 	public void reg_pred(UserAudPred user) throws Exception {

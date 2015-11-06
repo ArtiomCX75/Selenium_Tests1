@@ -5,7 +5,8 @@ import org.openqa.selenium.WebDriver;
 import diskPages.ApplicationManager;
 
 
-public class TempMail2 implements Mail{
+//public class TempMail2 implements Mail{
+	public class TempMail2 {	
 	private ApplicationManager manager;
 	private WebDriver wd;
 	private String url="http://www.mfsa.info/";

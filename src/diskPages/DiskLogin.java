@@ -3,7 +3,7 @@ package diskPages;
 import org.openqa.selenium.WebDriver;
 
 import diskHelpers.Element;
-import diskTests.UserDisc;
+import diskHelpers.UserDisc;
 
 
 public class DiskLogin {
@@ -25,6 +25,7 @@ public class DiskLogin {
 		fldEmail.sendKeys(user.email);
 		fldPass.sendKeys(user.password);
 		btnSubmitLogin.click();
+		Element.sl(1);
 		return new DiskProfile(manager);
 	}
 										
