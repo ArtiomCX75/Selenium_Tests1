@@ -4,7 +4,6 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import audPages.ApplicationManager;
@@ -28,8 +27,8 @@ public class Element   {
 	}
 
 	public void click(){
-		
-		boolean present=false;;
+		sl(t);
+		/*boolean present=false;;
 		while (present==false){
 			try {
 				wd.findElement(By.xpath(xp));
@@ -40,10 +39,9 @@ public class Element   {
 				present = false;
 				System.out.println("false "+xp);
 			}
-		}
-		
-		
+		}*/
 		wd.findElement(By.xpath(xp)).click();
+		sl(t);
 	}
 
 	public void safeClick() {
@@ -87,6 +85,7 @@ public class Element   {
 	public void sendKeys(CharSequence... arg0) {
 		sl(t);
 		wd.findElement(By.xpath(xp)).sendKeys(arg0);
+		sl(t);
 		
 	}
 

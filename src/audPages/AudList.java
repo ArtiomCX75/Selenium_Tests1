@@ -21,4 +21,20 @@ public class AudList   {
 	}
 
 	public Element btnExit = new Element("html/body/div[1]/div/ng-view/header/div/div/a");
+	public Element btnCurBid = new Element(".//a[contains(text(),'Заявка в работе')]");
+
+	public AudBid chooseBid(UserAudPred user) {
+		Element.sl(1);
+		String s1 = "html/body/div[1]/div[1]/ng-view/div/div/div/div[3]/ul[./li/div/div/p[contains(text(),'";
+		String s2 = user.contactName;
+		String s3 = "')]]/li/div/div[2]/button";
+		Element el = new Element(s1+s2+s3);
+		el.click();
+		Element.sl(1);
+		return new AudBid(manager);
+	}
+	
+	
+	
+	
 }

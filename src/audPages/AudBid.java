@@ -26,8 +26,39 @@ public class AudBid {
 	public Element lnkZajavka = new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[1]/div[1]");
 	public Element lnkAudZakl = new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[1]/div[2]");
 	public Element chkVeryGood = new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[3]/div[1]/div[1]");
-	public Element lnkAudRabDoc = new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[1]/div[3");
-	public Element btnSend = new Element("html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[5]/button");
-	public Element btnSendNext = new Element("html/body/div[1]/div/ng-view/div/div[2]/div/a");
+	public Element lnkAudRabDoc = new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[1]/div[3]");
+//	public Element btnSend = new Element("html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[5]/button");
+//	public Element btnSendNext = new Element("html/body/div[1]/div/ng-view/div/div[2]/div/a");
 	public Element btnExit = new Element("html/body/div[1]/div/ng-view/header/div/div/a");
+
+	public void checkAll() {
+		String[] chk = { "010303", "020304", "030204", "040304", "050304", "060305", "070403", "080202", "090306", "101500", "110306", "120306", "130506", "140605", "150205", "160202", "170503"};
+		for(String i : chk) {
+			String i1=i.substring(0, 2);
+			String i2=i.substring(2, 4);
+			String i3=i.substring(4, 6);
+			String s1="html/body/div[1]/div[1]/ng-view/div/div/div[3]/div[4]/uib-accordion/div/div[";
+			String s2="]/div[2]/div/div/div[";
+			String s3="]/div[";
+			String s4="]/div[4]";
+			String pr1=".//*[@id='program-";
+			int pr2=(Integer.parseInt(i1)-1);
+			String pr3="']/div";
+			String pr4=pr1+pr2+pr3;
+			Element prog = new Element(pr4);
+			prog.click();
+			for (int k1=2;k1<(Integer.parseInt(i2)+2);k1++){
+				String s = s1+i1+s2+"1"+s3+k1+s4;
+				Element el1 = new Element(s);
+				el1.click();
+			}
+			for (int k2=2;k2<(Integer.parseInt(i3)+2);k2++){
+				String s = s1+i1+s2+"2"+s3+k2+s4;
+				Element el2 = new Element(s);
+				el2.click();
+			}	//html/body/div[1]/div[1]/ng-view/div/div/div[3]/div[4]/uib-accordion/div/div[1]/div[2]/div/div/div[1]/div[contains(@class, 'not')]
+		}
+	}
+
+	
 }

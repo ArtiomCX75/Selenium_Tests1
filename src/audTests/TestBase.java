@@ -8,6 +8,7 @@ import org.junit.BeforeClass;
 import org.openqa.selenium.Point;
 
 import audHelpers.Constants;
+import audHelpers.Element;
 import audPages.ApplicationManager;
 
 
@@ -23,7 +24,7 @@ public class TestBase {
 	baseUrl = Constants.urlAudTest;
 	//app.mail = app.tempMail2;
 	
-	//Element.t=0.2;
+	Element.t=0.18;
 	//app2 = new ApplicationManager(baseUrl); 
 	//app2.Driver.manage().window().setPosition(new Point(2000, 0));
 	//app2.Driver.manage().window().maximize();	

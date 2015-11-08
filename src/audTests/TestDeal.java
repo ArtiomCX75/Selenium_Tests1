@@ -1,13 +1,18 @@
 package audTests;
 
+import static org.junit.Assert.*;
+
 import org.junit.Test;
 
 import audHelpers.Element;
+import audHelpers.Files;
 import audPages.UserAudAud;
 import audPages.UserAudPred;
 
 public class TestDeal extends TestBase {
 	
+	private String status;
+
 	@Test
 	public void makeDeal() throws Exception {
 		UserAudPred Pred1 = new UserAudPred();
@@ -19,10 +24,80 @@ public class TestDeal extends TestBase {
 		
 		System.out.println("\nP login= " + Pred1.email);
 		System.out.println("P pass= " + Pred1.password);
+		
 		app.landPred.open().btnVhodClick().login(Pred1);
+		Element.sl(2);
+		app.cabPred.btnReloadStatus.click();
+		Element.sl(2);
+		status = app.cabPred.getStatus();
+		System.out.println(status);
+		assertTrue("Некорректный статус", status.equals("На проверке"));
+		app.cabPred.btnExit.click();
 		Element.sl(5);
+		
 		app.landAud.open().btnVhodClick().login(Aud1);
 		Element.sl(5);
+		app.list.chooseBid(Pred1);
+		//app.list.btnCurBid.click();
+		app.audbid.dwnDownloadFile.sendKeys(Files.pdffile1);
+		Element.sl(5);
+		app.audbid.lnkAudZakl.click();
+		app.audbid.chkVeryGood.click();
+		app.audbid.lnkAudRabDoc.click();
+		double i=Element.t;
+		Element.t=0.1;		
+		app.audbid.checkAll();
+		Element.t=i;
+		app.audbid.btnSendOrder.click();
+		Element.sl(35);
+		app.audbid.btnExit.click();
+		
+		app.landPred.open().btnVhodClick().login(Pred1);
+		Element.sl(5);
+		app.cabPred.open();
+		Element.sl(3);
+		app.cabPred.open();
+		status = app.cabPred.getStatus();
+		System.out.println(status);
+		assertTrue("Некорректный статус", status.equals("Выполнено"));
+		app.cabPred.btnReWork1.click();
+		app.cabPred.fldReWork.sendKeys("aufull");
+		app.cabPred.btnReWork2.click();
+		Element.sl(2);
+		status = app.cabPred.getStatus();
+		System.out.println(status);
+		assertTrue("Некорректный статус", status.equals("На доработке"));
+		app.cabPred.btnExit.click();
+		
+				
+		app.landAud.open().btnVhodClick().login(Aud1);
+		Element.sl(5);
+		//app.list.chooseBid(Pred1);
+		app.list.btnCurBid.click();
+		app.audbid.lnkAudZakl.click();
+		app.audbid.chkVeryGood.click();
+		
+		app.audbid.btnSendOrder.click();
+		Element.sl(35);
+		app.audbid.btnExit.click();
+		app.landPred.open().btnVhodClick().login(Pred1);
+		Element.sl(5);
+		app.cabPred.open();
+		Element.sl(2);
+		app.cabPred.open();
+		status = app.cabPred.getStatus();
+		System.out.println(status);
+		assertTrue("Некорректный статус", status.equals("Выполнено"));
+		app.cabPred.btnAcceptWork.click();
+		Element.sl(2);
+		status = app.cabPred.getStatus();
+		System.out.println(status);
+		assertTrue("Некорректный статус", status.equals("Работа принята"));
+		app.cabPred.fldPost.sendKeys("faa1192@gmail.com");
+		app.cabPred.btnSendPost.click();
+		Element.sl(2);
+		app.cabPred.btnExit.click();
+		Element.sl(2);
 		/*
 		TestAuthAud.loginFromPredLand(wdr2, server, Aud1.login, Aud1.password);
 		System.out.println(Pred1.contactName);
