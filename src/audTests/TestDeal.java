@@ -45,25 +45,29 @@ public class TestDeal extends TestBase {
 		app.audbid.chkVeryGood.click();
 		app.audbid.lnkAudRabDoc.click();
 		double i=Element.t;
-		Element.t=0.1;		
+		Element.t=0.09;		
 		app.audbid.checkAll();
 		Element.t=i;
 		app.audbid.btnSendOrder.click();
-		Element.sl(35);
+		Element.sl(28);
 		app.audbid.btnExit.click();
 		
 		app.landPred.open().btnVhodClick().login(Pred1);
-		Element.sl(5);
+		Element.sl(3);
 		app.cabPred.open();
 		Element.sl(3);
+	//	app.cabPred.btnReloadStatus.click();
 		app.cabPred.open();
 		status = app.cabPred.getStatus();
 		System.out.println(status);
 		assertTrue("Некорректный статус", status.equals("Выполнено"));
 		app.cabPred.btnReWork1.click();
+		app.cabPred.dwnFile.sendKeys(Files.pdffile2);
+		Element.sl(10);
 		app.cabPred.fldReWork.sendKeys("aufull");
-		app.cabPred.btnReWork2.click();
 		Element.sl(2);
+		app.cabPred.btnReWork2.click();
+		Element.sl(1);
 		status = app.cabPred.getStatus();
 		System.out.println(status);
 		assertTrue("Некорректный статус", status.equals("На доработке"));
@@ -78,7 +82,7 @@ public class TestDeal extends TestBase {
 		app.audbid.chkVeryGood.click();
 		
 		app.audbid.btnSendOrder.click();
-		Element.sl(35);
+		Element.sl(28);
 		app.audbid.btnExit.click();
 		app.landPred.open().btnVhodClick().login(Pred1);
 		Element.sl(5);

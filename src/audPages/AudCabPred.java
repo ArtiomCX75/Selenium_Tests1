@@ -32,4 +32,7 @@ public String getStatus() {
 	public Element btnAcceptWork = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[2]/div[6]/span[1]");
 	public Element fldPost = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[2]/form/div/label/input");
 	public Element btnSendPost = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[2]/form/div/a");
+	public Element dwnFile = new Element(".//input [@type = 'file']");
+	
+	
 }

@@ -28,8 +28,9 @@ public class audHelper {
 		manager.pay.btnGetBill.click();
 		manager.paid.btnDwnloadDocs.click();
 		manager.doc.dwnDownloadFile.sendKeys(Files.pdffile1);
-		Thread.sleep(1500);
+		Element.sl(2);
 		manager.doc.btnSend.click();
+		Element.sl(2);
 		manager.cabPred.btnReloadStatus.click();
 		writeObject(user, "temp_pred.txt");
 		manager.cabPred.btnExit.click();

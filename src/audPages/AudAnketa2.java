@@ -33,8 +33,9 @@ public class AudAnketa2 {
 		manager.anketa2.fldBill.sendKeys(user.bill);
 		manager.anketa2.dwnDownloadFile.sendKeys(Files.jpgfile1);
 		manager.anketa2.chkAgree.click();
-		Element.sl(2);
+		Element.sl(1);
 		manager.anketa2.btnSend.click();
+		Element.sl(2);
 		
 	}
 	

@@ -8,11 +8,11 @@ import org.junit.runners.Suite;
 @RunWith(Suite.class)
 //@SuiteClasses({ Test_Reg_Aud.class, Test_Reg_Pred.class })
 @Suite.SuiteClasses({
-TestRegAud.class, 
-TestRegPred.class,
+//TestRegAud.class, 
+//TestRegPred.class,
 TestAuthPred.class,
 TestAuthAud.class,
-TestDeal.class
+//TestDeal.class
 
 })
 public class AllTests {
