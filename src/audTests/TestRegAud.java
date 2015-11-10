@@ -11,8 +11,9 @@ public class TestRegAud extends TestBase{
 			UserAudAud Aud1 = new UserAudAud();
 			Aud1.setDefault();
 			Aud1.middleName=Aud1.middleName+date;
-			Aud1.email = app.mail.setMail("aud" + date);
-			app.audHelper.reg_aud(Aud1, "aud" + date);
+			Aud1.semiEmail="aud" + date;
+			Aud1.email = app.mail.setMail(Aud1.semiEmail);
+			app.audHelper.reg_aud(Aud1);
 		}	
 }
 

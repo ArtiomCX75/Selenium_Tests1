@@ -33,4 +33,9 @@ public class AudLandAud   {
 	public Element lnkVoprosi = new Element("html/body/div[1]/div/ng-view/div[1]/header/nav/ul/li[6]/span");
 	public Element btnVhod = new Element("html/body/div[1]/div/ng-view/div[1]/header/div/span");
 	public Element btnStartWork = new Element("html/body/div[1]/div/ng-view/div[1]/section[1]/div/div/div/div[2]/a");
+	
+	public Element lnkRecPass= new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/span");
+	public Element fldRecPass = new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[2]/label/input[contains(@ng-focus,'restore')]");
+	public Element btnRecPass = new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[2]/input[contains(@value,'Выслать')]");
+
 }

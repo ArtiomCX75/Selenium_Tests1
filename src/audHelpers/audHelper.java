@@ -28,7 +28,7 @@ public class audHelper {
 		manager.pay.btnGetBill.click();
 		manager.paid.btnDwnloadDocs.click();
 		manager.doc.dwnDownloadFile.sendKeys(Files.pdffile1);
-		Element.sl(2);
+		Element.sl(5);
 		manager.doc.btnSend.click();
 		Element.sl(2);
 		manager.cabPred.btnReloadStatus.click();
@@ -49,10 +49,10 @@ public class audHelper {
 		//
 	}
 
-	public void reg_aud(UserAudAud user, String semiemail) throws Exception {
+	public void reg_aud(UserAudAud user) throws Exception {
 		manager.landAud.open().btnStartWork.click();
 		manager.anketa1.fillFields(user);
-		manager.mail.setMail(semiemail);
+		manager.mail.setMail(user.semiEmail);
 		user=manager.mail.readMail_aud_reg(user);
 		manager.landAud.open().btnVhodClick().login(user);
 		manager.anketa2.fillFields(user);

@@ -15,4 +15,5 @@ public class Constants {
 	public final static String urlTempMail="https://temp-mail.ru/";
 	public final static String urlAudTest="http://test.auditonline.club";
 	public final static String urlAudLocal="http://92.255.204.112:666";
+	public final static String urlAudProd="http://auditonline.club";
 }

@@ -34,7 +34,7 @@ public class AudAnketa1 {
 		chkAgr2.click();
 		Element.sl(2);
 		btnSend.click();
-		Element.sl(5);
+		Element.sl(10);
 		btnNext.click();
 	}
 	

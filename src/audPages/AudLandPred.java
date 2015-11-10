@@ -66,7 +66,10 @@ public class AudLandPred   {
 	public Element fldLogin = new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/label[1]/input");
 	public Element fldPass = new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/label[2]/input");
 	public Element btnLoginSubmit = new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/input");
-	public Element lnkVosstanParol = new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/span");
+	public Element lnkRecPass= new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[1]/span");
+	public Element fldRecPass = new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[2]/label/input[contains(@ng-focus,'restore')]");
+	public Element btnRecPass = new Element("html/body/div[4]/table/tbody/tr/td/div/div/form[2]/input[contains(@value,'Выслать')]");
+	
 	public Element btnEsc = new Element("html/body/div[4]/table/tbody/tr/td/div/span[2]");
 
 	public Element btnZakazAud = new Element("html/body/div[1]/div/ng-view/div[1]/section[1]/div/div/div/div/span[2]");

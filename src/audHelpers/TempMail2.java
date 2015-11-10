@@ -68,6 +68,12 @@ public class TempMail2  implements Mail{
 		System.out.println("login " + user.login + "  pass " + user.password);
 		return user;
 	}
+
+	
+	public void recPass(User user) {
+		System.out.println("There is nothing");
+		
+	}
 }
 /*
 

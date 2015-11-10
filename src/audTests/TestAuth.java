@@ -3,14 +3,16 @@ package audTests;
 import org.junit.Test;
 
 import audHelpers.Element;
+import audPages.UserAudAud;
 import audPages.UserAudPred;
 
 
-public class TestAuthPred extends TestBase {
+public class TestAuth extends TestBase {
 	UserAudPred Pred1 = UserAudPred.readLast();
+	UserAudAud Aud1= UserAudAud.readLast();
 
 	@Test
-	public void authorization_from_predland() throws Exception {
+	public void auth_pred() throws Exception {
 		Element.sl(2);	
 		app.landPred.open().btnVhodClick().login(Pred1);
 		Element.sl(2);
@@ -18,11 +20,10 @@ public class TestAuthPred extends TestBase {
 	}
 	
 	@Test
-	public void authorization_from_audland()  {
-		app.landAud.open();
+	public void auth_aud() {
 		Element.sl(2);
-		app.landAud.btnVhodClick().login(Pred1);
+		app.landAud.open().btnVhodClick().login(Aud1);
 		Element.sl(2);
-		app.cabPred.btnExit.click();
-	}	
+		app.audbid.btnExit.click();	
+	}
 }

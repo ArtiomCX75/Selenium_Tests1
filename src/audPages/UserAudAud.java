@@ -21,6 +21,7 @@ public class UserAudAud  extends User  {
 	public String flat;
 	public String bic;
 	public String bill;
+	public String semiEmail;
 	
 	public void setDefault() {
 		surName="Ivanov";

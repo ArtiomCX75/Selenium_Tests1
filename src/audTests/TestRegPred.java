@@ -14,7 +14,8 @@ public class TestRegPred extends TestBase {
 		String date = Element.what_date("post");
 		UserAudPred Pred1 = new UserAudPred();
 		Pred1.setDefault();
-		Pred1.email = app.mail.setMail("pred" + date);
+		Pred1.semiEmail="pred" + date;
+		Pred1.email = app.mail.setMail(Pred1.semiEmail);
 		Pred1.contactName = Pred1.contactName + date;
 		app.audHelper.reg_pred(Pred1);
 

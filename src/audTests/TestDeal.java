@@ -49,7 +49,7 @@ public class TestDeal extends TestBase {
 		app.audbid.checkAll();
 		Element.t=i;
 		app.audbid.btnSendOrder.click();
-		Element.sl(28);
+		Element.sl(38);
 		app.audbid.btnExit.click();
 		
 		app.landPred.open().btnVhodClick().login(Pred1);
@@ -82,7 +82,7 @@ public class TestDeal extends TestBase {
 		app.audbid.chkVeryGood.click();
 		
 		app.audbid.btnSendOrder.click();
-		Element.sl(28);
+		Element.sl(38);
 		app.audbid.btnExit.click();
 		app.landPred.open().btnVhodClick().login(Pred1);
 		Element.sl(5);

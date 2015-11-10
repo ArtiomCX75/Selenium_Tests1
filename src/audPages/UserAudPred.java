@@ -15,6 +15,7 @@ public String contactName;
 public String genDir;
 public String vidDej;
 public String usualPhone;
+public String semiEmail;
 
 public void setDefault() {
 	name="Ivan";
