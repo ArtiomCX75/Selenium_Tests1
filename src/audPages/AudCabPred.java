@@ -4,6 +4,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import audHelpers.Element;
+import audHelpers.Files;
 
 public class AudCabPred {
 	private ApplicationManager manager;
@@ -23,6 +24,12 @@ public class AudCabPred {
 public String getStatus() {
 		return wd.findElement(By.xpath("html/body/div[1]/div[1]/ng-view/div/div/div[2]/div[1]/div[2]")).getText();
 	}
+public boolean verifyStatus(String goodStatus) {
+	System.out.println("wait for "+goodStatus);
+	String status = getStatus();
+	System.out.println("now is "+status);
+	return status.equals(goodStatus);
+}
 
 	public Element btnReloadStatus = new Element("html/body/div[1]/div/ng-view/div/div/div[2]/div[4]/span");
 	public Element btnExit = new Element("html/body/div[1]/div/ng-view/header/div/div/a");
@@ -33,6 +40,17 @@ public String getStatus() {
 	public Element fldPost = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[2]/form/div/label/input");
 	public Element btnSendPost = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[2]/form/div/a");
 	public Element dwnFile = new Element(".//input [@type = 'file']");
+
+	public void naDorabotku(String string, String pdffile2) {
+		btnReWork1.click();
+		dwnFile.sendKeys(Files.pdffile2);
+		Element.sl(10);
+		fldReWork.sendKeys("aufull");
+		Element.sl(2);
+		btnReWork2.click();
+		Element.sl(1);
+		
+	}
 	
 	
 }

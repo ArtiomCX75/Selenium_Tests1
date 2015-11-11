@@ -77,8 +77,8 @@ public class UserAudAud  extends User  {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		System.out.println("login= " + user.login);
-		System.out.println("pass= " + user.password);
+		System.out.println("A login= " + user.login);
+		System.out.println("A pass= " + user.password);
 		return user;
 		}
 	

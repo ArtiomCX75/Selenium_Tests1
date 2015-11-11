@@ -24,14 +24,47 @@ public class AudBid {
 	public Element dwnDownloadFile = new Element("//input[@type='file']");
 	public Element btnSendOrder = new Element("html/body/div[1]/div/ng-view/div/div/div[2]/div[2]/button");
 	public Element lnkZajavka = new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[1]/div[1]");
+	
 	public Element lnkAudZakl = new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[1]/div[2]");
-	public Element chkVeryGood = new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[3]/div[1]/div[1]");
+	public Element chkGood = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[3]/div[3]/div[1]/div[1]");
+	public Element chkNotBad = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[3]/div[3]/div[2]/div[1]");
+	public Element fldNotBadDopPar = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[3]/div[3]/div[2]/div[3]/textarea[1]");
+	public Element fldNotBadOsnovanie = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[3]/div[3]/div[2]/div[3]/textarea[2]");
+	public Element chkBad = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[3]/div[3]/div[3]/div[1]");
+	public Element fldBadDopPar = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[3]/div[3]/div[3]/div[3]/textarea");
+	public Element chkDecline = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[3]/div[3]/div[4]/div[1]");
+	public Element fldDeclineDopPar = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[3]/div[3]/div[4]/div[3]/textarea");
+	
 	public Element lnkAudRabDoc = new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[1]/div[3]");
 //	public Element btnSend = new Element("html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[5]/button");
 //	public Element btnSendNext = new Element("html/body/div[1]/div/ng-view/div/div[2]/div/a");
 	public Element btnExit = new Element("html/body/div[1]/div/ng-view/header/div/div/a");
 
+	public enum Mark{good,notBad,bad,decline};
+	public void makeZakl(Mark mark, String...strings){
+		switch(mark) {
+	    case good: 
+		    chkGood.click();
+			break;
+		case notBad: 
+		    chkNotBad.click();
+		    fldNotBadDopPar.sendKeys(strings[0]);
+		    fldNotBadOsnovanie.sendKeys(strings[1]);
+			break;
+		case bad: 
+		    chkBad.click();
+		    fldBadDopPar.sendKeys(strings[0]);
+			break;
+		case decline: 
+		    chkDecline.click();
+		    fldDeclineDopPar.sendKeys(strings[0]);
+			break;
+		}
+	}
+	
 	public void checkAll() {
+		double d=Element.t;
+		Element.t=0.09;		
 		String[] chk = { "010303", "020304", "030204", "040304", "050304", "060305", "070403", "080202", "090306", "101500", "110306", "120306", "130506", "140605", "150205", "160202", "170503"};
 		for(String i : chk) {
 			String i1=i.substring(0, 2);
@@ -58,6 +91,7 @@ public class AudBid {
 				el2.click();
 			}	//html/body/div[1]/div[1]/ng-view/div/div/div[3]/div[4]/uib-accordion/div/div[1]/div[2]/div/div/div[1]/div[contains(@class, 'not')]
 		}
+		Element.t=d;
 	}
 
 	

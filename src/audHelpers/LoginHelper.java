@@ -42,6 +42,12 @@ public class LoginHelper {
 		manager.landPred.btnEsc.click();
 		//return new AllPages(manager);
 	}
+	public void recPass(String email){
+		manager.landPred.lnkRecPass.click();
+		manager.landPred.fldRecPass.sendKeys(email);
+		manager.landPred.btnRecPass.click();
+		Element.sl(2);
+	}
 	
 }
 	

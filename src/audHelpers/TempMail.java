@@ -96,7 +96,7 @@ public class TempMail  implements Mail{
 		fldNewPass2.sendKeys(user.password);
 		Element btnSaveChanges= new Element("html/body/div[1]/div[1]/ng-view/div/div[2]/div/form/div/button");
 		btnSaveChanges.click();
-		
+		Element.sl(2);
 	}
 
 }

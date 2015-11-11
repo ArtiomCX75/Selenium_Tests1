@@ -73,8 +73,8 @@ static ObjectInputStream oin;
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	System.out.println("email= " + user.email);
-	System.out.println("pass= " + user.password);
+	System.out.println("P email= " + user.email);
+	System.out.println("P pass= " + user.password);
 	return user;
 	}
 

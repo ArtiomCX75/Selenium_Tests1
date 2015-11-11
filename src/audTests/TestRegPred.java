@@ -1,12 +1,7 @@
-
 package audTests;
-
 import org.junit.Test;
-
 import audHelpers.Element;
 import audPages.UserAudPred;
-
-
 public class TestRegPred extends TestBase {
 
 	@Test
@@ -18,9 +13,7 @@ public class TestRegPred extends TestBase {
 		Pred1.email = app.mail.setMail(Pred1.semiEmail);
 		Pred1.contactName = Pred1.contactName + date;
 		app.audHelper.reg_pred(Pred1);
-
 	}
-
 }
 
 /*
