@@ -41,7 +41,8 @@ public class AudBid {
 	public Element btnExit = new Element("html/body/div[1]/div/ng-view/header/div/div/a");
 
 	public enum Mark{good,notBad,bad,decline};
-	public void makeZakl(Mark mark, String...strings){
+	public AudBid makeZakl(Mark mark, String...strings){
+		lnkAudZakl.click();
 		switch(mark) {
 	    case good: 
 		    chkGood.click();
@@ -60,9 +61,11 @@ public class AudBid {
 		    fldDeclineDopPar.sendKeys(strings[0]);
 			break;
 		}
+		return new AudBid(manager);
 	}
 	
-	public void checkAll() {
+	public AudBid checkAll() {
+		lnkAudRabDoc.click();
 		double d=Element.t;
 		Element.t=0.03;		
 		String[] chk = { "010303", "020304", "030204", "040304", "050304", "060305", "070403", "080202", "090306", "101500", "110306", "120306", "130506", "140605", "150205", "160202", "170503"};
@@ -93,6 +96,7 @@ public class AudBid {
 			}	//html/body/div[1]/div[1]/ng-view/div/div/div[3]/div[4]/uib-accordion/div/div[1]/div[2]/div/div/div[1]/div[contains(@class, 'not')]
 		}
 		Element.t=d;
+		return new AudBid(manager);
 	}
 
 	

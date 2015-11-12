@@ -20,16 +20,12 @@ UserAudAud Aud1 = UserAudAud.readLast();
 		app.landPred.open().btnVhodClick().login(Pred1).btnReloadStatus.click();
 		assertTrue("Некорректный статус", app.cabPred.verifyStatus(Constants.statusNaProverke));
 		app.cabPred.btnExit.click();
-		//Element.sl(5);
+		
 		app.landAud.open().btnVhodClick().login(Aud1);
 		app.list.chooseBid(Pred1); //app.list.btnCurBid.click();
 		app.audbid.dwnDownloadFile.sendKeys(Files.pdffile1);
 		Element.sl(5);
-		app.audbid.lnkAudZakl.click();
-		app.audbid.makeZakl(Mark.notBad, "notbad1","notbad2");
-		app.audbid.lnkAudRabDoc.click();
-		app.audbid.checkAll();
-		app.audbid.btnSendOrder.click();
+		app.audbid.makeZakl(Mark.notBad, "notbad1","notbad2").checkAll().btnSendOrder.click();
 		Element.sl(50);
 		app.audbid.btnExit.click();
 		
@@ -42,9 +38,7 @@ UserAudAud Aud1 = UserAudAud.readLast();
 		app.landAud.open().btnVhodClick().login(Aud1);
 		//app.list.chooseBid(Pred1);
 		app.list.btnCurBid.click();
-		app.audbid.lnkAudZakl.click();
-		app.audbid.makeZakl(Mark.good);
-		app.audbid.btnSendOrder.click();
+		app.audbid.makeZakl(Mark.good).btnSendOrder.click();
 		Element.sl(50);
 		app.audbid.btnExit.click();
 		
@@ -55,8 +49,8 @@ UserAudAud Aud1 = UserAudAud.readLast();
 		assertTrue("Некорректный статус", app.cabPred.verifyStatus(Constants.statusRabPrin));
 		app.cabPred.fldPost.sendKeys("faa1192@gmail.com");
 		app.cabPred.btnSendPost.click();
-		Element.sl(2);
+		//Element.sl(2);
 		app.cabPred.btnExit.click();
-		Element.sl(2);
+		//Element.sl(2);
 	}
 }
