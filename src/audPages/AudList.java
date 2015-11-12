@@ -33,7 +33,11 @@ public class AudList   {
 		Element.sl(1);
 		return new AudBid(manager);
 	}
-	
+	public AudBid chooseCurrent() {
+		btnCurBid.click();
+		Element.sl(1);
+		return new AudBid(manager);
+	}
 	
 	
 	

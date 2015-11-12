@@ -3,6 +3,7 @@ package audPages;
 import org.openqa.selenium.WebDriver;
 
 import audHelpers.Element;
+import audHelpers.Files;
 
 
 public class AudBid {
@@ -18,6 +19,12 @@ public class AudBid {
 
 	public AudBid open(){
 		wd.get(manager.BaseUrl+url);
+		return new AudBid(manager);
+	}
+	
+	public AudBid downloadOrder(){
+		dwnDownloadFile.sendKeys(Files.pdffile1);
+		Element.sl(5);
 		return new AudBid(manager);
 	}
 	
