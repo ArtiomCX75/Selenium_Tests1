@@ -22,6 +22,7 @@ public class AudLandPred   {
 	}
 
 	public LoginHelper btnVhodClick() {
+		Element.sl(0.5);
 		btnVhod.click();
 		return new LoginHelper(manager);
 	}
@@ -31,14 +32,14 @@ public class AudLandPred   {
 		return new AudLandPred(manager);
 	}
 
-	public AudAnketPred fillTheFields(int s1, int s2, int s3, int s4, int s5, int s6, int s7, int s8) {
+	public AudAnketPred1 fillTheFields(int s1, int s2, int s3, int s4, int s5, int s6, int s7, int s8) {
 
 		fillTheFields(Integer.toString(s1), Integer.toString(s2), Integer.toString(s3), Integer.toString(s4),
 				Integer.toString(s5), Integer.toString(s6), Integer.toString(s7), Integer.toString(s8));
-		return new AudAnketPred(manager);
+		return new AudAnketPred1(manager);
 	}
 
-	public AudAnketPred fillTheFields(String s1, String s2, String s3, String s4, String s5, String s6, String s7,
+	public AudAnketPred1 fillTheFields(String s1, String s2, String s3, String s4, String s5, String s6, String s7,
 			String s8) {
 		fldUrSusch1.sendKeys(s1);
 		fldUrSusch2.sendKeys(s2);
@@ -49,7 +50,7 @@ public class AudLandPred   {
 		fldUrSusch7.sendKeys(s7);
 		fldUrSusch8.sendKeys(s8);
 		btnRassch.click();
-		return new AudAnketPred(manager);
+		return new AudAnketPred1(manager);
 
 	}
 

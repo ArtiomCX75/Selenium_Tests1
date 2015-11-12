@@ -24,9 +24,12 @@ public class audHelper {
 
 		manager.landPred.open().btnZakazAudClick().fillTheFields(100, 100, 100, 100, 100, 100, 100, 100)
 				.fillTheCompany(user).fillAccount(user).chkAgree.click();
-		manager.anketaPred.btnZakaz.click();
+		manager.anketaPred1.btnZakaz.click();
+		Element.sl(2);
 		manager.pay.btnGetBill.click();
-		manager.paid.btnDwnloadDocs.click();
+		Element.sl(2);
+		manager.anketaPred2.open().fillFields(user);
+		Element.sl(2);
 		manager.doc.dwnDownloadFile.sendKeys(Files.pdffile1);
 		Element.sl(5);
 		manager.doc.btnSend.click();

@@ -36,6 +36,7 @@ public class LoginHelper {
 		manager.landPred.fldLogin.sendKeys(login);
 		manager.landPred.fldPass.sendKeys(pass);
 		manager.landPred.btnLoginSubmit.click();
+		Element.sl(0.5);
 	}
 	
 	public void btnEscClick(){

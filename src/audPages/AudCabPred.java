@@ -35,7 +35,7 @@ public boolean verifyStatus(String goodStatus) {
 	public Element btnExit = new Element("html/body/div[1]/div/ng-view/header/div/div/a");
 	public Element btnReWork1 = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[2]/div[6]/span[2]");
 	public Element fldReWork = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[2]/div[7]/textarea");
-	public Element btnReWork2 = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[2]/div[8]/span");
+	public Element btnReWork2 = new Element("html/body/div[1]/div[1]/ng-view/div/div/div/div/span[contains(text(),'на доработку')][@class='button']");
 	public Element btnAcceptWork = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[2]/div[6]/span[1]");
 	public Element fldPost = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[2]/form/div/label/input");
 	public Element btnSendPost = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[2]/form/div/a");
@@ -44,12 +44,11 @@ public boolean verifyStatus(String goodStatus) {
 	public void naDorabotku(String string, String pdffile2) {
 		btnReWork1.click();
 		dwnFile.sendKeys(Files.pdffile2);
-		Element.sl(10);
+		Element.sl(5);
 		fldReWork.sendKeys("aufull");
-		Element.sl(2);
+		Element.sl(1);
 		btnReWork2.click();
 		Element.sl(1);
-		
 	}
 	
 	

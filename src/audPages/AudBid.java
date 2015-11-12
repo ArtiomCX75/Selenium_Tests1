@@ -64,7 +64,7 @@ public class AudBid {
 	
 	public void checkAll() {
 		double d=Element.t;
-		Element.t=0.09;		
+		Element.t=0.03;		
 		String[] chk = { "010303", "020304", "030204", "040304", "050304", "060305", "070403", "080202", "090306", "101500", "110306", "120306", "130506", "140605", "150205", "160202", "170503"};
 		for(String i : chk) {
 			String i1=i.substring(0, 2);
@@ -80,6 +80,7 @@ public class AudBid {
 			String pr4=pr1+pr2+pr3;
 			Element prog = new Element(pr4);
 			prog.click();
+			Element.sl(0.5);
 			for (int k1=2;k1<(Integer.parseInt(i2)+2);k1++){
 				String s = s1+i1+s2+"1"+s3+k1+s4;
 				Element el1 = new Element(s);

@@ -3,8 +3,7 @@ import org.junit.Test;
 
 import audHelpers.Element;
 import audPages.UserAudAud;
-public class TestRegAud extends TestBase{
-	
+public class TestRegAud extends TestBase{	
 		@Test
 		public void regAud() throws Exception{
 			String date = Element.what_date("post");

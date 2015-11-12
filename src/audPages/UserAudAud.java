@@ -15,13 +15,9 @@ public class UserAudAud  extends User  {
 	public String dateOfBirth;
 	public String snils;
 	public String passNumber;
-	public String city;
-	public String street;
-	public String house;
-	public String flat;
 	public String bic;
 	public String bill;
-	public String semiEmail;
+	
 	
 	public void setDefault() {
 		surName="Ivanov";
@@ -52,34 +48,28 @@ public class UserAudAud  extends User  {
 		try {
 			fis = new FileInputStream("temp_aud.txt");
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		ObjectInputStream oin = null;
 		try {
 			oin = new ObjectInputStream(fis);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
 			user = (UserAudAud) oin.readObject();
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
 			oin.close();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		System.out.println("A login= " + user.login);
 		System.out.println("A pass= " + user.password);
 		return user;
 		}
-	
 }

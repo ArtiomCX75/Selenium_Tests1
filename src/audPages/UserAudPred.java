@@ -15,7 +15,8 @@ public String contactName;
 public String genDir;
 public String vidDej;
 public String usualPhone;
-public String semiEmail;
+public String ogrn;
+
 
 public void setDefault() {
 	name="Ivan";
@@ -25,9 +26,9 @@ public void setDefault() {
 	password="123456";
 	phoneNumber="9172890647";
 	orgName="OOO DefaultName";
-	contactName="Petrov Petr Petrovich";
-	genDir="Ivanov Ivan Ivanovich";
-	vidDej="prodaja";
+	contactName="Петров Пётр Петрович";
+	genDir="Иванов Иван Иванович";
+	vidDej="производство";
 	usualPhone="9172890647";
 	urSusch[0]=10;
 	urSusch[1]=20;
@@ -38,7 +39,15 @@ public void setDefault() {
 	urSusch[6]=70;
 	urSusch[7]=80;
 	FIO=surName+" "+ name+" "+middleName;
-}//FileNotFoundException
+	index="420042";
+	region="Татарстан";
+	city="Казань";
+	street="Баумана";
+	house="21";
+	building="1";
+	flat="2";
+	ogrn="1234567890123";
+}
 
 static FileInputStream fis;
 static ObjectInputStream oin;

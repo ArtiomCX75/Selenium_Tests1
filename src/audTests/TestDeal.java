@@ -30,7 +30,7 @@ UserAudAud Aud1 = UserAudAud.readLast();
 		app.audbid.lnkAudRabDoc.click();
 		app.audbid.checkAll();
 		app.audbid.btnSendOrder.click();
-		Element.sl(38);
+		Element.sl(50);
 		app.audbid.btnExit.click();
 		
 		app.landPred.open().btnVhodClick().login(Pred1);
@@ -40,12 +40,12 @@ UserAudAud Aud1 = UserAudAud.readLast();
 		app.cabPred.btnExit.click();
 						
 		app.landAud.open().btnVhodClick().login(Aud1);
-		app.list.chooseBid(Pred1);
-		//app.list.btnCurBid.click();
+		//app.list.chooseBid(Pred1);
+		app.list.btnCurBid.click();
 		app.audbid.lnkAudZakl.click();
 		app.audbid.makeZakl(Mark.good);
 		app.audbid.btnSendOrder.click();
-		Element.sl(38);
+		Element.sl(50);
 		app.audbid.btnExit.click();
 		
 		app.landPred.open().btnVhodClick().login(Pred1);
