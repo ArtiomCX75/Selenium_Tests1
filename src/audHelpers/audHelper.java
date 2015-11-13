@@ -5,8 +5,6 @@ import java.io.ObjectOutputStream;
 
 import org.openqa.selenium.WebDriver;
 import audPages.ApplicationManager;
-import audPages.UserAudAud;
-import audPages.UserAudPred;
 
 public class audHelper {
 	private ApplicationManager manager;
@@ -59,7 +57,7 @@ public class audHelper {
 		user=manager.mail.readMail_aud_reg(user);
 		manager.landAud.open().btnVhodClick().login(user);
 		manager.anketa2.fillFields(user);
-		manager.cabPred.btnExit.click();
+		manager.list.btnExit.click();
 		writeObject(user, "temp_aud.txt");
 		
 	}

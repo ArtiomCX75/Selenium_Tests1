@@ -3,8 +3,8 @@ package audTests;
 import org.junit.Test;
 
 import audHelpers.Element;
-import audPages.UserAudAud;
-import audPages.UserAudPred;
+import audHelpers.UserAudAud;
+import audHelpers.UserAudPred;
 
 public class TestRecPass extends TestBase{
 	UserAudPred Pred1 = UserAudPred.readLast();

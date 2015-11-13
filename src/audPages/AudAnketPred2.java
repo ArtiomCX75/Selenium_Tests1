@@ -3,6 +3,7 @@ package audPages;
 import org.openqa.selenium.WebDriver;
 
 import audHelpers.Element;
+import audHelpers.UserAudPred;
 
 public class AudAnketPred2   {
 	private ApplicationManager manager;

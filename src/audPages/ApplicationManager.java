@@ -43,7 +43,7 @@ public class ApplicationManager {
 		Driver=new ChromeDriver();
 		//Driver = new FirefoxDriver();
 		Driver.manage().window().maximize();
-		Driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+		Driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		BaseUrl=baseUrl;
 		el = new Element(this);
 		anketa1 = new AudAnketa1(this);

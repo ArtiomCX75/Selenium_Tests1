@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import audHelpers.Element;
 import audHelpers.Files;
+import audHelpers.UserAudAud;
 
 public class AudAnketa2 {
 	private ApplicationManager manager;
@@ -33,9 +34,9 @@ public class AudAnketa2 {
 		manager.anketa2.fldBill.sendKeys(user.bill);
 		manager.anketa2.dwnDownloadFile.sendKeys(Files.jpgfile1);
 		manager.anketa2.chkAgree.click();
-		Element.sl(1);
+		Element.sl(3);
 		manager.anketa2.btnSend.click();
-		Element.sl(2);
+		Element.sl(3);
 		
 	}
 	

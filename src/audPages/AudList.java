@@ -3,6 +3,7 @@ package audPages;
 import org.openqa.selenium.WebDriver;
 
 import audHelpers.Element;
+import audHelpers.UserAudPred;
 
 public class AudList   {
 	private ApplicationManager manager;
@@ -25,7 +26,7 @@ public class AudList   {
 
 	public AudBid chooseBid(UserAudPred user) {
 		Element.sl(1);
-		String s1 = "html/body/div[1]/div[1]/ng-view/div/div/div/div[3]/ul[./li/div/div/p[contains(text(),'";
+		String s1 = ".//div[3]/ul[./li/div/div/p[contains(text(),'";
 		String s2 = user.contactName;
 		String s3 = "')]]/li/div/div[2]/button";
 		Element el = new Element(s1+s2+s3);

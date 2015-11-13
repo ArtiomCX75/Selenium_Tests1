@@ -3,6 +3,7 @@ package audPages;
 import org.openqa.selenium.WebDriver;
 
 import audHelpers.Files;
+import audHelpers.UserAudAud;
 import audHelpers.Element;
 
 public class AudAnketa1 {

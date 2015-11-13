@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 import audPages.ApplicationManager;
-import audPages.UserAudAud;
 
 
 public class TempMail  implements Mail{
