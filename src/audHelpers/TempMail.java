@@ -39,7 +39,6 @@ public class TempMail  implements Mail{
 		btnSubmitChange.click();
 		btnReload.click();
 		String email = getEmail();
-		System.out.println("email= "+email);
 		return email;
 	}
 
@@ -62,7 +61,6 @@ public class TempMail  implements Mail{
 		user.login = login.getText();
 		Element pass = new Element("html/body/div[1]/div/div/div[2]/div/div/div[3]/table/tbody/tr/td/table[2]/tbody/tr[8]/td[2]/p/span");
 		user.password =pass.getText();
-		System.out.println("login " + user.login + "  pass " + user.password);
 		return user;
 	}
 	

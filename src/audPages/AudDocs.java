@@ -23,7 +23,6 @@ public class AudDocs {
 	public Element fldSearch=new Element("html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[4]/div[1]/input");
 	public Element chkAnyAuditor=new Element("html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[3]/div/div/label");
 	public Element chkAuditor1=new Element("html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[4]/div[2]/div[1]");
-	//@FindBy(xpath="html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[5]/button")
 	public Element btnSend=new Element("html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[5]/button[@class='documents__submit btn btn_green']");
 	public Element btnSendNext=new Element("html/body/div[1]/div/ng-view/div/div[2]/div/a");
 

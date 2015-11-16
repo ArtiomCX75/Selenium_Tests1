@@ -25,9 +25,7 @@ public String getStatus() {
 		return wd.findElement(By.xpath("html/body/div[1]/div[1]/ng-view/div/div/div[2]/div[1]/div[2]")).getText();
 	}
 public boolean verifyStatus(String goodStatus) {
-	System.out.println("wait for "+goodStatus);
 	String status = getStatus();
-	System.out.println("now is "+status);
 	return status.equals(goodStatus);
 }
 
@@ -37,8 +35,8 @@ public boolean verifyStatus(String goodStatus) {
 	public Element fldReWork = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[2]/div[7]/textarea");
 	public Element btnReWork2 = new Element("html/body/div[1]/div[1]/ng-view/div/div/div/div/span[contains(text(),'на доработку')][@class='button']");
 	public Element btnAcceptWork = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[2]/div[6]/span[1]");
-	public Element fldPost = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[2]/form/div/label/input");
-	public Element btnSendPost = new Element("html/body/div[1]/div[1]/ng-view/div/div/div[2]/form/div/a");
+	public Element fldPost = new Element(".//input[contains(@type,'email')]");
+	public Element btnSendPost = new Element(".//div[div/text() = 'Отправить']");
 	public Element dwnFile = new Element(".//input [@type = 'file']");
 
 	public void naDorabotku(String string, String pdffile2) {

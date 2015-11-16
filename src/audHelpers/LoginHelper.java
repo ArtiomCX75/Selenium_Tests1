@@ -10,7 +10,6 @@ public class LoginHelper {
 
 	private ApplicationManager manager;
 	private WebDriver wd;
-	// private String url="/#/create";
 
 	public LoginHelper(ApplicationManager manager) {
 		this.manager = manager;

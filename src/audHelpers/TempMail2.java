@@ -43,9 +43,7 @@ public class TempMail2  implements Mail{
 		//btnChange.click();
 		fldLogin.sendKeys(s);
 		btnSubmitChange.click();
-		
 		String email = getEmail();
-		System.out.println("email= "+email);
 		return email;
 	}
 
@@ -64,7 +62,6 @@ public class TempMail2  implements Mail{
 		wd.findElement(By.xpath("html/body/div[1]/div[3]/div/div/div[4]/table/tbody/tr[3]")).click();
 		user.login = wd.findElement(By.xpath("html/body/div[1]/div[3]/div/div[2]/table[2]/tbody/tr/td/table[2]/tbody/tr[7]/td[2]/p/span")).getText();
 		user.password = wd.findElement(By.xpath("html/body/div[1]/div[3]/div/div[2]/table[2]/tbody/tr/td/table[2]/tbody/tr[8]/td[2]/p/span")).getText();
-		System.out.println("login " + user.login + "  pass " + user.password);
 		return user;
 	}
 

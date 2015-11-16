@@ -44,7 +44,8 @@ public class Element   {
 		sl(t);
 	}
 
-	public void safeClick() {
+	@SuppressWarnings("unused")
+	private void safeClick() {
 		sl(t);
 		WebElement webElement = wd.findElement(By.xpath(xp)); 
 		if(webElement != null) {
