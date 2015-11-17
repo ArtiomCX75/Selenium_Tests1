@@ -3,6 +3,8 @@ package audTests;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
+
 import audHelpers.Constants;
 import audHelpers.Element;
 import audHelpers.Files;
@@ -48,8 +50,12 @@ public class TestDeal extends TestBase {
 		Aud1 = UserAudAud.readLast();
 		app.landAud.open().btnVhodClick().login(Aud1);
 		Element.sl(2);
-		Boolean isCurrentPresentDisplayed = app.Driver.findElement(By.xpath(".//h5[contains(text(), 'Принята вами')]"))
-				.isDisplayed();
+		Boolean isCurrentPresentDisplayed;
+		try{
+		isCurrentPresentDisplayed = app.Driver.findElement(By.xpath(".//h5[contains(text(), 'Принята вами')]"))
+				.isDisplayed();}
+		catch(NoSuchElementException e){
+			isCurrentPresentDisplayed=false;		}
 		String s1 = ".//div[3]/ul[./li/div/div/p[contains(text(),'";
 		String s2 = Pred1.contactName;
 		String s3 = "')]]/li/div/div[2]/button";
@@ -71,6 +77,7 @@ public class TestDeal extends TestBase {
 			app.landPred.open().btnVhodClick().login(Pred1);
 			if (app.cabPred.verifyStatus(Constants.statusRabPrin) == false) {
 				System.out.println("Есть текущая заявка. Регистрируем нового предпринимателя");
+				Element.sl(2);
 				app.cabPred.btnExit.click();
 				Element.sl(2);
 				UserAudPred user = new UserAudPred();

@@ -33,7 +33,7 @@ public class AudAnketa1 {
 		fldEmail.sendKeys(user.email);
 		chkAgr1.click();
 		chkAgr2.click();
-		Element.sl(5);
+		Element.sl(3);
 		btnSend.click();
 		Element.sl(7);
 		btnNext.click();

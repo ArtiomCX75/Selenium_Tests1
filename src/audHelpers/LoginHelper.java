@@ -34,6 +34,7 @@ public class LoginHelper {
 	private void login(String login, String pass) {
 		manager.landPred.fldLogin.sendKeys(login);
 		manager.landPred.fldPass.sendKeys(pass);
+		Element.sl(0.5);
 		manager.landPred.btnLoginSubmit.click();
 		Element.sl(0.5);
 	}

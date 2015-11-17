@@ -32,7 +32,7 @@ public class TestBase {
 	app.mail = app.tempMail;
 	}
 	
-	@AfterClass
+	//@AfterClass
 	public static void after() throws Exception{
 		app.Driver.quit();
 	//	app2.Driver.quit();
