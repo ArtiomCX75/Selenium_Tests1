@@ -22,7 +22,7 @@ public class AudLandPred   {
 	}
 
 	public LoginHelper btnVhodClick() {
-		Element.sl(0.5);
+		Element.sl(1);
 		btnVhod.click();
 		return new LoginHelper(manager);
 	}

@@ -24,7 +24,7 @@ public class TestBase {
 	baseUrl = Constants.urlAudTest;
 	//app.mail = app.tempMail2;
 	
-	Element.t=0.1;
+	Element.t=0.4;
 	//app2 = new ApplicationManager(baseUrl); 
 	//app2.Driver.manage().window().setPosition(new Point(2000, 0));
 	//app2.Driver.manage().window().maximize();	
@@ -32,7 +32,7 @@ public class TestBase {
 	app.mail = app.tempMail;
 	}
 	
-	//@AfterClass
+	@AfterClass
 	public static void after() throws Exception{
 		app.Driver.quit();
 	//	app2.Driver.quit();
