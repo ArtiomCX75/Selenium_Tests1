@@ -1,14 +1,13 @@
 package diskHelpers;
 
 
-import static org.junit.Assert.*;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+
 import diskPages.ApplicationManager;
 
 public class Element {
@@ -31,10 +30,10 @@ public class Element {
 
 	public void click() {
 		sl(t);
-		int i = 0;
-		boolean present = false;
+		//int i = 0;
+		//boolean present = false;
 		
-		while (present == false) {
+		/*while (present == false) {
 			try {
 				wd.findElement(By.xpath(xp));
 				present = true;
@@ -43,11 +42,11 @@ public class Element {
 				i++;
 				present = false;
 				System.out.println("false " + xp);
-				if (i > 3) {
+				if (i > 0) {
 					assertFalse("there is not element: "+xp, true);
 				}
 			}
-		}
+		}*/
 
 		wd.findElement(By.xpath(xp)).click();
 	}

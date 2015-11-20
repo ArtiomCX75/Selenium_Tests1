@@ -22,8 +22,9 @@ public class Helper {
 
 	
 	public DiskLand logout() throws Exception {
-		manager.profile.btnMenu.click();
 		Element.sl(2);
+		manager.profile.btnMenu.click();
+		Element.sl(1);
 		manager.profile.lnkLogout.click();
 		return new DiskLand(manager);
 	}

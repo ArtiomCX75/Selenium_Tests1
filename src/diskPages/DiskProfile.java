@@ -53,6 +53,7 @@ public class DiskProfile   {
 	
 	public Element lnkLogo = new Element("html/body/header/div/div[1]");
 	public Element lnkDiscounts = new Element("html/body/header/div/ul/li/a");
+	public Element lnkConcurs = new Element("html/body/header/div/ul/li[3]/a");
 	public Element lnkCard = new Element("html/body/header/div/div[2]/a");
 	public Element lnkAvatar = new Element("html/body/header/div/div[2]/div/div[1]/a/img");
 	

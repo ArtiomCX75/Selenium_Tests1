@@ -60,10 +60,6 @@ public class audHelper {
 		oos.close();
 	}
 
-	public void create_bid() {
-		//
-	}
-
 	public void reg_aud(UserAudAud user) throws Exception {
 		manager.landAud.open().btnStartWork.click();
 		manager.anketa1.fillFields(user);
@@ -73,7 +69,7 @@ public class audHelper {
 		manager.anketa2.fillFields(user);
 		manager.list.btnExit.click();
 		writeObject(user, "temp_aud.txt");
-
+		System.out.println("A email: "+user.email+" pass: "+user.password);
 	}
 
 }

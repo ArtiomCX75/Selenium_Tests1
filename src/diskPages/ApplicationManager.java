@@ -32,6 +32,7 @@ public class ApplicationManager {
 	public DiskReg reg;
 	public DiskSettings settings;
 	public Helper helper;
+	public DiskConcurs concurs;
 //	public DiskLand land;
 //	public DiskLand land;
 	
@@ -56,6 +57,7 @@ public class ApplicationManager {
 		reg = new DiskReg(this);
 		settings = new DiskSettings(this);
 		helper = new Helper(this);
+		concurs = new DiskConcurs(this);
 		
 	
 		
