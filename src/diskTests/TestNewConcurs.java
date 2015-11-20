@@ -23,7 +23,7 @@ public class TestNewConcurs extends TestBase {
 			users[j] = "ref5_" + (j - 39) + "@freeletter.me";
 
 		int i = 1;
-		for (int k = 1; k < 7; k++) {
+		for (int k = 2; k < 25; k++) {
 			String u = users[k];
 			System.out.println(u);
 			if (u == null)
@@ -48,7 +48,7 @@ public class TestNewConcurs extends TestBase {
 				app.concurs.dwnPhoto.sendKeys(Files.jpgfile6);
 				i = 1;
 			}
-			Element.sl(5);
+			Element.sl(3);
 			app.concurs.btnSendPhoto.click();
 			Element.sl(1);
 			app.helper.logout();

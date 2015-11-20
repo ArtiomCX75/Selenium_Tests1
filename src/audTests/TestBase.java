@@ -21,7 +21,7 @@ public class TestBase {
 	
 	@BeforeClass
 	public static void before() throws Exception{
-	baseUrl = Constants.urlAudTest;
+	baseUrl = Constants.urlAudProd;
 	//app.mail = app.tempMail2;
 	
 	Element.t=0.2;
