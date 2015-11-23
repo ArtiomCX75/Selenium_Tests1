@@ -23,7 +23,7 @@ public class TestNewConcurs extends TestBase {
 			users[j] = "ref5_" + (j - 39) + "@freeletter.me";
 
 		int i = 1;
-		for (int k = 2; k < 25; k++) {
+		for (int k = 40; k < 122; k++) {
 			String u = users[k];
 			System.out.println(u);
 			if (u == null)
