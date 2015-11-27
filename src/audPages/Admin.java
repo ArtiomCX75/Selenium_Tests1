@@ -9,7 +9,7 @@ public class Admin {
 	private ApplicationManager manager;
 	private WebDriver wd;
 	private String url = "/admin";
-
+	//private String url = "/admin#/main";
 	public Admin(ApplicationManager manager) {
 		this.manager = manager;
 		this.wd = manager.Driver;
