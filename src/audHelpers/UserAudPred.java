@@ -14,6 +14,7 @@ public class UserAudPred extends User {
 	public String vidDej;
 	public String usualPhone;
 	public String ogrn;
+	public String orderNumber;
 
 	public UserAudPred() {
 		this.setDefault();

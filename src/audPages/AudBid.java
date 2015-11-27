@@ -74,7 +74,7 @@ public class AudBid {
 	public AudBid checkAll() {
 		lnkAudRabDoc.click();
 		double d=Element.t;
-		Element.t=0.03;		
+		Element.t=0.05;		
 		String[] chk = { "010303", "020304", "030204", "040304", "050304", "060305", "070403", "080202", "090306", "101500", "110306", "120306", "130506", "140605", "150205", "160202", "170503"};
 		for(String i : chk) {
 			String i1=i.substring(0, 2);
@@ -103,6 +103,12 @@ public class AudBid {
 			}	//html/body/div[1]/div[1]/ng-view/div/div/div[3]/div[4]/uib-accordion/div/div[1]/div[2]/div/div/div[1]/div[contains(@class, 'not')]
 		}
 		Element.t=d;
+		//hack
+		/*Element nds1 = new Element(".//div/div[14]/div[1]/h4/a/span/div/div");
+		Element nds2 = new Element(".//div/div[14]/div[2]/div/div/div[2]/div[2]/div[4]");
+		nds1.click();
+		nds2.click();
+		*/// hack end
 		return new AudBid(manager);
 	}
 

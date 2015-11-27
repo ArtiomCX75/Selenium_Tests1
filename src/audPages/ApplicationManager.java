@@ -34,7 +34,9 @@ public class ApplicationManager {
 	public Element el;
 	public TempMail2 tempMail2;
 	public Mail mail;
-	
+	public Admin admin;
+	public AdminAud adminAud;
+	public AdminOrder adminOrder;
 	public audHelper audHelper;
 	public LoginHelper loginH;
 	
@@ -62,7 +64,9 @@ public class ApplicationManager {
 		loginH = new LoginHelper(this);
 		audHelper = new audHelper(this);
 		mail = this.tempMail;
-		
+		admin = new Admin(this);
+		adminAud = new AdminAud(this);
+		adminOrder = new AdminOrder(this);
 		
 	
 		

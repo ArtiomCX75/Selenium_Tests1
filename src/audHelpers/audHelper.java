@@ -3,13 +3,13 @@ package audHelpers;
 import java.io.FileOutputStream;
 import java.io.ObjectOutputStream;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import audPages.ApplicationManager;
 import audPages.AudLandPred;
 
 public class audHelper {
 	private ApplicationManager manager;
-	@SuppressWarnings("unused")
 	private WebDriver wd;
 	// private String url="/#/create";
 
@@ -46,6 +46,7 @@ public class audHelper {
 		Element.sl(5);
 		manager.doc.btnSend.click();
 		Element.sl(2);
+		user.orderNumber=wd.findElement(By.xpath(".//div[3]/div[2]")).getText();
 		manager.cabPred.btnReloadStatus.click();
 		manager.cabPred.btnExit.click();
 	}
@@ -63,6 +64,7 @@ public class audHelper {
 	public void reg_aud(UserAudAud user) throws Exception {
 		manager.landAud.open().btnStartWork.click();
 		manager.anketa1.fillFields(user);
+		manager.admin.open().login().regOpen().regUser(user).btnExit.click();
 		manager.mail.setMail(user.semiEmail);
 		user = manager.mail.readMail_aud_reg(user);
 		manager.landAud.open().btnVhodClick().login(user);

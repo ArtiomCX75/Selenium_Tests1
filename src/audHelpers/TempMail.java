@@ -24,16 +24,14 @@ public class TempMail  implements Mail{
 		return new TempMail(manager);
 	}
 	
-	
-	
-
-	
+		
 	public String getEmail(){
 		return currentEmail.getAttribute("Value");
 	}
 	
 	public  String setMail(String s){ // создание почты
 		open();
+		Element.sl(10);
 		btnChange.click();
 		fldLogin.sendKeys(s);
 		btnSubmitChange.click();

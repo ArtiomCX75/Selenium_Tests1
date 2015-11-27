@@ -17,4 +17,12 @@ public class User implements java.io.Serializable  {
 	public String house;
 	public String building;
 	public String flat;
+
+public static User makeAdmin(){
+	User user = new User();
+	user.email="admin";
+	user.password="Maxpass5";
+	return user;
+}
+
 }
