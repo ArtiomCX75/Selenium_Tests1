@@ -31,11 +31,12 @@ public class TempMail  implements Mail{
 	
 	public  String setMail(String s){ // создание почты
 		open();
-		Element.sl(10);
+		Element.sl(2);
 		btnChange.click();
 		fldLogin.sendKeys(s);
 		btnSubmitChange.click();
 		btnReload.click();
+		Element.sl(1);
 		String email = getEmail();
 		return email;
 	}

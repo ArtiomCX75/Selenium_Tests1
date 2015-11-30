@@ -17,7 +17,9 @@ public class Admin {
 	}
 
 	public Admin open() {
+		Element.sl(1);
 		wd.get(manager.BaseUrl + url);
+		Element.sl(1);
 		return new Admin(manager);
 	}
 	

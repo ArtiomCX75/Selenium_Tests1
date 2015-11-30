@@ -29,7 +29,7 @@ public class TestDeal extends TestBase {
 		System.out.println(Pred1.orderNumber);
 		app.admin.open().login().ordOpen().chooseAndAccept(Pred1).btnExit.click();
 		app.landPred.open().btnVhodClick().login(Pred1);
-		Element.sl(10);
+		Element.sl(1);
 		assertTrue("Некорректный статус", app.cabPred.verifyStatus(Constants.statusVipoln));
 		app.cabPred.naDorabotku("aufull", Files.pdffile2);
 		assertTrue("Некорректный статус", app.cabPred.verifyStatus(Constants.statusNaDorab));
@@ -37,8 +37,9 @@ public class TestDeal extends TestBase {
 		app.landAud.open().btnVhodClick().login(Aud1).chooseCurrent().makeZakl(Mark.good).btnSendOrder.click();
 		Element.sl(40);
 		app.audbid.btnExit.click();
+		app.admin.open().login().ordOpen().chooseAndAccept(Pred1).btnExit.click();
 		app.landPred.open().btnVhodClick().login(Pred1);
-		Element.sl(10);
+		Element.sl(1);
 		assertTrue("Некорректный статус", app.cabPred.verifyStatus(Constants.statusVipoln));
 		app.cabPred.btnAcceptWork.click();
 		Element.sl(2);
@@ -104,22 +105,3 @@ public class TestDeal extends TestBase {
 	}
 }
 
-/*
- * login(aud1) bool1=isCurrentPresent .//a[contains(text(), 'Заявка в работе')]
- * bool2=isBidAvailable(Pred1)
- * 
- * String s1 = ".//div[3]/ul[./li/div/div/p[contains(text(),'"; String s2 =
- * user.contactName; String s3 = "')]]/li/div/div[2]/button";
- * wd.findElements(by.xpath(s1+s2+s3)).isEmpty()
- * 
- * if bool1==true {reg_aud()} if bool2==false { make_new bid; is status!=done {
- * reg_pred } Pred1 = UserAudPred.readLast(); Aud1 = UserAudAud.readLast();
- * this.makeDeal()
- */
-
-/*
- * функция, которая на входе принимает заявку (Пред1), архив с документами(?),
- * файл с отчетом(?) оценку, комментарии ф-ция проваливается в текущую, если
- * совпадает. берет эту заявку, если нет текущей, и проваливается. чекает только
- * то, что не чекнуто
- */

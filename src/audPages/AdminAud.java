@@ -33,9 +33,10 @@ public class AdminAud {
 	}
 
 	public AdminAud acceptUser(User u) {
-		Element.sl(1);
-		Element btnReg = new Element(".//div[//*[contains(text(),'" + u.email
-				+ "')]]/div[2]/div[2]/div/div/div/*/button[span[contains(text(),'Зар')]]");
+		Element.sl(2);
+		Element btnReg = new Element(".//div[div[@class='panel-heading']//*[contains(text(),'" + u.email+ "')]]//button[span[contains(text(),'Зар')]]");
+		
+		//.//div[div[@class='panel-heading']//*[contains(text(),'aud301115121215')]]//button[span[contains(text(),'ло')]]
 		btnReg.click();
 		Element.sl(1);
 		btnOk.click();
