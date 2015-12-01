@@ -8,7 +8,7 @@ import audHelpers.UserAudPred;
 public class AudList   {
 	private ApplicationManager manager;
 	private WebDriver wd;
-	private String url = "#/list";
+	public String url = "#/list";
 
 	public AudList(ApplicationManager manager) {
 		this.manager = manager;

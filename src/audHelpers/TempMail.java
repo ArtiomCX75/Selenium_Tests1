@@ -31,7 +31,7 @@ public class TempMail  implements Mail{
 	
 	public  String setMail(String s){ // создание почты
 		open();
-		Element.sl(2);
+		Element.sl(8);
 		btnChange.click();
 		fldLogin.sendKeys(s);
 		btnSubmitChange.click();
