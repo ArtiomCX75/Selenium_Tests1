@@ -34,7 +34,7 @@ public class TestDeal extends TestBase {
 		app.cabPred.naDorabotku("aufull", Files.pdffile2);
 		assertTrue("Некорректный статус", app.cabPred.verifyStatus(Constants.statusNaDorab));
 		app.cabPred.btnExit.click();
-		app.landAud.open().btnVhodClick().login(Aud1).chooseCurrent().makeZakl(Mark.good).btnSendOrder.click();
+		app.landAud.open().btnVhodClick().login(Aud1).chooseCurrent().makeZakl(Mark.notBad).btnSendOrder.click();
 		Element.sl(40);
 		app.audbid.btnExit.click();
 		app.admin.open().login().ordOpen().chooseAndAccept(Pred1).btnExit.click();
