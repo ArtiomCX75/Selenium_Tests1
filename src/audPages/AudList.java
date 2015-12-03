@@ -3,7 +3,7 @@ package audPages;
 import org.openqa.selenium.WebDriver;
 
 import audHelpers.Element;
-import audHelpers.UserAudPred;
+import audHelpers.UserPred;
 
 public class AudList   {
 	private ApplicationManager manager;
@@ -21,10 +21,10 @@ public class AudList   {
 		return new AudList(manager);
 	}
 
-	public Element btnExit = new Element("html/body/div[1]/div/ng-view/header/div/div/a");
+	public Element btnExit = new Element("html/body/div[1]/div[1]/ng-view/header/span[1]");
 	public Element btnCurBid = new Element(".//a[contains(text(),'Заявка в работе')]");
 
-	public AudBid chooseBid(UserAudPred user) {
+	public AudBid chooseBid(UserPred user) {
 		Element.sl(1);
 		String s1 = ".//div[3]/ul[./li/div/div/p[contains(text(),'";
 		String s2 = user.contactName;

@@ -4,7 +4,7 @@ import org.openqa.selenium.WebDriver;
 
 import audHelpers.Element;
 import audHelpers.Files;
-import audHelpers.UserAudAud;
+import audHelpers.UserAud;
 
 public class AudAnketa2 {
 	private ApplicationManager manager;
@@ -22,7 +22,7 @@ public class AudAnketa2 {
 		return new AudAnketa2(manager);
 	}
 
-	public void fillFields(UserAudAud user){
+	public void fillFields(UserAud user){
 		manager.anketa2.fldDateOfBirth.sendKeys(user.dateOfBirth);
 		manager.anketa2.fldSnils.sendKeys(user.snils);
 		manager.anketa2.fldPassNumber.sendKeys(user.passNumber);

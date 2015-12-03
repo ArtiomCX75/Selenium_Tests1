@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 
 @SuppressWarnings("serial")
-public class UserAudPred extends User {
+public class UserPred extends User {
 	public int[] urSusch = new int[9];
 	public String orgName;
 	public String contactName;
@@ -16,7 +16,7 @@ public class UserAudPred extends User {
 	public String ogrn;
 	public String orderNumber;
 
-	public UserAudPred() {
+	public UserPred() {
 		this.setDefault();
 		semiEmail = "pred" + Element.what_date("post");
 		contactName = contactName + Element.what_date("post");
@@ -56,8 +56,8 @@ public class UserAudPred extends User {
 	static FileInputStream fis;
 	static ObjectInputStream oin;
 
-	public static UserAudPred readLast() {
-		UserAudPred user = null;
+	public static UserPred readLast() {
+		UserPred user = null;
 		try {
 			fis = new FileInputStream("temp_pred.txt");
 		} catch (FileNotFoundException e3) {
@@ -72,7 +72,7 @@ public class UserAudPred extends User {
 			e2.printStackTrace();
 		}
 		try {
-			user = (UserAudPred) oin.readObject();
+			user = (UserPred) oin.readObject();
 		} catch (ClassNotFoundException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();

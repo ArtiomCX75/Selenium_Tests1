@@ -3,7 +3,7 @@ package audPages;
 import org.openqa.selenium.WebDriver;
 
 import audHelpers.Files;
-import audHelpers.UserAudAud;
+import audHelpers.UserAud;
 import audHelpers.Element;
 
 public class AudAnketa1 {
@@ -22,7 +22,7 @@ public class AudAnketa1 {
 		return new AudAnketa1(manager);
 	}
 
-	public void fillFields(UserAudAud user) throws Exception{
+	public void fillFields(UserAud user) {
 		dwnDownloadFile.sendKeys(Files.pdffile1);
 		fldSurname.sendKeys(user.surName);
 		fldName.sendKeys(user.name);
@@ -35,7 +35,7 @@ public class AudAnketa1 {
 		chkAgr2.click();
 		Element.sl(1);
 		btnSend.click();
-		Element.sl(7);
+		Element.sl(5);
 		btnNext.click();
 	}
 	

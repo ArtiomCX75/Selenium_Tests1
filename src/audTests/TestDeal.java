@@ -8,13 +8,13 @@ import org.openqa.selenium.NoSuchElementException;
 import audHelpers.Constants;
 import audHelpers.Element;
 import audHelpers.Files;
-import audHelpers.UserAudAud;
-import audHelpers.UserAudPred;
+import audHelpers.UserAud;
+import audHelpers.UserPred;
 import audPages.AudBid.Mark;
 
 public class TestDeal extends TestBase {
-	public UserAudPred Pred1;
-	public UserAudAud Aud1;
+	public UserPred Pred1;
+	public UserAud Aud1;
 
 	@Test
 	public void makeDeal() throws Exception {
@@ -51,8 +51,8 @@ public class TestDeal extends TestBase {
 	}
 
 	private void whatToDo() throws Exception {
-		Pred1 = UserAudPred.readLast();
-		Aud1 = UserAudAud.readLast();
+		Pred1 = UserPred.readLast();
+		Aud1 = UserAud.readLast();
 		app.landAud.open().btnVhodClick().login(Aud1);
 		Element.sl(2);
 		Boolean isCurrentPresentDisplayed;
@@ -69,7 +69,7 @@ public class TestDeal extends TestBase {
 
 		if (isCurrentPresentDisplayed == true) {
 			System.out.println("Есть активная заявка. Регистрируем нового аудитора");
-			UserAudAud user = new UserAudAud();
+			UserAud user = new UserAud();
 			user.email = app.mail.setMail(user.semiEmail);
 			app.audHelper.reg_aud(user);
 			this.whatToDo();
@@ -85,7 +85,7 @@ public class TestDeal extends TestBase {
 				Element.sl(2);
 				app.cabPred.btnExit.click();
 				Element.sl(2);
-				UserAudPred user = new UserAudPred();
+				UserPred user = new UserPred();
 				user.email = app.mail.setMail(user.semiEmail);
 				app.audHelper.reg_pred(user);
 				this.whatToDo();

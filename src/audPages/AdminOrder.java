@@ -3,7 +3,7 @@ package audPages;
 import org.openqa.selenium.WebDriver;
 
 import audHelpers.Element;
-import audHelpers.UserAudPred;
+import audHelpers.UserPred;
 
 public class AdminOrder {
 	private ApplicationManager manager;
@@ -25,7 +25,7 @@ public class AdminOrder {
 	public Element btnExit = new Element("html/body/div[1]/div/div[1]/div[2]/button");
 	public Element fldSearch = new Element("html/body/div[1]/div/div[2]/div/div[2]/div[2]/div[1]/div/input");
 	
-	public AdminAud choseOrder(UserAudPred u) {
+	public AdminAud choseOrder(UserPred u) {
 		Element.sl(2);
 		fldSearch.sendKeys(u.orderNumber);
 		Element.sl(2);
@@ -36,7 +36,7 @@ public class AdminOrder {
 		return new AdminAud(manager);
 	}
 
-	public AdminAud acceptOrder(UserAudPred u) {
+	public AdminAud acceptOrder(UserPred u) {
 		Element.sl(3);
 		//Element btnAccept = new Element(".//div[//*[contains(text(),'" + u.orderNumber + "')]]/*/button[span[contains(text(),'добрить')]]");
 		Element btnAccept = new Element(".//div[contains(@class, 'panel-open')]//button[span[contains(text(),'Одобрить')]]");
@@ -49,7 +49,7 @@ public class AdminOrder {
 		return new AdminAud(manager);
 	}
 
-	public AdminAud chooseAndAccept(UserAudPred u) {
+	public AdminAud chooseAndAccept(UserPred u) {
 		choseOrder(u);
 		acceptOrder(u);
 		return new AdminAud(manager);

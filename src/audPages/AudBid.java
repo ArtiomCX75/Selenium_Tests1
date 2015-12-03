@@ -45,7 +45,7 @@ public class AudBid {
 	public Element lnkAudRabDoc = new Element("html/body/div[1]/div/ng-view/div/div/div[3]/div[1]/div[3]");
 //	public Element btnSend = new Element("html/body/div[1]/div/ng-view/div/div[2]/div/form/div[2]/div/div[5]/button");
 //	public Element btnSendNext = new Element("html/body/div[1]/div/ng-view/div/div[2]/div/a");
-	public Element btnExit = new Element("html/body/div[1]/div/ng-view/header/div/div/a");
+	public Element btnExit = new Element("html/body/div[1]/div[1]/ng-view/header/span[1]");
 
 	public enum Mark{good,notBad,bad,decline};
 	public AudBid makeZakl(Mark mark, String...strings){

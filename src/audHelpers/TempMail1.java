@@ -8,20 +8,20 @@ import org.openqa.selenium.WebDriver;
 import audPages.ApplicationManager;
 
 
-public class TempMail  implements Mail{
+public class TempMail1  implements Mail{
 	private ApplicationManager manager;
 	private WebDriver wd;
 	private String url="https://temp-mail.ru/";
 	
-	public TempMail(ApplicationManager manager) {
+	public TempMail1(ApplicationManager manager) {
 		this.manager=manager;
 		this.wd=manager.Driver;
 
 	}
 	
-	public TempMail open(){
+	public TempMail1 open(){
 		wd.get(url);
-		return new TempMail(manager);
+		return new TempMail1(manager);
 	}
 	
 		
@@ -42,7 +42,7 @@ public class TempMail  implements Mail{
 	}
 
 	
-	public UserAudAud readMail_aud_reg(UserAudAud user) {
+	public UserAud readMail_aud_reg(UserAud user) {
 		//open();
 		int i=0;
 		while (manager.Driver.findElements(By.xpath("html/body/div[1]/div/div/div[2]/div/div/table/tbody/tr/td[2]/a")).isEmpty()) {
@@ -93,6 +93,12 @@ public class TempMail  implements Mail{
 		Element btnSaveChanges= new Element("html/body/div[1]/div[1]/ng-view/div/div[2]/div/form/div/button");
 		btnSaveChanges.click();
 		Element.sl(2);
+	}
+
+	
+	public void wlcmLttrReadDel(UserAud user) {
+		// TODO Auto-generated method stub
+		
 	}
 
 }

@@ -17,14 +17,14 @@ public class LoginHelper {
 		PageFactory.initElements(this.wd, this);
 	}
 
-	public AudCabPred login(UserAudPred user) {
+	public AudCabPred login(UserPred user) {
 		String login = user.email;
 		String pass = user.password;
 		login(login, pass);
 		return new AudCabPred(manager);
 	}
 
-	public AudList login(UserAudAud user) {
+	public AudList login(UserAud user) {
 		String login = user.login;
 		String pass = user.password;
 		login(login, pass);

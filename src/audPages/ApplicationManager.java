@@ -9,7 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import audHelpers.LoginHelper;
 import audHelpers.Element;
 import audHelpers.Mail;
-import audHelpers.TempMail;
+import audHelpers.TempMail1;
 import audHelpers.TempMail2;
 import audHelpers.Files;
 import audHelpers.audHelper;
@@ -30,7 +30,7 @@ public class ApplicationManager {
 	public AudList list;
 	public AudAnketPred2 anketaPred2;
 	public AudPay pay;
-	public TempMail tempMail;
+	public TempMail1 tempMail;
 	public Element el;
 	public TempMail2 tempMail2;
 	public Mail mail;
@@ -59,7 +59,7 @@ public class ApplicationManager {
 		list= new AudList(this);
 		anketaPred2 = new AudAnketPred2(this);
 		pay = new AudPay(this);
-		tempMail = new TempMail(this);
+		tempMail = new TempMail1(this);
 		tempMail2 = new TempMail2(this);
 		loginH = new LoginHelper(this);
 		audHelper = new audHelper(this);

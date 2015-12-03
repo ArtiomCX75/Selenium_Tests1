@@ -3,7 +3,7 @@ package audPages;
 import org.openqa.selenium.WebDriver;
 
 import audHelpers.Element;
-import audHelpers.UserAudPred;
+import audHelpers.UserPred;
 
 public class AudAnketPred2   {
 	private ApplicationManager manager;
@@ -21,7 +21,7 @@ public class AudAnketPred2   {
 		return new AudAnketPred2(manager);
 	}
 	
-	public AudDocs fillFields(UserAudPred user) {
+	public AudDocs fillFields(UserPred user) {
 		fldFIndex.sendKeys(user.index);
 		fldFRegion.sendKeys(user.region);
 		fldFCity.sendKeys(user.city);

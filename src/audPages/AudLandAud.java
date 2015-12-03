@@ -16,6 +16,7 @@ public class AudLandAud   {
 
 	public AudLandAud open() {
 		wd.get(manager.BaseUrl + url);
+		Element.sl(2);
 		return new AudLandAud(manager);
 	}
 

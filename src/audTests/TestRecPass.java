@@ -3,12 +3,12 @@ package audTests;
 import org.junit.Test;
 
 import audHelpers.Element;
-import audHelpers.UserAudAud;
-import audHelpers.UserAudPred;
+import audHelpers.UserAud;
+import audHelpers.UserPred;
 
 public class TestRecPass extends TestBase{
-	UserAudPred Pred1 = UserAudPred.readLast();
-	UserAudAud Aud1 = UserAudAud.readLast();
+	UserPred Pred1 = UserPred.readLast();
+	UserAud Aud1 = UserAud.readLast();
 	
 	@Test
 	public void rec_pass_pred() throws Exception {

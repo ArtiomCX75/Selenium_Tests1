@@ -1,6 +1,8 @@
 package audHelpers;
 
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 import org.openqa.selenium.By;
@@ -19,21 +21,21 @@ public class audHelper {
 
 	}
 
-	public AudLandPred reg_pred(UserAudPred user) throws Exception {
+	public AudLandPred reg_pred(UserPred user) {
 		newBid(user, "new");
 		writeObject(user, "temp_pred.txt");
 		return new AudLandPred(manager);
 	}
 
-	public AudLandPred create_bid(UserAudPred user) throws Exception {
+	public AudLandPred create_bid(UserPred user) throws Exception {
 		newBid(user, "old");
 		return new AudLandPred(manager);
 	}
 
-	private void newBid(UserAudPred user, String userType) throws Exception {
+	private void newBid(UserPred user, String userType)  {
 		manager.landPred.open().btnZakazAudClick().fillTheFields(100, 100, 100, 100, 100, 100, 100, 100)
 				.fillTheCompany(user).chkAgree.click();
-		if ("new".equals(userType)){
+		if ("new".equals(userType)) {
 			manager.anketaPred1.fillAccount(user);
 		}
 		manager.anketaPred1.btnZakaz.click();
@@ -46,24 +48,47 @@ public class audHelper {
 		Element.sl(5);
 		manager.doc.btnSend.click();
 		Element.sl(2);
-		user.orderNumber=wd.findElement(By.xpath(".//div[3]/div[2]")).getText();
+		user.orderNumber = wd.findElement(By.xpath(".//div[3]/div[2]")).getText();
 		manager.cabPred.btnReloadStatus.click();
 		manager.cabPred.btnExit.click();
 	}
 
-
-
-	public void writeObject(Object obj, String s) throws Exception {
-		FileOutputStream fos = new FileOutputStream(s);
-		ObjectOutputStream oos = new ObjectOutputStream(fos);
-		oos.writeObject(obj);
-		oos.flush();
-		oos.close();
+	public void writeObject(Object obj, String s) {
+		FileOutputStream fos = null;
+		ObjectOutputStream oos = null;
+		try {
+			fos = new FileOutputStream(s);
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		try {
+			oos = new ObjectOutputStream(fos);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			oos.writeObject(obj);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			oos.flush();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		try {
+			oos.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
-	public void reg_aud(UserAudAud user) throws Exception {
+	public void reg_aud(UserAud user) {
 		manager.landAud.open().btnStartWork.click();
 		manager.anketa1.fillFields(user);
+		manager.mail.setMail(user.semiEmail);
+		manager.mail.wlcmLttrReadDel(user);
+
 		manager.admin.open().login().regOpen().regUser(user).btnExit.click();
 		manager.mail.setMail(user.semiEmail);
 		user = manager.mail.readMail_aud_reg(user);
@@ -71,7 +96,7 @@ public class audHelper {
 		manager.anketa2.fillFields(user);
 		manager.list.btnExit.click();
 		writeObject(user, "temp_aud.txt");
-		System.out.println("A email: "+user.email+" pass: "+user.password);
+		System.out.println("A email: " + user.email + " pass: " + user.password);
 	}
 
 }

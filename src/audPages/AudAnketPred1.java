@@ -3,7 +3,7 @@ package audPages;
 import org.openqa.selenium.WebDriver;
 
 import audHelpers.Element;
-import audHelpers.UserAudPred;
+import audHelpers.UserPred;
 
 public class AudAnketPred1 {
 	private ApplicationManager manager;
@@ -21,7 +21,7 @@ public class AudAnketPred1 {
 		return new AudAnketPred1(manager);
 	}
 
-	public AudAnketPred1 fillTheCompany(UserAudPred user) {
+	public AudAnketPred1 fillTheCompany(UserPred user) {
 		Element.sl(0.5);
 		fldNazvOrg.sendKeys(user.orgName);
 		fldContactFio.sendKeys(user.contactName);
@@ -30,7 +30,7 @@ public class AudAnketPred1 {
 		return new AudAnketPred1(manager);
 	}
 
-	public AudAnketPred1 fillAccount(UserAudPred user) {
+	public AudAnketPred1 fillAccount(UserPred user) {
 		fldEmail.sendKeys(user.email);
 		fldPass.sendKeys(user.password);
 		return new AudAnketPred1(manager);
